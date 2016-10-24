@@ -1,0 +1,353 @@
+\chapter[Numerical Approximation - I]
+         {Discretisation of Uniform and Forward Asymptotic Behaviour}
+\label{Discsec}
+
+Throughout this chapter we analyse the effects of discretising a
+non - autonomous differential equation known to possess a uniform or forward
+asymptotically stable family. These results extend those of Stuart and
+Humphries \cite{St94,StHu96} to non-autonomous dynamical systems.
+
+The problem is similar to that posed in Chapter \ref{pertautchapter}, however it
+is considered here in a general context for non-autonomous dynamical systems of
+the form \[ \dot{x} = f( p, x), \]
+where the usual continuity and Lipschitzness on $f$ holds.
+Differentiability of solutions to the same order of the numerical
+scheme is also assumed in order to apply local truncation error
+bounds.
+
+\section{Uniform Asymptotic Stability}
+\label{Discsecuas}
+
+In this section we present theorems that deal with the
+discretisation of uniform objects, in particular, uniformly
+asymptotically stable families of sets, and uniform attractors.
+Both structures simultaneously exhibit forward and pullback
+properties (Section \ref{unissec}), and hence are completely
+asymptotically stable. For simplicity we will refer to them as
+uniformly asymptotically stable, or as uniform attractors
+respectively, and keep in mind that they possess both forward and
+pullback characteristics.
+
+\subsection{Bounded Systems}
+
+The following analysis assumes boundedness on $f$ and its
+derivatives (up to the order of the numerical scheme) with respect
+to $p$. By consideration of the discretisation on a local
+neighbourhood of the uniformly asymptotically stable set,
+$\hat{A}$,  it is assumed that $f$ and its derivatives with
+respect to $x$ also remain bounded on the interval of consideration.
+Hence the local truncation constant $C_r$ is valid for all $p \in
+P$ . The same argument also applies to the Lipschitz constant for
+the Lyapunov function $V$.
+
+\subsection{Unbounded Systems}
+
+If $f$ is unbounded with respect to $p$, a modified truncation
+error is needed (refer to Subsection \ref{truncerrorssec}). As a result, the discrete analysis of these systems is somewhat more generalised and coincides with the analysis for discretisation of systems that possess objects that are only forward or pullback equi-asymptotically stable.  Such systems are investigated in Section \ref{disfassec}.
+
+\subsection{Main Result}
+
+The main result of this section concerns the discretisation of a
+bounded (in the sense described above) non-autonomous dynamical system that
+possesses a uniformly asymptotically stable family $\hat{A}$. If the step
+size is restricted to be small enough, then there is shown to exist a discrete
+uniformly asymptotically stable family, denoted $\hat{A}^h$ in the discretised
+dynamical system. Further, $\hat{A}^h$ is shown to be upper semi-continuous with
+respect to the original uniformly asymptotically stable family $\hat{A}$.
+
+{\bf Remark 1:} When approximating uniformly equi-asymptotically stable
+families, as with results found in autonomous systems, there is no guarantee of
+lower semi-continuity. Attracting and invariant objects may collapse under
+discretisation.
+
+{\bf Remark 2:} Since uniformly asymptotically stable objects are both forward and pullback asymptotically stable, it is perfectly reasonable to expect that a pullback or a forward analysis would establish the result for Theorem \ref{numuasthm}. A forward analysis is used to verify the result here.
+
+It was also derived concurrently and independently in \cite{KlKo01}
+by P. Kloeden and V. Kozyakin. Their approach attempts to solve the discretisation problem via a pullback analysis through the use of the pullback Lyapunov function constructed by Kloeden in \cite{Kl98}. The approach however is somewhat misleading since the Lyapunov function does not properly capture the pullback properties of attraction, but instead characterises the forward attraction of solutions to verify the result. This leads to an unneccessarily complicated result that can also be shown with a forward analysis using conventional Lyapunov theory (as is presented here). It is also uncertain that the techniques used in \cite{KlKo01} would be useful when moving to an analysis of non-uniform (with respect to asymptotic stability ) objects.
+
+The method of approach by Kloeden and Kozyakin also utilises a variable
+time-step numerical scheme. This however is not technically necessary as
+boundedness of the dynamical system is assumed, and thus a constant time-step
+scheme suffices as is shown here (Theorem \ref{numuasthm}).
+
+A variable time-step scheme however \textit{is} necessary for unbounded systems,
+and this is covered in detail in Section \ref{disfassec}.
+
+As the proof of the main result is long, it will be established via a sequence
+of lemmas, with the declaration of the main result given at the end.
+
+\subsubsection{Preliminaries}
+
+We are given that $\hat{A}$ is uniformly asymptotically stable, and we assume a
+constant step size discretisation. Since $\hat{A}$ is uniformly asymptotically
+stable, there exists an associated Lyapunov function $V = V(p, x)$ (Theorem
+\ref{confasthm}) that characterises $\hat{A}$.
+
+\begin{lemma}[B1]
+The family $\hat{B} = \{B(p); p \in P \}$ defined by
+\begin{equation}\label{eqBdefn}
+ B(p) = \{ x; x \in \mathcal{N}_{\delta^*}(A(p)), V(p, x) < a (\delta_0 )
+        \},
+\end{equation}
+for some $\delta_0 > 0$, is positively invariant under the discretisation.
+\end{lemma}
+\begin{prf}
+Since $\hat{A}$ is uniformly asymptotically stable, it is forward stable. Hence
+given $\e^*>0$, there exists a $\delta^* = \delta^*(\e^*)$ such that
+\[ dist( \Phi_{(t,p)}(x), A(\theta_{t}p)) < \e^* \hspace{2cm} \forall t>0. \]
+From Theorem \ref{confasthm}, the Lyapunov function $V = V(p, x)$ is well
+defined on this neighbourhood.
+
+Choose $\delta_0 > 0$ so that $b(\delta_0) = a( \delta^*)$ (where $a, b$ as
+characterised by Theorem \ref{confasthm}) and consider the family $\hat{B} = \{
+B(p) ; p \in P \}$ defined by (\ref{eqBdefn}).
+
+Let $x \in B(p)$ for arbitrary $p$. Then we have
+\[ a( \dist(x, A(p)) ) \leq V( p, x ) < a( \delta_0 ). \]
+Hence $B(p) \subset \mathcal{N}_{\delta_0}(A(p))$.
+Note that for each $p \in P$, $A(p) \subset B(p)$ since $V = 0$
+on $A(p)$. Consequently $B(p)$ is a well defined neighbourhood of $A(p)$.
+
+Consider any $x_0 \in B(p)$ and act on this state one step of the
+discretisation (with step size $h$), arriving at $x_1$
+(here we have set $x_1 = \Phi_{(1,p)}(x_0)$ to simplify the notation).
+Utilising the Lipschitz property of the Lyapunov function we generate the
+inequality
+\begin{align}
+  V( \theta_hp, x_1 ) &\leq V( \theta_hp, \Phi_{(h, p)}(x_0) ) + L|x_1 -
+            \Phi_{(h, p)}(x_0)|, \nonumber\\
+  &\leq e^{-ch} V( p, x ) + LC_rh^{r+1}, \nonumber\\
+  &\leq e^{-ch} a( \delta_0 ) + LC_rh^{r+1}, \label{eq61lyap}
+\end{align}
+where $C_rh^{r+1}$ is the local truncation error bound for a one step numerical
+method of order $r$, and $L$ the Lipschitz constant of $V$.
+Now let $h$ be chosen
+small enough so that $h \in [0, h_1)$ with $h_1$ satisfying
+\[ LC_rh_1^{r+1}/(1 - e^{-ch_1}) \leq \frac{1}{4} a ( \delta_1 ), \]
+where
+\begin{equation}
+\label{deltaeq}
+\delta_1  = \frac{1}{2}b^{-1}(a(\delta_0)).
+\end{equation}
+The choice of $\delta_1$ made here will become apparent later in the proof.
+By construction, $\delta_1 < \delta_0$ since
+\begin{align*}
+  \delta_1 &= \frac{1}{2}b^{-1}(a(\delta_0)), \\
+  &\leq  \frac{1}{2} a^{-1}(a(\delta_0)), \\
+  & < \delta_0. \\
+\end{align*}
+Hence
+\[ LC_rh_1^{r+1}/(1 - e^{-ch_1}) < \frac{1}{4} a ( \delta_0 ). \]
+Also note that $LC_rh_1^{r+1}/(1 - e^{-ch_1}) \to 0$ as $h_1 \to 0$. Hence
+restricting $h$ as above is valid. Returning to (\ref{eq61lyap}),
+\begin{align*}
+  V( \theta_hp, x_1 ) &\leq e^{-ch} a( \delta_0 ) + \frac{1}{4}(1
+    - e^{-ch}) a( \delta_0), \\
+ &\leq a( \delta_0). \\
+\end{align*}
+As a result of the above inequality, it is ensured that $x_1 \in B(\theta_h p)$.
+Since the choice of $p$ and $x_0 \in B(p)$ was made arbitrarily, it is
+concluded that $\hat{B}$ is a positively invariant family under the
+discretisation.
+\end{prf}
+
+Let $p_n = \theta_{nh} p_0$ denote elements in the discrete sequence of times
+generated by an initial value $p_0$ and a constant step size $h$.
+
+\begin{lemma}[B2]
+The discrete family $\hat{B}^{h} = \{ B^h(p_n);  n \in \mathbb{Z}  \}$ defined by
+\[ B^h(p_n) = B(p_n), \]
+is a positively invariant family under the discretisation.
+\end{lemma}
+\begin{prf}
+  The proof follows directly from the properties of $\hat{B}$.
+\end{prf}
+
+The following Lemmas construct a discrete family that forward attracts
+$\hat{B}^{h}$ in a finite number of steps.
+
+\begin{defn}[A1]
+Define
+\[ \gamma(h) = 2LC_rh^{r+1}/(1 - e^{-ch}), \]
+and $\hat{A}^h = \{ A^h(p_n); n \in \mathbb{Z} \}$ by
+\begin{equation}\label{eqAdefn}
+  A^h(p_n) = \{ x ; x \in B^h(p_n), V(p_n, x) \leq \gamma(h) \},
+\end{equation}
+ for any $h \in [0,h_1)$.
+\end{defn}
+
+We proceed to show that $\hat{A}^h$ is a discrete uniformly
+asymptotically stable family for the discretised dynamical system.
+
+Note $\gamma(h) \leq a(\delta_0)$, and thus $A^h(p_n)$ is strictly a subset
+of $B^h(p_n)$ for each $n$.
+
+\begin{lemma}[A2]
+$A^h(p_n)$ is bounded and compact for each $n \in \mathbb{Z}$.
+\end{lemma}
+\begin{prf}
+$A(p_n)$ is bounded for each $n \in \mathbb{Z}$. Consequently $A^h(p_n) $ must
+also be bounded since $A^h(p_n) \subset B^h(p_n) \subset
+\mathcal{N}_{\delta_0}(A(p_n))$.
+Compactness follows from the continuity of $V$.
+\end{prf}
+
+\begin{lemma}[A3]
+$\hat{A}^h$ is positively invariant under the discretisation.
+\end{lemma}
+\begin{prf}
+Let $x_n \in A^h(p_n)$. It then follows
+that \begin{align*}
+  V( \theta_hp_n, x_n) &\leq V( \theta_hp_n, \Phi_{(h, p_n)}(x_n) ) + L|x_{n+1}
+          - \Phi_{(h, p_n)}(x_n)|, \\
+  &\leq e^{-ch} V( p_n, x_n) + LC_rh^{r+1}, \\
+  &\leq e^{-ch} \gamma(h) + \frac{1}{2} \gamma(h) (1 - e^{-ch}), \\
+  &\leq \gamma (h). \\
+\end{align*}
+Hence $x_{n+1} \in A^h(p_{n+1})$.
+\end{prf}
+
+\begin{lemma}[A4]
+$\hat{A}^h$ uniformly attracts $\hat{B}$ in a finite number of steps.
+\end{lemma}
+\begin{prf}
+Let $x_0 \in B^h(p_0)\backslash A^h(p_0)$. Then $V(p_0, x_0) \geq \gamma(h)$ and
+we have
+\begin{align*}
+  V(p_1, x_1) &\leq e^{-ch} V(p_0, x_0) + \frac{1}{2} \gamma(h) (1 -
+    e^{-ch}), \\
+  &\leq \frac{1}{2}(1 + e^{-ch}) V(p_0, x_0). \\
+\end{align*}
+If we define $h_2 = \min\{h_1, \psi \}$ where $\psi$ satisfies $(1 +
+e^{-c\psi}) = 2e^{-c\psi/4}$, then for all $h \in [0, h_2)$,
+\[ (1 + e^{-ch}) \leq 2e^{-ch/4}. \]
+Consequently,
+\[ V(p_1, x_1) \leq e^{-ch/4} V(p_0, x_0). \]
+Suppose $x_j \in B(p_j)\backslash A^h(p_j)$ for $j = 1, \dots, n-1$. Then
+\begin{align*}
+  V(p_n, x_n) &\leq e^{-nch/4} V(p_0, x_0), \\
+  &\leq e^{-nch/4} a(\delta_0). \\
+\end{align*}
+If we define $N = N(h, \delta_0)$ by
+\[ N(h, \delta_0) = \frac{4}{ch} \ln \left( \frac{a(\delta_0)}{\gamma(h)}
+    \right), \]
+then for all $n > N$ (recalling that $\hat{A}^h$ is positively invariant under
+the discretisation),
+\[ V(p_n, x_n) \leq \gamma(h). \]
+Hence $x_n \in A^h(p_n)$ for all $n > N$. Note that the attraction
+is uniform. That is, $N$ is independent of $p_0$ and $x_0$.
+\end{prf}
+
+To fulfill the requirements of uniform asymptotic stability, we
+construct an attracting $\delta$-neighbourhod of $\hat{A}^h$, and
+also show that $\hat{A}^h$ is stable.
+
+\begin{lemma}[A5 - Attracting $\delta$-Neighbourhood]
+Define
+\[ \delta = \frac{1}{2}b^{-1}(a(\delta_0)). \]
+Then $\hat{A}^h$ uniformly attracts the neighbourhood system
+$\mathcal{N}_{\delta, \hat{A}^h}$.
+\end{lemma}
+\begin{prf}
+First we show $\mathcal{N}_{\delta}(A^h(p_n)) \subseteq B(p_n)$ for each $n \in
+\mathbb{Z}$.
+
+For arbitrary $n$, consider any $x \in \mathcal{N}_{\delta}(A^h(p_n))$.
+Then
+\begin{align*}
+  \dist(x, A(p_n)) &\leq \dist(x, A^h(p_n)) + H^*(A^h(p_n), A(p_n)), \\
+  &\leq \frac{1}{2} b^{-1}(a(\delta_0)) + a^{-1}(\gamma(h)), \\
+  &\leq \frac{1}{2} b^{-1}(a(\delta_0)) + a^{-1}(\frac{1}{2}a(\delta_1)), \\
+  &\leq \frac{1}{2} b^{-1}(a(\delta_0)) + \delta_1, \\
+  &< b^{-1}(a(\delta_0)), \\
+\end{align*}
+ since $\delta_1 = \frac{1}{2}b^{-1}(a(\delta_0))$ from (\ref{deltaeq}).
+As a result
+\[ V(p_n, x) \leq b( \dist(x, A(p_n)) ) < a( \delta_0 ). \]
+Thus $x \in B(p_n)$. Since $\hat{A}^h$ uniformly attracts $\hat{B}$ and since
+$\mathcal{N}_{\delta, \hat{A}^h} \subseteq \hat{B}$, $\hat{A}^h$ uniformly
+attracts $\mathcal{N}_{\delta, \hat{A}^h}$.
+\end{prf}
+
+\begin{lemma}[A6 - Stability]
+$\hat{A}^h$ is a discrete uniformly stable family.
+\end{lemma}
+\begin{prf}
+Given any $\e > 0$, take $\delta^*$ as defined earlier so
+that $\delta^* = \delta^*(\e)$. Then for each $p_n$,
+\[ \mathcal{N}_{\delta}(A^h(p_n)) \subset B(p_n) \subset
+  \mathcal{N}_{\e}(A(p_n)) \subset \mathcal{N}_{\e}(A^h(p_n)), \]
+with the property that all discretised solutions originating from within
+$\mathcal{N}_{\delta}(A^h(p_n))$ will remain within the neighbourhood system
+$\mathcal{N}_{\e, \hat{A}^h}$. Thus $\hat{A}^h$ is stable.
+\end{prf}
+
+\begin{lemma}[A7]
+$\hat{A}^h$ is upper semi-continuous with respect to $\hat{A}$ in the variable
+$h$.
+\end{lemma}
+\begin{prf}
+Note that $\hat{A} \subseteq \hat{A}^h$,since $V$ is continuous
+and $\gamma(h)>0$. Also for each $p_n$ and $x \in A^h(p_n)$,
+\begin{align*}
+  \dist(x, A(p_n)) &\leq a^{-1} (V(p_n, x_n)), \\
+  &\leq a^{-1}(\gamma(h)). \\
+\end{align*}
+Since $a^{-1}(\gamma(h)) \to 0$ as $h \to 0$, the required result follows. That
+is for each $p_n$,
+\[ H( A^h(p_n), A(p_n)) \to 0 \hspace{2cm} \text{as} \qquad h \to 0. \]
+\end{prf}
+
+Finally, by sequentially applying Lemmas and Definitions B1-B2, A1 - A7, we
+arrive at the main result:
+
+\begin{therm}[Main Result]
+\label{numuasthm} Let $\{ \Phi_{(t, p)}; t \in \mathbb{R}^, p \in P \}$ be a
+cocycle for $(\ref{NDEeq})$ which possesses a uniformly asymptotically stable
+family of sets $\hat{A} = \{ A(p) ; p \in P\}$. Then the
+discretisation of the system with a one-step numerical method possesses a
+discrete uniformly asymptotically stable family $\hat{A}^h = \{ A^h(p_n) ; n \in
+\mathbb{Z}\}$ satisfying
+\begin{equation}
+\label{coneq}
+ H( A^h(p_n), A(p_n)) \to 0 \hspace{2cm} \text{as} \qquad h \to 0.
+\end{equation}
+for each $n \in \mathbb{Z}$. Here $h$ is the step size of the discretisation
+used.
+\end{therm}
+
+\subsection{Uniform Attractors}
+
+The following corollary considers the numerical approximation of a
+non - autonomous system possessing a uniform attractor $\hat{A}$.
+
+\begin{cor}[Discretisation of Uniform Attractors]\label{coruatt}
+Let $\{ \Phi_{(t, p)}; t \in \mathbb{R}^+, p \in P \}$ be a cocycle
+for (\ref{NDEeq}) which possesses a uniform attractor $\hat{A} =
+\{ A(p) ; p \in P\}$. Then the discretisation of the system with a
+one-step numerical method possesses a discrete uniform attractor
+$\hat{\mathcal{A}}^h = \{ \mathcal{A}^h(p_n) ; n \in \mathbb{Z} \}$ satisfying
+\[ H^*( \mathcal{A}^h(p_n), A(p_n)) \to 0 \hspace{2cm} \text{as}
+  \qquad h \to 0. \]
+for each $n \in \mathbb{Z}$. Here $h$ is the step size of the
+discretisation used.
+\end{cor}
+\begin{prf}
+From Theorem \ref{papasthm}, and the associated Lemmas, $\hat{A}$
+is uniformly asymptotically stable, hence Theorem \ref{numuasthm}
+holds, and thus there exists a discrete uniformly asymptotically
+stable family of sets $\hat{A}^h$. Since $\hat{A}^h$ is a
+pullback absorbing neighbourhood, by Theorem \ref{dabspatthm} we
+may conclude that there exists a discrete uniform attractor. We
+will denote this attractor by $\hat{\mathcal{A}}^h$.
+
+Upper semi-continuity with respect to $h$ of discrete and continuous
+attractors holds. To see this, note that for each $p_n$
+\begin{align*}
+  0 \leq H^*(\mathcal{A}^h(p_n), A(p_n)) &\leq H^*(A^h(p_n), A(p_n)). \\
+\intertext{Hence}
+  H^*(\mathcal{A}^h(p_n), A(p_n)) & \to 0 \hspace{2cm} \text{as} \qquad h \to 0. \\
+\end{align*}
+\end{prf}
+
+\endinput

@@ -1,0 +1,299 @@
+\section{Discrete Stability and Absorbing Neighbourhoods}
+
+The following definitions and theorems for discrete systems are analogous to those presented
+in Section \ref{ANsec} and are listed below for completeness and as a reference.
+They are equally valid for representations of difference equations as well as
+for discretised continuous systems.
+
+In the following we use the usual notation (for example, $\hat{A}$) to
+represent a family of sets. However to accurately distinguish the discrete
+family appropriate for discretisations of continuous systems in future we will
+use $\hat{A}^h, \hat{A}^{\bf h}$ for constant and variable time-step
+discretisations respectively.
+
+\begin{defn}[Discrete Forward Stability] \label{DFSdef}
+   A discrete family $\hat{A} = \{A(p);p \in P\}$ of
+   uniformly bounded compact subsets of $E$, is {\bf
+   forward stable} for the discrete cocycle
+   $\{\Phi_{(n, p)}; n \in \mathbb{Z}^{+}, p \in P\}$ on $E$
+   if for any $\e > 0$ there exists a
+   $\delta$-neighbourhood system
+   $\hat{\mathcal{N}}_{(\hat{\delta} ,\hat{A})} =
+   \{\hat{\mathcal{N}}_{\delta_p, \hat{A}}; \delta_p \in \hat{\delta}, p \in P
+   \}$ defined by a delta set $\hat{\delta} = \{\delta_p \in \mathbb{R}^+; p
+   \in P\}$, so that for each $p \in P$
+   \[ H^* \left(\Phi_{(n, p)}
+           (\mathcal{N}_{\delta_p}(A(p))), A(\theta_n p) \right) < \e \qquad
+           \forall n \geq 0. \]
+\end{defn}
+
+\begin{defn}[Discrete Pullback Stability] \label{DPSdef}
+   A discrete family $\hat{A} = \{A(p);p \in P\}$ of
+   uniformly bounded compact subsets of $E$, is {\bf
+   pullback stable} for the discrete cocycle
+   $\{\Phi_{(n, p)}; n \in \mathbb{Z}^{+}, p \in P\}$ on $E$
+   if for any $\e > 0$ there exists a
+   $\delta$-neighbourhood system
+   $\hat{\mathcal{N}}_{(\hat{\delta} ,\hat{A})} =
+   \{\hat{\mathcal{N}}_{\delta_p, \hat{A}}; \delta_p \in \hat{\delta}, p \in P
+   \}$ defined by a delta set $\hat{\delta} = \{\delta_p \in \mathbb{R}^+; p
+   \in P\}$, so that for each $p \in P$,
+   \[ H^* \left(\Phi_{(n, \theta_{-n}p)}
+           (\mathcal{N}_{\delta_p}(A(\theta_{-n} p))), A(p) \right) < \e \qquad
+           \forall n \geq 0. \]
+\end{defn}
+
+
+\begin{defn}[Discrete Forward Asymptotic Stability] \label{DFASdef}
+   A discrete family $\hat{A} = \{A(p);p \in P\}$ of
+   uniformly bounded compact subsets of $E$, is {\bf
+   forward asymptotically stable} for the discrete cocycle
+   $\{\Phi_{(n, p)}; n \in \mathbb{Z}^{+}, p \in P\}$ on $E$ if it is forward
+   stable and if there exists a $\delta$-neighbourhood system
+   $\hat{\mathcal{N}}_{(\hat{\delta} ,\hat{A})} =
+   \{\hat{\mathcal{N}}_{\delta_p, \hat{A}}; \delta_p \in \hat{\delta}, p \in P
+   \}$ defined by a delta set $\hat{\delta} = \{\delta_p \in \mathbb{R}^+; p
+   \in P\}$, so that for each $p \in P$ and any initial value
+   $x_0 \in \mathcal{N}_{\delta_p}(A(p))$,
+   \begin{align}
+      & \lim_{n \to \infty} \dist \left(\Phi_{(n, p)}
+           (x_0), A(\theta_n p) \right) = 0.
+   \end{align}
+\end{defn}
+
+\begin{defn}[Discrete Pullback Asymptotic Stability] \label{DPASdef}
+   A discrete family $\hat{A} = \{A(p);p \in P\}$ of
+   uniformly bounded compact subsets of $E$, is {\bf
+   pullback asymptotically stable} for the discrete cocycle
+   $\{\Phi_{(n, p)}; n \in \mathbb{Z}^{+}, p \in P\}$ on $E$ if it is pullback
+   stable and if there exists a $\delta$-neighbourhood system
+   $\hat{\mathcal{N}}_{(\hat{\delta} ,\hat{A})} =
+   \{\hat{\mathcal{N}}_{\delta_p, \hat{A}}; \delta_p \in \hat{\delta}, p \in P
+   \}$ defined by a delta set $\hat{\delta} = \{\delta_p \in \mathbb{R}^+; p
+   \in P\}$, so that for each $p \in P$ and any sequence of initial values
+   $\hat{x}_p \in \mathcal{N}_{\delta_p, \hat{A}}$,
+   \begin{align}
+      & \lim_{n \to \infty} \dist \left(\Phi_{(n, \theta_{-n}p)}
+           (x(\theta_{-n}p)), A(p) \right) = 0.
+   \end{align}
+\end{defn}
+
+\begin{defn}[Discrete Forward Attractor] \label{DFAdef}
+   A discrete family $\hat{A} = \{A(p);p \in P\}$ of
+   uniformly bounded compact subsets of $E$, is said to be a {\bf
+   discrete forward attractor} for the cocycle $\{\Phi_{(n, p)}; n \in
+   \mathbb{Z}^{+}, p \in P\}$ on $E$ if there exists a
+   $\delta$-neighbourhood system $\hat{\mathcal{N}}_{(\hat{\delta}
+   ,\hat{A})} = \{\hat{\mathcal{N}}_{\delta_p, \hat{A}}; \delta_p \in
+   \hat{\delta}, p \in P \}$ defined by a delta set $\hat{\delta} =
+   \{\delta_p \in \mathbb{R}^+; p \in P\}$, so that for each $p
+   \in P$ the forward attractor $\hat{A}$ satisfies two
+   properties,
+   \begin{align}
+      & \Phi_{(n,p)} \left( A(p) \right) = A(\theta_n p) \qquad
+                \text{for each} \quad n \in \mathbb{Z}^{+}. \\
+      & \lim_{n \to \infty} H^{*} \left(\Phi_{(n, p)}
+           (\mathcal{N}_{\delta_{p}}(A(p)), A(\theta_{n}p)
+           \right) = 0.
+   \end{align}
+\end{defn}
+
+\begin{defn}[Discrete Pullback Attractor] \label{DPAdef}
+   A discrete family $\hat{A} = \{A(p);p \in P\}$ of
+   uniformly bounded compact subsets of $E$, is said to be a {\bf
+   discrete pullback attractor} for the cocycle $\{\Phi_{(n, p)}; n \in
+   \mathbb{Z}^{+}, p \in P\}$ on $E$ if there exists a
+   $\delta$-neighbourhood system $\hat{\mathcal{N}}_{(\hat{\delta}
+   ,\hat{A})} = \{\hat{\mathcal{N}}_{\delta_p, \hat{A}}; \delta_p \in
+   \hat{\delta}, p \in P \}$ defined by a delta set $\hat{\delta} =
+   \{\delta_p \in \mathbb{R}^+; p \in P\}$, so that for each $p
+   \in P$ the pullback attractor $\hat{A}$ satisfies two
+   properties,
+   \begin{align}
+      & \Phi_{(n,p)} \left( A(p) \right) = A(\theta_n p) \qquad
+                \text{for each} \quad n \in \mathbb{Z}^{+}. \\
+      & \lim_{n \to \infty} H^{*} \left(\Phi_{(n, \theta_{-n}p)}
+           (\mathcal{N}_{\delta_{p}}(A(\theta_{-n}p)), A(p)
+           \right) = 0.
+   \end{align}
+\end{defn}
+
+The same properties of {\em uniformity}, {\em equi-asymptotic stability} and
+{\em completeness} hold for the discrete definitions above as for continuous
+stability theory.
+
+We may also construct a pullback absorbing neighbourhood to analyse pullback
+attractors as was done in Section \ref{ANsec} for continuous systems.
+
+\begin{defn}[Discrete Pullback Absorbing Neighbourhoods] \label{dPANdef}
+   A family $\hat{B}=\{B(p);p \in P\}$ of uniformly bounded compact subsets
+   of $E$, is said to be a {\bf Discrete Pullback Absorbing Neighbourhood} for a
+   discrete cocycle $\{\Phi^h_{(n,p)}; n \in \mathbb{Z}^{+},p \in P\}$ on $E$
+   if it pullback absorbs a uniformly bounded $\delta$ -
+   neighbourhood system of $\hat{B}$. That is, there exists an open
+   $\delta$-neighbourhood system
+   $\hat{\mathcal{N}}_{(\hat{\delta},\hat{B})}$ defined by a delta set
+   $\hat{\delta} = \{\delta_p \in \mathbb{R}^+; p\in P\}$ so that for each
+   $p \in P$, there exists a $N_p>0$ such that
+  \begin{equation}
+     \Phi^h_{(n,\theta_{-n}(p))}(\mathcal{N}_{\delta_p}(B(\theta_{-n}(p)))
+     \subset B(p) \qquad \forall n > N_p,
+   \end{equation}
+\end{defn}
+
+The discrete pullback absorbing neighbourhood automatically satisfies the
+following property.
+
+\begin{lemma} \label{dpanepilem}
+If $\hat{B}$ is a pullback absorbing neighbourhood, then for each $p \in P$
+there exists a $N_p > 0$ such that
+\[ \Phi_{(n,\theta_{-n}(p))}(B(\theta_{-n}(p)))
+     \subset B(p) \qquad \forall n > N_p. \]
+\end{lemma}
+
+The following theorem is an extension of Theorem \ref{abspat} to discrete
+dynamical systems. The proof follows in a similar manner to its
+continuous counterpart and is given for completeness.
+
+\begin{therm}
+  \label{dabspatthm}
+  Let $\{\Phi_{(n,p)};n \in \mathbb{Z}^+, p \in P \}$ be a discrete cocycle
+  on $E$ with a Discrete Pullback Absorbing Neighbourhood $\hat{B}$. Then
+  there exists a Discrete Pullback Attractor $\hat{A} = \{ A(p); p \in P \}$
+  uniquely determined for each $p \in P$ by
+  \begin{equation}
+  \label{dpatfromabs}
+  A(p) = \bigcap_{\eta \geq 0} \overline{\bigcup_{n \geq \eta}
+            \Phi_{(n,\theta_{-n}(p))}(B(\theta_{-n}(p)))}.
+  \end{equation}
+\end{therm}
+
+\begin{prf}
+  \hspace{3mm} \\
+  To show that $\hat{A}$ is indeed a discrete pullback attractor, it must meet
+  the requirements given in Definition \ref{DPAdef}.
+
+  \hspace*{3mm} i) {\em Uniform Boundedness and Compactness} : From
+  (\ref{dpatfromabs}) and using Lemma \ref{dpanepilem}
+  \begin{align*}
+  A(p) &= \bigcap_{\eta \geq 0} \overline{\bigcup_{n \geq \eta}
+            \Phi_{(n,\theta_{-n}(p))}(B(\theta_{-n}(p)))}, \\
+  &\subseteq \bigcap_{\eta \geq N_p} \overline{\bigcup_{n \geq \eta}
+            \Phi_{(n,\theta_{-n}(p))}(B(\theta_{-n}(p)))}, \\
+  &\subseteq \bigcap_{\eta \geq N_p} \overline{\bigcup_{n \geq \eta}
+            B(p)}, \\
+  &= \overline{B(p)}.
+  \end{align*}
+  Hence $\hat{A}$ is uniformly bounded since $\hat{B}$ is uniformly bounded
+  with respect to $p$. The attractor set is also compact as it is an
+  intersection of compact sets.
+
+  \hspace*{3mm} ii) {\em Pullback Property} : We need to find a
+  discrete pullback convergent neighbourhood system as in (\ref{DPAdef}). We
+  will firstly show that $\hat{A}$ pullback attracts $\hat{B}$. That is, for
+  each $p \in P$
+  \begin{equation}
+  \label{dabspat1eq}
+    \lim_{n \to \infty} H^* (\Phi_{(n, \theta_{-n}(p))} (B(\theta_{-n}(p))),
+           A(p)) = 0.
+  \end{equation}
+  where $A(p)$ is defined as above.
+
+  Assume that this is not the case. Then for some $\epsilon > 0$ there exists
+  sequences $n_j \to \infty$ and $x_j \in \Phi_{(n_j,
+  \theta_{-n_j}(p))} (B(\theta_{-n_j}(p)))$ such that
+  \begin{equation}
+  \label{dabspat2eq}
+    H^*(x_j,A(p)) > \epsilon \qquad \forall j.
+  \end{equation}
+  For large enough $j$, $x_j \in B(p)$ (Lemma \ref{dpanepilem}). Now Since
+  $B(p)$ is compact, there exists a subsequence $n_{j'} \rightarrow
+  \infty$ and an associated convergent subsequence, $x_{j'} \to x_0$ with
+  $x_0 \in B(p)$. Furthermore $H^*(x_0, A(p)) \geq \e$. The $x_{j'}$ satisfy
+  \[ x_{j'} \in \bigcup_{n \geq \eta} \Phi_{(n,\theta_{-n}(p))}
+          (B(\theta_{-n}(p))), \qquad \forall \eta>0 \quad \text{and}
+          \quad n_{j'}>\eta. \]
+  As $x_0$ is the limit, we also have for any $\eta \geq 0$,
+  \[ x_0 \in \overline{\bigcup_{n \geq \eta}
+         \Phi_{(n,\theta_{-n}(p))}(B(\theta_{-n}(p)))}, \]
+  and hence
+  \[ x_0 \in \bigcap_{\eta \geq 0} \overline{\bigcup_{n \geq \eta}
+            \Phi_{(n,\theta_{-n}(p))}(B(\theta_{-n}(p)))}. \]
+  That is $x_0 \in A(p)$, which contradicts (\ref{dabspat2eq}). As the
+  choice of $p$ was arbitrary, (\ref{dabspat1eq}) holds true for all $p \in
+  P$.
+
+  From (\ref{dabspat1eq}), for any $\epsilon > 0$, and each $p \in P$, there
+  exists a $n_1 = n_1(\epsilon,p)$ such that
+  \[ H^*(\Phi_{(n_1,\theta_{-n_1}(p))}
+           (B(\theta_{-n_1}(p)),A(p)) < \epsilon. \]
+  Let us take $\hat{\mathcal{N}}_{\hat{\delta}^*,\hat{B}}$ as our
+  neighbourhood system for the attractor, $\hat{A}$, defined by
+  $\hat{\delta}^* = \{ \delta^*_p; \delta^*_p =
+  \delta_{\theta_{-n_1}(p)}, \delta_p \in \hat{\delta} \}$
+  where $\hat{\delta}$ defines $\hat{\mathcal{N}}_{\hat{\delta}, \hat{B}}$,
+  the associated $\hat{\delta}$-neighbourhood of $\hat{B}$. We need to show
+  that $\hat{A}$ pullback attracts the system
+  $\hat{\mathcal{N}}_{\hat{\delta}^*,\hat{B}}$.
+
+  Using the cocycle property, and because $B(p)$ is pullback absorbing, we
+  can formulate attraction for elements of
+  $\hat{\mathcal{N}}_{\hat{\delta}^*,\hat{B}}$
+  \begin{equation*}
+  \begin{split}
+  &H^*(\Phi_{(n,
+  \theta_{-n}(p))}(\mathcal{N}_{\delta^*_p}(A(\theta_{-n}(p))),A(p)) \\
+  &\qquad \leq H^*(\Phi_{(n,
+  \theta_{-n}(p))}(\mathcal{N}_{\delta^*_p}(B(\theta_{-n}(p))),A(p)) \\
+  &\qquad = H^*(\Phi_{(n_1, \theta_{-n_1}(p))}
+          \circ \Phi_{(n-n_1,
+          \theta_{-n}(p))}
+          (\mathcal{N}_{\delta^*_p}(B(\theta_{-n}(p))),A(p)) \\
+  &\qquad \leq H^*(\Phi_{(n_1, \theta_{-n_1}(p))}
+          (B(\theta_{-n_1}(p)),A(p)) \\
+  &\qquad \leq \epsilon,
+  \end{split}
+  \end{equation*}
+  for all $n > n_{(\theta_{-n_1}(p))} +n_1$, where
+  $n_{(\theta_{-n_1}(p))}$ is as defined in the definition for
+  a pullback absorbing neighbourhood (the finite absorption time).
+  Hence $\hat{A}$ satisfies the pullback property for each $p \in P$, i.e.
+  \[ \lim_{n \to \infty} H^* (\Phi_{(n, \theta_{-n}(p))}
+            (\mathcal{N}_{\delta^*_p}(A(\theta_{-n}(p))),A(p)) = 0. \]
+
+  \hspace*{3mm} iii) {\em $\Phi$-Invariance} : \hfill \\
+  Consider pullback evolution of  $A(\theta_{-n^*}(p))
+  \in \hat{A}$ for arbitrary $p$ and any $t^* > 0$
+    \begin{align*}
+  \Phi_{(n^*, \theta_{-n^*}(p))} &(A(\theta_{-n^*}(p))) \\
+  &=\Phi_{(n^*, \theta_{-n^*}p)}\left(\bigcap_{\eta \geq 0}
+       \overline{ \bigcup_{n
+       \geq \eta} \Phi_{(n, \theta_{-n - n^*}(p)} (B(\theta_{-n -
+       n^*}(p)))}\right), \\
+  &= \bigcap_{\eta \geq 0} \Phi_{(n^*, \theta_{-n^*}p)}\left(
+     \overline{\bigcup_{n \geq \eta} \Phi_{(n, \theta_{-n - n^*}(p)}
+     (B(\theta_{-n - n^*}(p)))}\right), \\
+  &= \bigcap_{\eta \geq 0} \overline{\bigcup_{n \geq \eta} \Phi_{(n^*,
+     \theta_{-n^*}p)} \Phi_{(n, \theta_{-n - n^*}(p)} (B(\theta_{-n -
+     n^*}(p)))}, \\
+  &= \bigcap_{\eta \geq 0} \overline{\bigcup_{n \geq \eta} \Phi_{(n+n^*,
+     \theta_{-n-n^*}p)} (B(\theta_{-n - n^*}(p)))}, \\
+  &= \bigcap_{\eta \geq n^*} \overline{\bigcup_{u \geq \eta} \Phi_{(u,
+     \theta_{-u}p)} (B(\theta_{-u}(p)))},
+  \end{align*}
+  where we have made the substitution $u = n + n^*$. Now, for all $\eta <
+  n^*$,
+  \[ \overline{\bigcup_{u \geq \eta} \Phi_{(u, \theta_{-u}p)}
+     (B(\theta_{-u}(p)))} \supseteq \overline{\bigcup_{u \geq n^*} \Phi_{(u,
+     \theta_{-u}p)} (B(\theta_{-u}(p)))}. \]
+  Hence
+  \begin{align*}
+  \Phi_{(n^*, \theta_{-n^*}(p))} &(A(\theta_{-n^*}(p))) \\
+  &= \bigcap_{\eta \geq 0} \overline{\bigcup_{u \geq \eta} \Phi_{(u,
+     \theta_{-u}p)} (B(\theta_{-u}(p)))} \\
+  &= A(p). \\
+  \end{align*}
+  The conditions for $\Phi$-Invariance are satisfied.
+\end{prf}
+
+\endinput

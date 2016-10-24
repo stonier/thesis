@@ -1,0 +1,97 @@
+\section{Discrete Cocycle Representation}
+
+The generalised cocycle representation for a discrete dynamical
+system is presented below. It is analogous to that of continuous
+systems except that here the time set $T$ is the set of positive
+integers, and the parameter set $P$ is adjusted accordingly for
+the discrete problem.
+
+\begin{defn}[Discrete Cocycle Representation] \label{dcrep}
+Let $\{ \theta_n, n \in \mathbb{Z}^+ \}$ be a group of mappings on a
+nonempty parameter set $P$, that is $\theta_n : P \rightarrow P$ with
+$\theta_0 = id$ and $\theta_{n} \circ \theta_{\eta} =
+\theta_{n+\eta}$ for all $n, \eta \in \mathbb{Z}^+$.
+
+A family of mappings $\{ \Phi_{(n,p)}, n \in \mathbb{Z}^+, p \in
+P \}$ with $\Phi_{(n, p)}: E \to E$ is called a {\bf discrete
+cocycle} on $E$ if
+\begin{align*}
+  (i) \quad & \Phi_{(0, p)} = id, \\
+  (ii) \quad & \Phi_{(n +\eta, p)} = \Phi_{(n, \theta_{\eta}p)} \circ
+         \Phi_{(\eta, p)},
+\end{align*}
+for all  $n, \eta$ $\in$ $\mathbb{Z}^+$ and $p \in P$.
+\end{defn}
+
+\subsection{Cocycle Representation for Difference Equations}
+
+The evolution of a solution to a difference equation such as
+(\ref{diffeq}), is dependent solely on the value of the iteration
+$n$. For this $P = \mathbb{Z}$, and the shift mapping $\theta_n
+: \mathbb{Z} \rightarrow \mathbb{Z}$ is defined by $\theta_n n_0 = n + n_0$.
+We then have
+\[ \Phi_{(n, n_0)}(x_{n_0}) = f_{n_0+n-1} \circ f_{n_0+n-2} \circ \cdot \cdot \cdot
+                        \circ f_{n_0}(x_{n_0}). \]
+
+\subsection{Cocycle Representation for Constant Time-Step Discretisations}
+
+If the discrete system is generated through a numerical scheme
+applied to a non-autonomous differential equation, as in
+(\ref{numeq}), then the evolution of the set of discrete values is
+dependent on the step size $h$, and the initial value of $p_0$. In
+an autonomous differential equation it is solely dependent on the
+step size and the system's dynamics can be simply represented
+using a difference equation (\ref{diffeq}). A discrete cocycle
+representation for the non-autonomous case with constant time
+step, utilises the parameter set $P$ used in the continuous case
+and the shift mapping defined by
+\begin{align*}
+  \theta_n p_0 &= \theta^c_{nh} p_0, \\
+  &= p_n.
+\end{align*}
+where $\theta^c: P \to P$ is the shift mapping associated with the cocycle
+representation for the continuous non-autonomous system.
+
+Solutions to (\ref{numeq}), are then given by
+\begin{equation}
+\label{drepeq}
+  x_n = \Phi^h_{(n,p_0)}(x_0) =
+        \tilde{F}_{h}(p_{n-1},\tilde{F}_{h}(p_{n-2}, \dots
+        , \tilde{F}_{h}(p_{0},x_{0} \dots)).
+\end{equation}
+where $h$ is the step size used by the numerical scheme, $x_0$
+corresponds to the initial state, and $x_n$ the state at $p_n$.
+
+In some cases it is convenient to define the parameter set $P$ by
+the sequence of values $\{ p_n \}_{n=1}^{\infty}$, however in a
+non-autonomous context where the initial time is a variable, it is
+important to leave the parameter set generally defined to take
+into account the fact that the discrete dynamics may differ
+significantly upon shifting the sequence marginally.
+
+\subsection{Cocycle Representation for Variable Time Step Discretisations}
+\label{ssecvarstep}
+
+Let $P^c$ be the parameter set, and $\theta^c$ the shift mapping associated with
+the cocycle representation for continuous solutions of \ref{NDE2}, and
+recall the construction of the couple $(p_0, {\bf h}) \in P^c
+\times H^{\rho}$ in Section \ref{vtssec}. Here we define the parameter set for
+the discrete system $P = P^c \times H^{\rho}$,
+and define the group mapping by $\theta_n (p_0, {\bf h})
+= (p_n, \psi_n {\bf h})$, where
+\[ p_n = \theta^c_{h_{n-1}} \circ \cdot \cdot \cdot \circ \theta^c_{h_1}
+         \circ \theta^c_{h_0} p_0, \]
+and $\psi$ is a shift operator on the sequence ${\bf h}$ so that the $n_0$-th
+element of the sequence $\psi_n {\bf h}$ is represented by
+\[ (\psi_n{\bf  h})_{n_0} = h_{n + n_0}. \]
+
+Using a discrete cocycle representation, solutions to (\ref{vtsnumeq}), are
+then expressed as
+\begin{equation}
+\label{vtsdrepeq}
+  \Phi^{{\bf h}}_{(n,(p_0,{\bf h}))}(x_0) =
+        \tilde{F}_{h_{n-1}}(p_{n-1},\tilde{F}_{h_{n-2}}(p_{n-2}, \dots
+        , \tilde{F}_{h_0}(p_{0},x_{0} \dots)).
+\end{equation}
+
+\endinput

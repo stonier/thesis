@@ -1,0 +1,56 @@
+
+\chapter{Dynamical Systems and Stability Theory}
+\pagenumbering{arabic} \setcounter{page}{1}
+\pagestyle{headings}
+\section{The Dynamical System}
+
+A dynamical system typically has three defining features. These
+are:
+
+\begin{itemize}
+  \item \emph{Phase} or \emph{state space} $X$. Elements of this space
+        represent possible states of the system at any given time.
+  \item {\em Time}, which may be discrete or continuous. Solutions
+        must exist for future times, but some systems may also be reversible.
+        For discrete systems, the time set is represented by
+        $\mathbb{Z}^+/\mathbb{Z}$, and for continuous systems  by
+        $\mathbb{R}^+/\mathbb{R}$. 
+
+It is often important to distinguish between the actual time and the time elapsed since the system was initialised. Differential equations typically refers to $t$ as the actual time, whereas dynamical systems theory utilises the same $t$ to represent the elapsed time. Throughout the thesis we will use $\ta$ for the actual time, and $t$ for the elapsed time to avoid confusion with the different conventions.
+
+  \item {\em Evolution of the System}. As a general rule the system behaves
+        in a fashion that evolves with time and allows us to uniquely
+        determine the state of the system at each moment $t$ from its
+        state at any previous moment. If it is a reversible process, then
+        we may also determine the state of the system preceding a given
+        initial state and moment in time.
+\end{itemize}
+
+\subsection{The State Space}
+
+In many dynamical systems the state space, $X$, is represented by
+a measure or topological space, or a space possessing the
+structure of a smooth manifold. Most of the following work will
+involve dynamical systems of ordinary differential equations where
+the state is typically an element of topological space, usually
+some subset of Euclidean Space. When this is the case we will use
+the notation $E$ for the state space, where $E$ is open and $E
+\subset \mathbb{R}^d$. Any case which does not follow a similar
+approach will be given due attention.
+
+\subsection{Evolution of the System}
+
+The evolution of the state is characterised by a family of
+mappings or transformations, which satisfy an evolution property
+on the state space. For an {\em autonomous system}, the mapping is
+invariant with respect to the initial time, and so depends solely
+on the value of the initial state, mapping the state space into
+itself. In these systems the evolution property is typically a
+group or semi-group property. Mappings for {\em non-autonomous}
+dynamical systems, however, generally depend on both initial state
+and the initial time, and in general, feature much more
+complicated behaviour. In particular a semi-group property no
+longer holds, but a similar cocycle property is introduced to
+characterise the system's evolution.
+
+\endinput

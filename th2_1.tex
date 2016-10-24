@@ -1,0 +1,833 @@
+
+\chapter[Non-Autonomous Dynamical Systems]{Stability of Non-Autonomous Dynamical Systems}
+\label{cocyclechapter}
+
+\section{Stability and Attraction}\label{stabatt}
+\subsection{Introduction}
+
+As illustrated in the preceding example, the original concepts of
+stability, asymptotic stability, and the development of attracting
+objects that are simply a single and constant set, are restrictive
+and do not always provide a conclusive analysis of the behaviour
+and stability of a non-autonomous dynamical system. Frequently,
+the generic `attracting' object for a cocycle will often consist
+of a family of sets rather than just a single set. Yoshizawa (see
+\cite{Yo66}) introduced briefly the concept of using a family of
+sets for an attracting object, however, the theory only considers
+forward asymptotic convergence to the attracting object. This has
+the disadvantage of being unable to determine attractivity except
+of an `eventual' nature, and also lacks the use of a limit set
+theorem analogous to Theorem \ref{attset} for autonomous systems.
+
+
+As well as redeveloping the notion of an attracting object as a family of
+sets, it should also be feasible to consider stability and asymptotic
+stability to a family of sets in both the forward \textit{and} pullback sense.
+Analysing forward convergence within a system is certainly nothing new,
+and the notion of pullback convergence that was introduced has also been
+around for some time, though within the context of dynamical systems it is
+a relatively new approach. It was first used in analysing random dynamical
+systems, and has its value in that it does allow an extension of the limit set
+theorem (Theorem \ref{attset}) for time-varying pullback attractors in non-autonomous
+systems (pullback attractors are discussed in more detail in Section
+\ref{ANSsec}). This proved in part the motivation to formalise the concepts
+of pullback stability and asymptotic stability in order to facilitate a
+more complete pullback analysis. The definitions for pullback stability and
+pullback asymptotic stability are newly developed here, with particular emphasis
+placed on a local analysis of stability. The ensuing development of attractors
+is also made with regards to a local analysis. This is in contrast with the
+global analysis for pullback attractors used by Kloeden et. al.
+(\cite{KlSc95,KlSc96}.
+
+To begin with however, we formalise our definition and notation for a
+family of sets within a non-autonomous system and the concept of a
+neighbourhood of a family of sets. These are essential in implicitly
+describing the nature of structures that evolve within non-autonomous
+systems, and have been constructed axiomatically from those for autonomous
+systems.
+
+\begin{notn}[Family of Sets, ${\bf \hat{A}}$]
+  We will say a collection of nonempty subsets over the parameter
+  space $P$, represents a {\em family of sets} on $E$ and denote it by
+  \[  \hat{A} = \{ A(p) ; p \in P \} \]
+\end{notn}
+
+The concept of a neighbourhood for a stable or attracting object is
+frequently used, and to extend it to a family of sets we define and
+use the following notations throughout the remainder of this thesis.
+
+\begin{notn}[${\bf \delta}$-Neighbourhood of ${\bf \hat{A}}$]
+A $\delta$-neighbourhood, $\hat{\mathcal{N}}_{\delta,\hat{A}}$ of a family
+of sets $\hat{A}$ is defined as the family
+\[\hat{\mathcal{N}}_{\delta,\hat{A}} = \{ \mathcal{N}_{\delta}(A(p)) ; p
+                \in P \}, \]
+for some $\delta > 0$. It will be referred to as a $\delta$-neighbourhood
+of $\hat{A}$.
+\end{notn}
+
+To illustrate, consider a family of sets $\hat{A}$ that uniform attracts solutions within a local neighbourhood. Uniform attraction implies that the $\delta - neighbourhood$ of $\hat{A}$ may be chosen such that $\delta$ is constant with respect to time. This does not mean that the neighbourhood itself is fixed with respect to time! Indeed, if $\hat{A}$ is moving, then its neighbourhood must also move with it.
+
+Rather than considering the local neighbourhood of each individual set in $\hat{A}$, we have defined above the whole family as a single entity - the $\delta$-neighbourhood of $\hat{A}$ By using this terminology, we may conveniently discuss the properties of solutions with initial value $(x_0, p_0)$ lying anywhere (with respect to initial state and time) within the local neighbourhood. Note that if $\hat{A}$ does not vary with time, the above terminology becomes equivalent with the usual concept of a neighbourhood for an analysis of a dynamical system's stability.
+
+As a practical illustration, recall the attracting object $\hat{A}$
+defined by (\ref{ssobj}) discussed in Example \ref{introeg}. A $\delta$-neighbourhood with $\delta = 1.25$ (shaded region) uniformly attracts any solution with initial value lying in this neighbourhood. Refer to Figure \ref{dnhoodpic}.
+
+\begin{figure}[htb]
+\begin{center}
+%\framebox[6.0cm][c]{
+\leavevmode
+\hbox{
+\epsfxsize=6.2cm
+\epsffile{eps/dnhood.eps}  }%}
+\protect\caption{$\hat{\mathcal{N}}_{\delta,\hat{A}}$
+               - $\delta$-neighbourhood of the family $\hat{A}$}
+        \protect\label{dnhoodpic}
+\end{center}
+\end{figure}
+
+The motivation for the following definition may not be so clear.
+
+Uniform attraction involves an analysis of local neighbourhoods. For fixed sets $A$, a fixed local neighourhood may be represented by $\mathcal{N}_{\delta}(A)$. For a family of sets $\hat{A}$, a fixed local neighbourhood can be represented by $\hat{\mathcal{N}}_{\delta,\hat{A}}$ as discussed above.
+
+An analysis of asymptotic stability (not necessarily uniform) requires an added level of complexity. For each $p \in P$ we must consider a different local neighbourhood.
+For fixed sets $A$ this is typically represented by $\mathcal{N}_{\delta_p}(A)$ for each $p \in P$. For a family of sets $\hat{A}$, this corresponds to a local neighbourhood family $\hat{\mathcal{N}}_{\delta_p, \hat{A}}$ for each $p \in P$.
+
+We collectively group the neighbourhood families defined over $P$ as a system of families and will refer to them as follows.
+
+\begin{notn}[${\bf \delta}$-Neighbourhood System of ${\bf \hat{A}}$]
+A $\delta$-neighbourhood system, $\hat{\mathcal{N}}_{\hat{\delta},\hat{A}}$
+of a family $\hat{A}$ is defined as
+\[ \hat{\mathcal{N}}_{\hat{\delta},\hat{A}}= \{
+       \hat{\mathcal{N}}_{\delta_p, \hat{A}} ; \delta_p \in
+       \hat{\delta}, p \in P \}, \]
+for some set of uniformly bounded $\delta$ values $\hat{\delta} = \{\delta_p
+;\delta_p>0, p \in P \}$.
+\end{notn}
+
+At an initial glance, this might not appear as intuitive or as simple as defining a varying local neighbourhood family by 
+\[ \hat{\mathcal{N}}_{\hat{\delta},\hat{A}}= \{
+       \mathcal{N}_{\delta_p}(A(p)) ; \delta_p \in
+       \hat{\delta}, p \in P \}. \]
+For a forward analysis, this definition suffices - however it does not provide a suitable construction of a neighbourhood for a pullback analysis of asymptotic stability. The reasons for this will become clear later as we investigate pullback asymptotic stability in more depth.
+
+For convenience, any $\delta$ and $\epsilon$ sets will be assumed to be
+uniformly bounded with respect to $p$ (to ensure that local neighbourhoods are indeed local) for the remainder of this work. 
+
+By convention, we will also use the hat symbol to denote a family of objects (e.g. a family of sets $\hat{A}$, a family of parameters $\hat{\delta}$ or a system $\hat{\mathcal{N}}_{\hat{\delta}, \hat{A}}$) that has been collectively grouped over  $P$.
+
+\subsection{Attraction}
+
+The differences between forward and pullback attraction lie in the
+distinction that forward attraction requires the attraction to
+only occur 'eventually', with no information as to the attracting
+characteristics of the system at any fixed time. Alternatively,
+pullback attraction guarantees attraction to an element at a
+distinct point in time. The state of the attraction thereafter is
+not an issue. These concepts (introduced in Example \ref{introeg})
+are formalised below and followed by illustrative examples
+thereafter.
+
+\begin{defn}[Forward Attraction]
+A family of uniformly bounded compact sets $\hat{A} =
+\{A(p):p \in P \}$ is said to {\bf forward attract} another family of
+sets $\hat{B} = \{B(p):p \in P\}$ from $p \in P$ if
+\[ \lim_{t \to \infty} H^{*} \left(\Phi_{(t,p)}
+                     (B(p),A(\theta_t p)) \right) = 0. \]
+\end{defn}
+
+Also note that if $\hat{A}$ forward attracts $\hat{B}$, and
+$\hat{C} \subset \hat{B}$ (that is, $C(p) \subset B(p)$ for all $p \in P$),
+then $\hat{A}$ forward attracts $\hat{C}$.
+
+Forward attraction of a single set, or family $\hat{B}$, to $\hat{A}$ is
+also referred to as {\em forward convergence} of $\hat{B}$ to $\hat{A}$
+from $p \in P$.
+
+\begin{defn}[Pullback Attraction]
+A family of uniformly bounded compact sets $\hat{A} =
+\{A(p):p \in P \}$ is said to {\bf pullback attract} another family of
+uniformly bounded sets $\hat{B} = \{B(p):p \in P\}$ at $p \in P$ if
+\[ \lim_{t \to \infty} H^{*} \left(\Phi_{(t,\theta_{-t}(p))}
+                     (B(\theta_{-t}(p)),A(p)) \right) = 0. \]
+\end{defn}
+
+Similarly, this is also referred to as {\em pullback convergence} of
+$\hat{B}$ to $\hat{A}$ at $p$.
+
+\begin{defn}[Complete Attraction]
+If $\hat{A}$ pullback attracts $\hat{B}$ at some value of $p \in P$ and
+also forward attracts $\hat{B}$ from $p$ then $\hat{A}$ is said to {\bf
+completely attract} $\hat{B}$ at $p \in P$.
+\end{defn}
+
+Often we are concerned only with the attraction of single sets or of a
+single set $B$ to a family $\hat{A}$, for some $p \in P$.  In either case,
+the corresponding family can be thought of as a family of identical
+sets.
+
+The definitions are also consistent with classical ideas in autonomous
+systems. The definition of pullback attraction (and also complete
+attraction) then become equivalent to the usual definition for forward
+attraction as the initial time is not relevant.
+
+\begin{example}[Attraction in Example \ref{introeg}]
+Consider again the perturbed autonomous system in Example
+\ref{introeg}, and consider possible attraction of the state to
+the origin. In order to analyse the behaviour at the origin we
+define $\hat{A}$ by $A(\ta) = 0$, for all $\ta$, and consider both
+forward and pullback attraction to $\hat{A}$.
+
+{\em i) Forward Attraction:} For any single, bounded set $B$, we
+have
+\begin{align*}
+  \lim_{t \to \infty} H^{*} &\left(\Phi_{(t,t_0)}(B),A(\theta_t (t_0)))
+        \right) \\
+  &= \lim_{t \to \infty} \max_{x_0 \in B} \left|
+        \frac{1}{2} [ \sin (t+t_0) - \cos (t+t_0) ] + [
+        x_0 - \frac{1}{2} ( \sin t_0 - \cos t_0 )] \,
+        e^{-t} \right|, \\
+  &= \lim_{t \to \infty} \left| \frac{1}{2} [\sin (t+t_0) -
+        \cos (t+t_0) ] \right|,  \qquad \forall
+        t_0 \in \mathbb{R}. \\
+\end{align*}
+For this there exists no limiting value. Hence $\hat{A}$ (the
+origin) does not forward attract any bounded set $B$ for any $t_0
+\in \mathbb{R}$.
+
+{\em ii) Pullback Attraction:} For each bounded set $B$, and
+initial time $t_0 \in \mathbb{R}$,
+\begin{align*}
+  \lim_{t \to \infty} H^{*} &\left(\Phi_{(t,\theta_{-t}(t_0))}
+        (B),A(t_0)) \right) \\
+  &= \lim_{t \to \infty} \max_{x_0 \in B} \left|
+        \frac{1}{2} [\sin (t_0) - \cos (t_0)] \right. \\
+  & \hspace{1.5cm} \left. + [ x_0 -
+        \frac{1}{2} (\sin (t_0-t) - \cos (t_0-t) )] \,
+        e^{-t} \right| , \\
+  &= \left| \frac{1}{2} [\sin (t_0) - \cos (t_0)] \right|, \\
+  &= 0 \hspace{4cm} \forall t_0 = \frac{\pi}{4} + n \pi \quad (n =
+        1,2,...).\\
+\end{align*}
+Hence the system pullback attracts solutions to the origin only at
+specific times as determined by the set of discrete values given
+by $\{t_0; t_0 = \pi/4 + n\pi \}$ for $n = 1, 2, ..$.
+\end{example}
+
+\subsection{Stability}
+
+The following definitions are an extension of those used in
+classical stability analysis for non-autonomous systems (refer to
+Section \ref{NDSsec}) with further application to families of sets
+and with consideration of both forward and pullback analysis.
+
+\begin{defn}[Forward Stability]\label{FSdef}
+   A family $\hat{A} = \{A(p);p \in P\}$ of uniformly bounded compact
+   subsets of $E$, is said to be {\bf forward stable} with respect to the
+   cocycle $\{\Phi_{(t,p)}; t \in \mathbb{R}^{+},p \in P\}$ on $E$ if for
+   any $\epsilon > 0$, there exists a $\hat{\delta} = \{\delta_p \in
+   \mathbb{R}^+; p\in P\}$ such that for any $p \in P$,
+   \begin{equation}\label{FSeq}
+   H^*(\Phi_{(t,p)}(\mathcal{N}_{\delta_p}
+            (A(p)),A(\theta_t p)) < \epsilon, \qquad \forall t \geq 0.
+   \end{equation}
+\end{defn}
+
+\begin{defn}[Pullback Stability]\label{PSdef}
+   A family $\hat{A} = \{A(p);p \in P\}$ of uniformly bounded compact
+   subsets of $E$, is said to be {\bf pullback stable} with respect to the
+   cocycle $\{\Phi_{(t,p)}; t \in \mathbb{R}^{+},p \in P\}$ on $E$ if for
+   any $\epsilon > 0$ there
+   exists a $\hat{\delta} = \{\delta_p \in \mathbb{R}^+; p\in P\}$ so that
+   for any $p \in P$,
+   \begin{equation}\label{PSeq}
+   H^*(\Phi_{(t,\theta_{-t}p)}(\mathcal{N}_{\delta_p}
+            (A(\theta_{-t}p)),A(p)) < \epsilon, \qquad \forall t \geq 0.
+   \end{equation}
+\end{defn}
+
+\begin{defn}[Complete Stability]\label{CSdef}
+  If $\hat{A}$ is both {\em pullback} and {\em forward stable}, then it is
+  said to be {\bf completely stable}.
+\end{defn}
+
+If the $\hat{\delta}$ in any of the above definitions are
+independent of the parameter $p$ (that is, the
+$\delta_p = \delta$ for some $\delta>0$ and all $p \in P$), then
+the respective stability of $\hat{A}$ is said to be {\bf uniform}.
+
+We say $\hat{A}$ is \textbf{positively invariant} under $\Phi$ if for each $p
+\in P$, and all $t \geq 0$,
+\[ \Phi_{(t,p)}(A(p)) \subseteq A(\theta_{t}p). \]
+
+The property of positive invariance for stable sets in autonomous dynamical
+systems is also valid for both pullback and forward stable families in a
+non-autonomous dynamical system.
+
+\begin{therm}\label{thmstabtopi}
+If $\hat{A}$ is pullback/forward/completely stable, then it is {\bf positively
+invariant} under $\Phi$.
+\end{therm}
+\begin{prf}
+Assume that $\hat{A}$ is either pullback or forward stable (or completely) but
+is not positively invariant.  Then for some $p \in P$, there exists a $t > 0$
+such that
+\[ \Phi_{(t, p)}(A(p)) \nsubseteq A(\theta_{t}p). \]
+Hence there exists an $a \in A(p)$ and an $\e > 0$ such that
+\begin{equation}\label{eqnpiass}
+ \dist( \Phi_{(t, p)}(a), A(\theta_{t}p)) > \e.
+\end{equation}
+\textit{i) $\hat{A}$ is pullback stable} - Since $\hat{A}$ is pullback stable,
+there exists a $\delta_{\theta_t p}(\e) > 0$ that ensures pullback stability
+at $\theta_{t}p$. Since $a \in \mathcal{N}_{\delta_{\theta_t p}}(A(p))$, then by
+pullback stability
+\[ \dist( \Phi_{(t, p)}(a), A(\theta_t p)) \leq H^*(\Phi_{(t,
+          p)}(\mathcal{N}_{\delta_{\theta_t p}} (A(p)), A(\theta_t p)) < \e, \]
+which contradicts the initial assumption (\ref{eqnpiass}). Hence $\hat{A}$ must
+be positively invariant.
+
+\textit{ii) $\hat{A}$ is forward stable} - Since $\hat{A}$ is forward stable,
+there exists a $\delta_p > 0$ that ensures forward stability from $p$. Since $a
+\in \mathcal{N}_{\delta_p}(A(p))$, then by forward stability
+\[ \dist( \Phi_{(t, p)}(a), A(\theta_t p)) \leq H^*(\Phi_{(t,
+          p)}(\mathcal{N}_{\delta_p} (A(p)), A(\theta_t p)) < \e, \]
+which similarly contradicts (\ref{eqnpiass}). Hence $\hat{A}$ is positively
+invariant.
+
+The case for complete stability follows immediately from either of the above
+arguments for pullback or forward stability.
+\end{prf}
+
+\begin{eg} \label{cseg} [ {\em Complete Stability} ] \hfill \\
+  Consider the differential equation
+  \begin{equation}
+  \dot{x} = \frac{\cos(\ta)}{(2+sin(\ta))} \left[ -x + arctan(\ta) \right] +
+  \frac{1}{(1 + \ta^2)},
+  \end{equation}
+  which has solutions given by
+  \[ \Phi_{(t,t_0)}(x_0) = arctan(t + t_0) + \frac{(2 + sin(t_0))}{(2 +
+                         sin(t+t_0))}(x_0 - arctan(t_0)). \]
+  Analysing stability of solutions with initial state $x_0$ to
+  the family $\hat{A} = \{ A(\ta) ; \ta \in \mathbb{R}  \}$ where $A(\ta) =
+  \arctan(\ta)$, it is easy to see that $\hat{A}$ is uniformly forward
+  stable due to the (uniformly) bounded factor in the second term.
+
+  Alternatively, if we consider pullback analysis of solutions to a fixed and
+  arbitrary choice of $t_0$,
+  \[ \Phi_{(t,t_0-t)}(x_0) = A(t_0) + \frac{(2 + sin(t_0-t))}{(2 +
+                         sin(t_0))}(x_0 - A(t_0-t)). \]
+  Given any $\epsilon > 0$, we choose $\delta_{t_0} = (2 +
+  sin(t_0)) \e / 3$ so that for all $x_0 \in
+  \mathcal{N}_{\delta_{t_0},\hat{A}}$,
+  \[ H^*(\Phi_{(t, t_0-t)}(x_0), A(t_0)) \leq \epsilon. \]
+  for all $t>0$.
+  As a result, $\hat{A}$ is pullback stable. In fact, we may choose $\delta =
+  \epsilon/3$ independent of $t_0$ and thus the pullback stability
+  is uniform. As it is both pullback and forward stable, $\hat{A}$ is
+  completely stable. Note, however that the stability is not
+  asymptotic as the second term never vanishes completely  in either
+  a forward or a pullback sense. Solutions with initial values  
+  $(-1,-30)$ and $(-2,-30)$ were simulated and graphed. Refer to Figure \ref{csegpic}.
+\end{eg}
+
+\begin{figure}[htb]
+\begin{center}
+%\framebox[6.0cm][c]{
+\leavevmode
+\hbox{
+\epsfxsize=10.0cm
+\epsffile{eps/cseg.eps}  }%}
+\protect\caption{Complete Stability of $\hat{A}$ for Example
+\ref{cseg}}
+        \protect\label{csegpic}
+\end{center}
+\end{figure}
+
+\subsection{Asymptotic Stability}
+
+The concepts of classical asymptotic stability (presented in
+Section \ref{NDSsec}) may also be used in a similar manner as a
+basis for extending the fundamentals of asymptotic theory to
+families of sets and an encompassing theory inclusive of pullback
+analysis. This is formalised below.
+
+
+\begin{defn}[Forward Asymptotic Stability]\label{FASdef} \hfill \\
+   A family $\hat{A} = \{A(p) ; p \in P\}$ of uniformly bounded compact
+   subsets of $E$, is said to be
+   {\bf forward asymptotically stable} with respect to the cocycle
+   $\{\Phi_{(t,p)}; t \in \mathbb{R}^{+},p \in P\}$ on $E$ if it is {\em
+   forward stable} and if there exists a $\hat{\delta} = \{\delta_p \in
+   \mathbb{R}^+; p \in P\}$ so that for any $p \in P$, $x_0 \in
+   \mathcal{N}_{\delta_p}(A(p))$,
+   \begin{equation}\label{FASeq}
+      \lim_{t \rightarrow \infty} H^{*}(\Phi_{(t,p)}(x_0),A(\theta_t p)) = 0.
+   \end{equation}
+\end{defn}
+
+Alternatively we may write that $\hat{A}$ is {\em forward
+asymptotically stable} if there exists a $\hat{\delta} =
+\{\delta_p \in \mathbb{R}^+; p \in P\}$ so that for each $\e > 0$,
+and $x_0 \in \mathcal{N}_{\delta_p}(A(p))$, there is a $T(x_0, p,
+\epsilon)$ such that
+\[ \dist(\Phi_{(t,p)}(x_0),A(\theta_{t}p)) < \epsilon, \qquad \forall t > T. \]
+
+The case for {\em pullback asymptotic stability} however is a
+little more complicated. If the family $\hat{A}$ is varying with
+$p$, then the initial state $x_0$ may not always remain within the
+boundaries of $\mathcal{N}_{\delta, \hat{A}}$ as it is pulled
+back.
+
+For example, consider the introductory Example \ref{introeg}, where
+$\hat{A}$ was a sinusoidal attractor family, and ignore for the moment that the
+attraction is global. A fixed \textit{local} $\delta$-neighbourhood of $\hat{A}$
+will vary sinusoidally also, so an initial state may not always remain within
+the neighbourhood for all time values.
+
+As a result we shall consider attraction of arbitrary
+sequences of initial states $\hat{x}_p = \{x(\theta_{-t}p) \in
+\mathcal{N}_{\delta_p} (A(\theta_{-t}p)); t \geq 0 \}$ rather than a single fixed
+initial state $x_0$. For any $p \in P$, every element of the sequence is
+entirely contained within the $\delta_p$-neighbourhood of $\hat{A}$. We
+thus define {\em pullback asymptotic stability} as follows.
+
+\begin{defn}[Pullback Asymptotic Stability]
+   \label{PASdef} \hfill \\
+   A family $\hat{A} = \{A(p) ; p \in P\}$ of uniformly bounded compact
+   subsets of $E$, is said to be {\bf pullback asymptotically stable} with
+   respect to the cocycle $\{\Phi_{(t,p)}; t \in \mathbb{R}^{+},p \in P\}$
+   on $E$ if it is {\em pullback stable} and if there exists a
+   $\hat{\delta} = \{\delta_p \in \mathbb{R}^+; p \in P\}$ so that for any
+   $p \in P$, $\hat{x}_p \in \mathcal{N}_{\delta_p, \hat{A}},
+   x(\theta_{-t}p) \in \hat{x}_p$,
+   \begin{equation}\label{PASeq}
+      \lim_{t \rightarrow \infty} H^{*}(\Phi_{(t,\theta_{-t}(p))}
+      (x(\theta_{-t}p)),A(p)) = 0.
+   \end{equation}
+\end{defn}
+
+Again, it may be equivalently said that $\hat{A}$ is {\em pullback
+asymptotically stable} if there exists
+a $\hat{\delta} = \{\delta_p \in \mathbb{R}^+; p \in P\}$ so that for each $\e
+> 0$, and $\hat{x}_p \in \mathcal{N}_{\delta_p, \hat{A}}$, there is a
+$T(\hat{x}_p, p, \epsilon)$ such that
+\[ \dist(\Phi_{(t,p)}(x(\theta_{-t}p)),A(p)) < \epsilon, \qquad \forall t > T. \]
+
+{\bf Remark 1}
+If a single $\delta$-neighbourhood of $\hat{A}$ (that is, $\hat{\delta} =
+\delta$), and $T=T(\epsilon)$ can be chosen in the above definitions for
+forward(pullback) asymptotic stability, then
+$\hat{A}$ is said to be {\em uniformly forward asymptotically stable}
+(respectively pullback).
+
+{\bf Remark 2} If in the above definitions $T$ can be chosen so that $T=T(p,
+\e)$ only, then $\hat{A}$ is said to be {\em forward(pullback)
+equi-asymptotically stable}.
+
+\begin{defn}[Complete Asymptotic Stability]\label{CASdef}
+  If $\hat{A}$ is both forward and pullback asymptotically stable, then
+  $\hat{A}$ is said to be {\bf completely asymptotically stable}.
+\end{defn}
+
+The following three examples illustrate the differences between
+the three modes of asymptotic behaviour. Forward attraction is
+illustrated in Figure \ref{fasegpic}, pullback attraction in
+Figure \ref{pasegpic}, and complete attraction in Figure
+\ref{casegpic}.
+
+\begin{eg} \label{faseg}[\textit{Forward Asymptotic Stability without
+                   Pullback Attraction}] \hfill \\
+  \vspace{2mm}
+  Consider the differential equation
+  \begin{equation}\label{de2eq}
+  \dot{x} = \frac{2\ta}{(1+\ta^2)} \left[ -x + \left( \tanh (\ta/2)
+         \right) \right] + \frac{2 e^{-\ta}} {(1 + e^{-\ta})^2}.
+  \end{equation}
+  Defining $A(\ta) = \tanh (\ta/2)$ (a bipolar sigmoidal
+  function) as the family of sets  $\hat{A}$, then the solution to the ODE
+  above with initial time $t_0$ and   initial state $x_0$, is
+  \[ \Phi_{(t,t_0)}(x_0) = A(t + t_0) + \frac{(1 + (t_0)^2)}{(1 +
+                         (t+t_0)^2)}(x_0 - A(t_0)). \]
+  Considering pullback attraction of solutions from initial state $x_0$
+  to $\hat{A}$ at a fixed element $A(t_0) \in \hat{A}$ we have
+  \[ \Phi_{(t,t_0-t)}(x_0) = A(t_0) + \frac{(1 + (t_0-t)^2)}{(1 +
+                         (t_0)^2)}(x_0 - A(t_0-t)). \]
+  Taking the limit as $t \rightarrow \infty$ in both cases it is obvious
+  that $\hat{A}$ forward attracts solutions, but fails to pullback attract
+  solutions. It is also forward stable, and hence forward asymptotically
+  stable. Several solutions for the differential equation were simulated
+  and plotted in Figure \ref{fasegpic}, to display the system's
+  pullback instability.
+
+  Note that forward convergence implies `eventual' attraction. It cannot
+guarantee attraction at any other time. For example, it does not characterise
+ the lack of attraction within this system to $A(0)$.
+
+  \begin{figure}[htb]
+  \begin{center}
+  %\framebox[6.0cm][c]{
+  \leavevmode
+  \hbox{
+  \epsfxsize=9.5cm
+  \epsffile{eps/faseg.eps}  }%}
+  \protect\caption{Forward Asymptotic Stability without Pullback
+                Convergence}
+         \protect\label{fasegpic}
+  \end{center}
+  \end{figure}
+\end{eg}
+
+\begin{eg} \label{paseg} [\textit{Pullback Asymptotic Stability without
+                   Forward Convergence}] \hfill \\
+  This example is a case of a pullback asymptotically
+  stable set which fails to exhibit any forward asymptotic
+  behaviour. Given the differential equation
+  \begin{equation}\label{de1eq}
+  \dot{x} = \frac{-2\ta}{(1+\ta^2)} \left[ -x + \left( \tanh (\ta/2)
+         \right) \right] + \frac{2 e^{-\ta}} {(1 + e^{-\ta})^2}.
+  \end{equation}
+  If we denote $A(\ta) = \tanh (\ta/2)$, then the solution to the ODE above with initial time $t_0$,
+  and initial state $x_0$, is
+  \[ \Phi_{(t,t_0)}(x_0) = A(t + t_0) + \frac{(1 + (t+t_0)^2)}{(1 +
+                         t_0^2)}(x_0 - A(t_0)). \]
+  From this it is easy to see that the family of singleton sets $\hat{A} =
+  \{ A(\ta) ; \ta \in \mathbb{R} \}$ fails to exhibit either of the usual
+  characteristics of forward stability or asymptotic stability.
+  Let us now   consider pullback attraction of solutions from initial state
+  $x_0$, to   $\hat{A}$ at a fixed element $A(t_0) \in \hat{A}$
+  \[ \Phi_{(t,t_0-t)}(x_0) = A(t_0) + \frac{(1 + t_0^2)}{(1 +
+                         (t_0-t)^2)}(x_0 - A(t_0-t)). \]
+  Taking the limit for some arbitrary $t_0, x_0 \in \mathbb{R}$ we find
+  the second term vanishes, and hence
+  \[ \lim_{t \to \infty} H^*(\Phi_{(t, t_0-t)}(x_0), A(t_0)) = 0. \]
+  Thus $\hat{A}$ is pullback attracting. It is also pullback stable. To
+  see this, given $\epsilon > 0$, then there exists a $\delta_{t_0} =
+  \epsilon / (1 + t_0^2)$ so that for all $x_0 \in
+  \mathcal{N}_{\delta_{t_0},\hat{A}}$, and for all $t \geq 0$,
+  \[ H^*(\Phi_{(t, t_0-t)}(x_0), A(t_0)) \leq
+                \epsilon \]
+
+  \begin{figure}[htb]
+  \begin{center}
+  %\framebox[6.0cm][c]{
+  \leavevmode
+  \hbox{
+  \epsfxsize=9.5cm
+  \epsffile{eps/paseg.eps}  }%}
+  \protect\caption{Pullback Asymptotic Stability without Forward
+                Convergence}
+        \protect\label{pasegpic}
+  \end{center}
+  \end{figure}
+
+  Evolution of solutions lying in the interval $[-2,0]$ to $t_0 = 10$ from
+  initial times progressively further back have been plotted, see Figure
+  \ref{pasegpic}. It is easy to see that solutions become
+  characteristically unstable once they have traversed past the switching
+  region in the sigmoidal function (the pullback asymptotically stable
+  set). However the interesting behaviour for this system is the fast
+  attraction that occurs in and just preceding the switching region. It is
+  here that pullback analysis describes the attractive behaviour to a
+  fixed point within this region in detail and much more easily than with
+  conventional techniques.
+\end{eg}
+
+
+\begin{eg} \label{caseg} [ {\em Complete Asymptotic Stability} ] \hfill \\
+  We take a slightly different form of the differential equation
+  used in the preceding Example (\ref{de1eq}), and (\ref{de2eq}),
+  \begin{equation}
+  \dot{x} = \left[ -x + \left( \tanh(\ta/2) \right) \right]
+        + \frac{2e^{-\ta}} {(1 + e^{-\ta})^2}
+  \end{equation}
+  Again we have $A(\ta) = \tanh(\ta/2)$ as our family of sets under
+  investigation, and the solution to the ODE above is given by
+  \[ \Phi_{(t,t_0)}(x_0) = A(t + t_0) + e^{(-t)}(x_0 - A(t_0)). \]
+  Pulling back solutions $x_0$ to $t_0$ we have
+  \[ \Phi_{(t,t_0-t)}(x_0) = A(t_0) + e^{-t}(x_0 - A(t_0-t)). \]
+  Hence, convergence in both the forward and pullback sense occurs
+  at an exponential rate. Together with forward and
+  pullback stability of $\hat{A}$ (easily shown), $\hat{A}$ is thus shown to
+  be {\em completely asymptotically stable}. See Figure \ref{casegpic} for
+  a representative simulation of the system's behaviour.
+  \begin{figure}[htb]
+  \begin{center}
+  %\framebox[6.0cm][c]{
+  \leavevmode
+  \hbox{
+  \epsfxsize=9.5cm
+  \epsffile{eps/caseg.eps}  }%}
+  \protect\caption{Complete Asymptotic Stability}
+        \protect\label{casegpic}
+  \end{center}
+  \end{figure}
+\end{eg}
+
+\subsection{Uniformity of Stability}
+\label{unissec}
+
+A sufficient condition for stability or asymptotic stability of a
+family of sets $\hat{A} = \{A(p) ; p \in P \}$ to be completely
+stable, or completely asymptotically stable respectively, is that
+of uniformity. This is shown through the following lemmas.
+
+\begin{lemma}
+\label{upscslem}
+If $\hat{A} = \{A(p) ; p \in P \}$ is uniformly pullback stable then it is
+completely stable.
+\end{lemma}
+\begin{prf}
+We show by contradiction that $\hat{A}$ is uniformly forward stable, and
+hence by definition completely stable.
+
+Assume $\hat{A}$ is not uniformly forwards stable, but uniformly pullback
+stable. Then for each $\e > 0$, there exists a $\delta = \delta( \e )$ as
+defined for uniform pullback stability. Now, since $\hat{A}$ is not uniformly
+forwards stable, there exists at least one initial state within the
+neighbourhood system $\hat{\mathcal{N}}_{\delta, \hat{A}}$ that will escape an
+$\epsilon$-neighbourhood of $\hat{A}$ at some later time. That is, there exists
+a $p \in P$, $t^* \in \mathbb{R}^+$ and at least one initial state $x_0 \in
+\mathcal{N}_{\delta}(A(p))$ such that
+\[ \dist( \Phi_{(t^*, p)}(x_0), A(\theta_{t^*}p) ) = \e. \]
+However by uniform pullback stability at $\theta_{t^*}p$, it must necessarily
+be that
+\[ \dist( \Phi_{(t^*, p)}(x_0), A(\theta_{t^*}p) ) < \e. \]
+This is a contradiction. Hence $\hat{A}$ must be uniformly forwards stable,
+and thus completely stable.
+\end{prf}
+
+\begin{lemma}
+\label{ufscslem}
+If $\hat{A} = \{A(p) ; p \in P \}$ is uniformly forwards stable
+then it is completely stable.
+\end{lemma}
+\begin{prf}
+Similarly, we will show by contradiction that $\hat{A}$ is uniformly pullback
+stable, and hence by definition completely stable.
+
+Assume $\hat{A}$ is not uniformly pullback stable, but uniformly forwards
+stable. Then for each $\e > 0$, there exists a $\delta = \delta( \e )$ as
+defined for uniform forward stability.
+
+Now, since $\hat{A}$ is not pullback stable, there exists at least one initial
+sequence within the neighbourhood system $\hat{\mathcal{N}}_{\delta, \hat{A}}$
+that will escape an $\epsilon$ neighbourhood of $\hat{A}$ after being pulled
+back from some previous time. That is, there exists a $p \in P$, $t^* \in
+\mathbb{R}^+$ and at least one initial sequence $\hat{x}_p$ with some initial
+value $x(\theta_{-t^*}p) \in \hat{x}_p$ such that
+\[ \dist( \Phi_{(t^*, \theta_{-t^*}p)}(x(\theta_{-t^*}p)), A(p) ) = \e. \]
+However by uniform forward stability from $\theta_{-t^*}p$,
+\[ \dist( \Phi_{(t^*, \theta_{-t^*}p)}(x(\theta_{-t^*}p)), A(p) ) < \e. \]
+Hence a contradiction. Consequently $\hat{A}$ must be uniformly pullback stable,
+and thus completely stable.
+\end{prf}
+
+\begin{lemma}
+\label{upascaslem}
+If $\hat{A} = \{A(p) ; p \in P \}$ is uniformly pullback asymptotically stable
+then it is completely asymptotically stable.
+\end{lemma}
+\begin{prf}
+$\hat{A}$ is uniformly pullback asymptotically stable. Thus, there exists a
+$\delta > 0$ so that for each $\e > 0$ there exists a $T \in \mathbb{R}^+$ with
+$T = T(\e)$ such that for all $p \in P$, $\hat{x}_p \in
+\hat{\mathcal{N}}_{\delta, \hat{A}}$ and $t > T$, we have for each $x(\theta_{-t}p) \in \hat{x}_p$,
+\[ \dist( \Phi_{(t, \theta_{-t}p)}(x(\theta_{-t}p)), A(p) ) < \e. \]
+
+Let $\delta$ be chosen as for uniform pullback asymptotic stability (above).
+We show that $\hat{A}$ is uniformly forward asymptotically stable by
+contradiction.
+
+Assume that it is not uniformly forward asymptotically stable. That is for any
+$\e > 0$, there exists some $p \in P$ and a sequence of values $t_j, x_j$ with
+$t_j \to \infty$ as $j \to \infty$ and $x_j \in \mathcal{N}_{\delta}(A(p))$ such
+that
+\[ \dist( \Phi_{(t_j, p)}(x_j), A(\theta_{t_j}p)) > \e. \]
+However $\hat{A}$ is uniformly pullback asymptotically stable. Hence for all
+$t_j > T( \e )$ ($T(\e)$ as defined above),
+\[ \dist(\Phi_{(t_j, \theta_{-t_j}(\theta_{t_j}p))}(x_j), A(\theta_{t_j}p)) <
+\e, \]
+which is the required contradiction. Thus $\hat{A}$ is uniformly forwards
+asymptotically stable and hence completely asymptotically stable.
+\end{prf}
+
+\begin{lemma}
+\label{ufascaslem}
+If $\hat{A} = \{A(p) ; p \in P \}$ is uniformly forwards asymptotically stable
+then it is completely asymptotically stable.
+\end{lemma}
+\begin{prf}
+Let $\delta > 0$ be as defined for uniform forwards asymptotic stability, and
+assume $\hat{A}$ is not uniformly pullback asymptotically stable.
+Then for any $\e > 0$, there exists some $p \in P$ and sequences $t_j, x_j$,
+with $t_j \to \infty$ as $j \to \infty$ and $x_j \in
+\mathcal{N}_{\delta}(A(\theta_{-t_j}p))$ such that
+
+\[ \dist( \Phi_{(t_j, \theta_{-t_j}p)}(x_j), A(p) ) > \e. \]
+This leads to a contradiction since we require for uniform forwards asymptotic
+stability at each $\theta_{-t_j}p$ that
+\[ \dist(\Phi_{(t_j, \theta_{-t_j}p)}(x_j), A(p) ) < \e, \]
+for all $t_j > T$, where $T = T( \e )$ as defined for uniform forwards
+asymptotic stability. Hence $\hat{A}$ is uniformly pullback asymptotically
+stable and thus completely stable.
+\end{prf}
+
+It is often easier to determine the forwards nature of a dynamical
+system than its pullback characteristics. As a result, given the
+above lemmas, the uniform stability of $\hat{A}$ in a forwards
+sense is all that is required to verify complete stability of
+$\hat{A}$. This will be looked at in further detail upon
+consideration of Lyapunov functions in the following chapters.
+
+Uniformity however, is not a necessary condition associated with
+complete stability or complete asymptotic stability. To see this consider
+Example \ref{egflows} below.
+
+\begin{eg} \label{egflows}
+Consider the flows generated by the dynamical system defined by
+\[ \dot{x} = \left\{ \begin{array}{ll} -x & |x| \leq e^{-\ta}, \\
+                                           -x + 2(x - sgn(x)e^{-\ta}) & |x| > e^{-\ta}. \\
+                                        \end{array} \right. \]
+See Figure \ref{csnuspic}. Here the parameter set $P = \mathbb{R}$ and the flows
+are distinctly different in the regions separated by $\Omega$ (defined by $|x| =
+e^{-\ta}$). In the inner region, exponential attraction to the origin occurs,
+whilst in the outer region the dynamics may be represented in the form,
+\[ \dfrac{d}{d\ta}(x - e^{-\ta}) = (x - e^{-\ta}). \]
+
+\begin{figure}[htb]
+\begin{center}
+%\framebox[6.0cm][c]{
+\leavevmode
+\hbox{
+%\epsfxsize=9.5cm
+\epsffile{eps/ns1.eps}  }%}
+\protect\caption{Complete Stability without Uniformity}
+      \protect\label{csnuspic}
+\end{center}
+\end{figure}
+
+Thus solutions diverge from the boundary at $\Omega$ ensuring instability
+in the outer region.
+
+Solutions here are obviously completely stable with respect to the
+origin, that is they are both pullback and forward stable. However neither is
+uniform, since by increasing $t$ the $\delta$-neighbourhood must be chosen
+vanishingly smaller ensuring solutions do not begin in the region of
+instability beyond $\Omega$.
+\end{eg}
+
+In this example the non-uniformity (with respect to $p$) in the neighbourhood of
+pullback and forward stability occurs for $\theta_{t}p$ as $t \to \infty$ (that
+is, where the neighbourhood of stability vanishes). It is of interest to observe
+in the general case for a completely stable family $\hat{A}$, that
+non-uniformity of the stable neighbourhood with respect to $p$
+cannot take place for $\theta_{-t}p$ as $t \to \infty$
+(that is, the neighbourhood of stability may not vanish for $\theta_{-t}p$ as $t
+\to \infty$).
+
+To show that this is indeed the case, suppose $\hat{A}$ is completely stable,
+with a neighbourhood system of stability defined by $\hat{\delta}$ that vanishes
+for $\theta_{-t}p$ as $t \to \infty$ (that is, $\delta_{\theta_{-t}p} \to 0$, as
+$t \to \infty$).
+
+However, assuming such a neighbourhood is neccesary contradicts
+pullback stability at some $p$ as no constant $\delta > 0$ could be chosen to
+assure that forward evolution of solutions from $\theta_{-t}p$ remain within an
+$\e$-neighbourhood of $A(p)$ at $p$.
+
+An additional lemma concerning pullback asymptotic stability concerns uniformity
+of the local neighbourhood of attraction for all $p^* > p$ given knowledge of
+the neighbourhood of attraction at $p$.
+
+\begin{lemma}
+If $\hat{A} = \{ A(p) ; p \in P \}$ is pullback asymptotically stable with a
+local neighbourhood of attraction at any $p \in P$ given by
+$\mathcal{N}_{\delta_p}(A(p))$ for some $\delta_p > 0$, then $\delta_{\theta_tp}
+= \delta_p$ for all $t > 0$.
+\end{lemma}
+\begin{prf}
+Let $p, p^* \in P$ and set $p^* > p$ with $t^* > 0$ such that $\theta_{t^*}p =
+p^*$. Since $\hat{A}$ is pullback asymptotically stable, $A(p)$ pullback
+attracts solutions within the $\delta_p$ - neighbourhood $\hat{\mathcal{N}}_{\delta_p,
+\hat{A}}$.
+
+We proceed to show that $A(p^*)$ also pullback attracts solutions within the
+$\delta_p$-neighbourhood $\hat{\mathcal{N}}_{\delta_p, \hat{A}}$ by contradiction.
+
+Assume $A(p^*)$ does not pullback attract all solutions within
+$\hat{\mathcal{N}}_{\delta_p, \hat{A}}$. Then there exists an initial sequence
+$\hat{x}_{p^*} \in \hat{\mathcal{N}}_{\delta_p, \hat{A}}$ such that for any $\e > 0$
+small enough, there exists a sequence of values $\{ t_n \}$ with $t_n \to
+\infty$ as $n \to \infty$ such that for each $t_n, x(\theta_{-t_n}p^*) \in
+\hat{x}_{p^*},$
+\begin{equation}\label{egnotatt}
+\dist(\Phi_{(t_n, \theta_{-t_n}p^*)}(x(\theta_{-t_n}p^*)),
+                       A(p^*)) > \e.
+\end{equation}
+$\hat{A}$ is also pullback stable, hence for $\e > 0$ as given above, there
+exists a $\delta_{p^*} > 0$ as defined for pullback stability at $p^*$.
+
+$A(p)$ pullback attracts $\hat{x}_{p^*}$ and hence there exists
+$T=T(\hat{x}_{p^*}, \delta_{p^*})$ so that for all $t_n>T+t^*$,
+$x(\theta_{-(t_n)}p^*) \in \hat{x}_{p^*}$,
+\[ \Phi_{(t_n-t^*, \theta_{-t_n}p^*)}(x(\theta_{-t_n}p^*)) \in
+              \mathcal{N}_{\delta_{p^*}}(A(p)). \]
+Hence, by pullback stability of $p^*$,
+\[ \dist(\Phi_{(t^*, p)}(\Phi_{(t_n-t^*,
+                   \theta_{-t_n}p^*)}(x(\theta_{-t_n}p^*))), A(p^*)) < \e. \]
+But this contradicts (\ref{egnotatt}). Hence given $\delta_p > 0$ for some $p
+\in P$, we may indeed choose $\delta_{\theta_tp} = \delta_p$ for all $t > 0$.
+\end{prf}
+
+Note that the converse is not necessarily true. Refer to Example
+\ref{pavnhoodeg} in Section \ref{ANSsec}.
+
+\subsection{Conclusions - Non-Autonomous Attractors}
+
+Examples \ref{paseg}, \ref{faseg}, \ref{caseg}, all examined
+attraction to a family of sets $\hat{A} = \{A(t); A(\ta) = \tanh(\ta/2)
+\}$. In each case, the family of sets $\hat{A}$ is
+$\Phi$-Invariant. In addition, solutions converge to $\hat{A}$
+although in each case the definition of attraction varies.
+
+Invariance and attraction represent properties analogous to that
+of the semi-group attractor for autonomous systems. Thus in
+seeking an appropriate extension for this concept in
+non-autonomous systems, each of these examples possess uniquely
+differing properties that may be exhibited by a generic form of an
+attractor within a non-autonomous environment.
+
+{\bf $\Phi$-Invariance + Pullback Convergence} Pullback
+convergence guarantees the attraction of solutions to an element
+of $\hat{A}$, although as seen in Figure \ref{pasegpic}, there is
+no guarantee that solutions will stay close to the family
+$\hat{A}$ afterwards. However this type of structure is useful in
+situations where only `capture' of solutions at a particular time
+is required. Refer to \cite{Sk91}. It also has the additional advantage in that
+certain limit set results for classical autonomous theory are extendable to
+these objects (Arnold \cite{Ar98}, Schmalfuss \cite{Sc99}). These results will
+be covered in more detail later in the chapter.
+
+{\bf $\Phi$-Invariance + Forward Convergence} Solutions can only be
+guaranteed to be close to the attractor for large values in time. That is,
+it is characteristic of systems with stable `eventual' characteristics. The
+example illustrated in Figure \ref{fasegpic} shows that there is no
+attraction to the elements of $\hat{A}$ near $A(0)$. Hence, a good reason
+to not consider the whole family $\hat{A}$ as a valid attractor. However,
+many systems are only concerned with long time dynamics, and in these cases
+such analysis is useful. Note that the usual limit set theorems do not hold for
+time-varying structures that possess forward attraction.
+
+{\bf $\Phi$-Invariance + Complete Convergence} Obviously complete
+convergence guarantees convergence to the `attracting' family $\hat{A}$ in
+every way. Solutions are guaranteed to attract to each element of the
+family as well as ensuring they stay close and even converge to $\hat{A}$
+thereafter.
+
+The latter structure provides the ideal extension for the
+semi-group attractor to non-autonomous systems although the others
+are still equally valid and useful concepts.
+
+The following section develops the notion of an attractor for
+non-autonomous systems in detail.
+
+\endinput

@@ -1,0 +1,18 @@
+\begin{picture}(0,0)%
+\includegraphics{eps/loci10.pstex}%
+\end{picture}%
+\setlength{\unitlength}{3947sp}%
+%
+\begingroup\makeatletter\ifx\SetFigFont\undefined%
+\gdef\SetFigFont#1#2#3#4#5{%
+  \reset@font\fontsize{#1}{#2pt}%
+  \fontfamily{#3}\fontseries{#4}\fontshape{#5}%
+  \selectfont}%
+\fi\endgroup%
+\begin{picture}(4426,2572)(710,-2154)
+\put(2458,-1541){\makebox(0,0)[rb]{\smash{\SetFigFont{10}{12.0}{\rmdefault}{\mddefault}{\updefault}$\hat{A}$}}}
+\put(5136,-866){\makebox(0,0)[lb]{\smash{\SetFigFont{10}{12.0}{\rmdefault}{\mddefault}{\updefault}$\mathcal{N}_{\delta_p}(A(p))$}}}
+\put(2857,109){\makebox(0,0)[lb]{\smash{\SetFigFont{10}{12.0}{\rmdefault}{\mddefault}{\updefault}$\hat{B}_{t^*}(B)$}}}
+\put(3713,-1692){\makebox(0,0)[lb]{\smash{\SetFigFont{10}{12.0}{\rmdefault}{\mddefault}{\updefault}$B$}}}
+\put(4163,-2022){\makebox(0,0)[b]{\smash{\SetFigFont{10}{12.0}{\rmdefault}{\mddefault}{\updefault}$t^*$}}}
+\end{picture}

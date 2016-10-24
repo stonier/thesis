@@ -1,0 +1,48 @@
+
+\documentclass[12pt]{book}
+
+\usepackage{phd}
+\usepackage[active]{srcltx}
+
+\title{Stability Theory and Numerical Analysis of Non-Autonomous Dynamical
+               Systems}
+\author{by \\D. J. Stonier \\
+        BSc, BSc(Hons). \\
+        Submitted in Fulfillment of the Requirements \\
+        for the Degree of  Doctor of Philosophy. \\
+        Deakin University.}
+
+
+\begin{document}
+\pagenumbering{roman} \maketitle
+\pagestyle{empty}{}{}
+\include{thabs}
+\addcontentsline{toc}{section}{Table of Contents} \tableofcontents
+\addcontentsline{toc}{section}{List of Figures} \listoffigures
+\include{thterm}
+\include{th1_1}
+\include{th1_2}
+\include{th1_3}
+\include{th1_4}
+\include{th2_1}
+\include{th2_2}
+\include{th2_3}
+\include{th2_4}
+\include{th3_1}
+\include{th3_2}
+\include{th3_3}
+\include{th4_1}
+\include{th4_2}
+\include{th4_3}
+\include{th5_1}
+\include{th5_2}
+\include{th5_3}
+\include{th6_1}
+\include{th6_2}
+%\include{th6_3} This was moved into chapter 7 on its own.
+\include{th7_1}
+\include{th7_2}
+\include{th7_3}
+\include{thcon} \pagebreak
+\include{thesisb}
+\end{document}

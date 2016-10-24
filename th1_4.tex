@@ -1,0 +1,108 @@
+\section{Further Asymptotic Characteristics}
+
+Although the stability of many non-autonomous systems may be
+examined with the use of the definitions and theorems in the
+previous section, a wide class of non-autonomous systems possess
+structures (particularly time varying structures) with attracting
+characteristics that go beyond the scope of these definitions and theorems to
+describe and characterise. As a result several new concepts for convergence and
+stability, and attracting structures are needed.
+
+We begin with an introductory example to illustrate these issues and introduce
+the concept of pullback attraction as an additional method to form a more
+comprehensive analysis of the system's stability.
+
+\subsection{Non-Autonomous Asymptotic Behaviour}
+
+\begin{eg}\label{introeg}
+{\rm
+Consider the autonomous system on $\mathbb{R}$
+\[ \dot{x} = -x, \]
+which has global attractor $A_0$ $=$ $\{0\}$, and the non-autonomously
+perturbed system,
+\[ \dot{x} = - x + \sin \ta. \]
+Solutions are defined explicitly for $t$ $\geq$ $0$ ($t$ is elapsed time) and are
+expressed using a cocycle representation by \vspace{2mm}
+\begin{equation}\label{attobj}
+\Phi_{(t,t_0)}(x_0) =
+       \frac{1}{2} \left(\sin (t+t_0) - \cos (t+t_0)\right) +
+       \left( x(t_0) - \frac{1}{2}
+       \left(\sin t_0 - \cos t_0 \right)\right) \, e^{-t},
+\end{equation}
+where the group shift mapping $\theta_t:\mathbb{R} \rightarrow \mathbb{R}$
+is defined by $\theta_t (t_0) = t_0 +t$. }
+\end{eg}
+
+We wish to analyse the system's asymptotic behaviour, and more importantly
+identify any objects or structures which have attracting properties.
+
+The usual, and most obvious way to formulate asymptotic behaviour is to
+consider the limit set of the forwards trajectory. For any $t_0$ the
+$\omega$-limit set for the cocycle (\ref{attobj}) here is
+\[ \omega_(t_0,\mathbb{R}) = [-1/\sqrt{2},1/\sqrt{2}]. \]
+However, this set is not $\Phi$-invariant,
+($\Phi_{(t,t_0)}([-1/\sqrt{2},1/\sqrt{2}])$ $\neq$ $[-1/\sqrt{2}, 1/\sqrt{2}]$), 
+which is a fundamental property of any attracting object. Limit sets in non-autonomous
+systems have been investigated in \cite{FS95,Vi92}, however they
+have the disadvantage that the resulting $\omega$-limit sets are
+generally not invariant (as in this case) with respect to $\Phi$.
+It may be too restrictive searching for a single constant set
+which is invariant under $\Phi$. This directs us to search for a
+family of sets that may be $\Phi$-invariant.
+
+\begin{defn}[$\Phi$-Invariance] \hfill \\
+The family of nonempty sets $\hat{A} = \{ A(\tau) ; \tau \in \mathbb{R}
+\}$ is {\bf invariant} under $\Phi$ (or equivalently {\bf
+$\Phi$-invariant})  if
+\[ \Phi_{(t,t_0)}(A(t_0)) = A(t+t_0), \hspace{2cm} \forall t \in
+                \mathbb{R}^+, \quad t_0 \in \mathbb{R}. \]
+\end{defn}
+
+An `intuitive' look at the long term behaviour of solutions $\Phi$
+as $t \rightarrow \infty$ elucidates a transient component which
+vanishes exponentially, and a steady state component that is time
+varying. Thus solutions are attracted exponentially to the steady
+state solution. To characterise this, let us define a family of
+sets $\hat{A} = \{A(\tau); \tau \in \mathbb{R} \}$ as described
+above, where
+\begin{equation}\label{ssobj}
+  A(\tau) = \frac{1}{2} \left(\sin \tau - \cos \tau \right).
+\end{equation}
+$\hat{A}$ is obviously $\Phi$-invariant, and also possesses the
+usual characteristics of an attracting set as trajectories of
+$\Phi$ approach it as the elapsed time is increased. This can be
+seen by taking
+\[ \lim_{t \rightarrow \infty} H^*(\Phi_{(t,t_0)}(x_0),A(t+t_0))=0. \]
+However, does this attraction hold only for large $t$, or can we consider
+attraction to an element $A(t) \in \hat{A}$ for any arbitrary time $t$?
+
+The answer is yes, however it requires a subtle addition to the usual
+concepts of convergence. The typical forwards convergence analysis
+entails increasing the final time whilst the initial time remains fixed.
+However, to consider convergence to a set $A(t^*)$ of this attracting
+family, for a particular $t^*$, it would be reasonable to fix the final
+time, and start progressively earlier (pulling back the initial time) in
+order to finish at $t^*$.  By taking this limit for (\ref{attobj}), and any
+$x_0 \in \mathbb{R}$, we find
+\[ \lim_{t \rightarrow \infty} H^*(\Phi_{(t,t^*-t)}(x_0),A(t^*))=0. \]
+This is referred to as {\bf pullback attraction} (or pullback
+convergence), and  has the advantage in that attraction to a single element of
+the attracting structure may be mathematically characterised with an approach
+involving the use of limit sets.
+
+Pullback convergence for this particular problem is illustrated in
+the diagram below, showing pullback convergence of the interval
+$[-2, 2]$ to $\hat{A}$ at $t = 8$.
+
+\begin{figure}[htb]
+\begin{center}
+%\framebox[6.0cm][c]{
+\leavevmode
+\hbox{
+\epsfxsize=9.5cm
+\epsffile{eps/pbeg.eps}  }%}
+\protect\caption{Pullback Convergence}\protect\label{pbeg}
+\end{center}
+\end{figure}
+
+\endinput

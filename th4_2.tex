@@ -1,0 +1,236 @@
+
+\section{Example}
+
+\subsection{Introduction}
+
+The pullback attractor arising from perturbation of a continuous autonomous
+system with a known semi-group attractor as in Section \ref{Cpertautsec}
+was shown to be upper semi-continuous in its convergence with respect to the
+initial semi-group attractor it is derived from, that is,
+\[ \lim_{\epsilon \rightarrow 0^{+}} H^{*}(A^{\e}(t_{0}),A_{0}) = 0,
+                      \hspace{1cm} \forall t_0 \in \mathbb{R}.  \]
+Lower semi-continuity, that is
+\[ \lim_{\epsilon \rightarrow 0^{+}} H^{*}(A_0, A^{\e}(t_{0})) =
+                                0, \]
+{\em does not necessarily} hold, as the following counter-example
+shows.
+
+\subsection{Defining the Perturbed System}
+
+Consider the 2-dimensional autonomous dynamical system
+\begin{equation}
+  \dot{x} = y - x(x^{2} + y^{2} - 1)^{2},
+  \label{auto}
+\end{equation}
+\[ \dot{y} = -x - y(x^{2} + y^{2} - 1)^{2}. \]
+In polar co-ordinates this system is expressed by the equations,
+\begin{equation}
+  \dot{r} = - r (r^{2} - 1)^2,
+  \label{autopolar1}
+\end{equation}
+\[ \dot{\theta} = -1. \]
+It possesses a semi-stable limit cycle at $r = 1$, with trajectories
+converging to the limit cycle from outside the unit circle, and
+trajectories converging to the origin from inside the unit circle. In this
+case the global semi-group attractor for the system is the disc at the
+origin with unit radius, as illustrated in Figure \ref{nlcapic}.
+
+\begin{figure}[htb]
+  \begin{center}
+  %\framebox[6.0cm][c]{
+  \leavevmode
+  \hbox{
+  \epsfxsize=9.5cm
+  \epsffile{eps/nlcac.eps}  }%}
+  \protect\caption{Semi-Group Attractor for (\ref{autopolar1})}
+  \protect\label{nlcapic}
+  \end{center}
+\end{figure}
+
+We now perturb the original system of equations (\ref{auto}) with a
+non-autonomous perturbation so that,
+\begin{equation}
+  \dot{x} = y - x(x^{2} + y^{2} - 1)^{2} - \epsilon x  |\tanh (\ta)|,
+  \label{pert}
+\end{equation}
+\[ \dot{y} = -x - y(x^{2} + y^{2} - 1)^{2} - \epsilon y  |\tanh (\ta)|. \]
+The polar equations become:
+\begin{equation}
+  \dot{r} = - r (r^{2} - 1)^2 - \epsilon r |\tanh (\ta)|,
+  \label{autopolar2}
+\end{equation}
+\[ \dot{\theta} = -1 - \epsilon |\tanh (\ta)| \cos(2\theta). \]
+
+According to Theorem \ref{npertthm}, this perturbed system possesses a
+pullback attractor $\hat{A}$, which is upper semi-continuous in its
+convergence with respect to the semi-group attractor (the unit disk).
+However, the convergence is {\em not lower semi-continuous} as will be
+shown.
+
+\subsection{Pullback Behaviour of the Perturbed System}
+
+Let us consider the forwards asymptotic behaviour of trajectories. The
+$\theta$ dynamics remain rotating in the same direction if $\epsilon$ is
+small enough, so we need only be concerned with the radial variable.
+Let $r$ $=$ $r(s,s_0,r_0)$ where  $s$ $\geq$ $0$ is the time elapsed since
+the initial time $s_0$. Then
+\[ \frac{d}{ds} r^2 = - 2r^2(1-r^2)^2 - 2 \epsilon r^2 |\tanh (s+s_{0})|. \]
+We analyse pullback convergence of the system and use arbitrary initial
+values of $t_{0}$, and $r_{0} > 1$. Substituting notation for pullback
+terms, we have $s_{0} = t_{0} - t$ with $0 \leq s \leq t$, so that
+\[  r = r(s,t_{0}-t,r_{0}), \]
+\begin{equation}\label{derivexeq}
+  \frac{d}{ds} r^2 = - 2r^2(1-r^2)^2 - 2 \epsilon r^2 |\tanh (s+t_{0}-t)|.
+\end{equation}
+Since $r_{0} > 1$ we may choose $\delta$ small so that
+$(r_{0}^{2}-1)^{2} \geq \delta^{2}$.
+Then while $r^2(s,t_{0}-t,r_{0}) > 1
++ \delta$ we have
+\begin{eqnarray*}
+  \frac{d}{ds} r^2  & = & - 2r^2(1-r^2)^2 - 2 \epsilon r^2
+        |\tanh (s+t_0-t)|, \\
+  & \leq & - 2 r^2 \delta^{2}.
+\end{eqnarray*}
+Hence
+\begin{eqnarray*}
+r^2(s,t_0-t,r_0)  & \leq & r_0^2 exp(- 2 \delta^{2}s), \\[2ex]
+& \leq & 1 + \delta,
+\end{eqnarray*}
+for all $s \geq \ln \left( r_{0}^2/(1+\delta) \right) / 2 \delta^{2}$
+(provided $t$ is made large enough). For ease of notation, let
+$s_{1}(r_{0},\delta) = \ln \left( r_{0}^2/(1+\delta) \right) / 2
+\delta^{2}$. Thus we have
+\begin{equation*}
+  r^2(s,t_0-t,r_{0}) \leq 1 + \delta \hspace{1cm} \forall s_{1} \leq s
+        \leq t.
+\end{equation*}
+Consequently, solutions will reach a neighbourhood of the unit circle within
+finite time.
+
+\subsection{Behaviour Near r = 1}
+
+We consider here the evolution of the trajectory across a neighbourhood of the
+unit circle.  That is, within the neighbourhood defined by $r^2
+\leq 1 + \delta$. Let $r_{1} = r(s_{1},t_{0}-t,r_{0})$.
+
+If $r_{1}^2 \leq 1 - \delta$ we proceed automatically to the next
+step (Section \ref{secrsm1}). Otherwise, $1 - \delta \leq r_{1}^2 \leq 1 +
+\delta$, and we analyse the progress of trajectories represented by $r$ across
+the $\delta$-neighbourhood where
+\begin{equation*}
+  r = r(s_1 + s^*,t_0-t,r_{0}).
+\end{equation*}
+$s_{1}$ is defined as above and $s = s_1 +s^*$.
+Using our original equation for the derivative of the system
+(\ref{derivexeq}) we have
+\begin{eqnarray*}
+  \frac{d}{ds^*} r^2 & = & - 2r^2(1-r^2)^2 - 2 \epsilon r^2 |\tanh
+        (s^*+s_{1}+t_0-t)|, \\
+  & \leq & - 2 \epsilon r^2 |\tanh (s^*+s_{1}+t_0-t)|.
+\end{eqnarray*}
+If we choose $t$ large enough so that $s^* \leq \frac{1}{2}t -
+s_1$ and $|\tanh (t_0-\frac{1}{2}t)| \geq \frac{1}{2}$ then
+\begin{eqnarray*}
+  \frac{d}{ds^*} r^2 & \leq & - 2 \epsilon r^2 |\tanh
+                        (t_0-\frac{t}{2})|, \\
+  & \leq & - 2 \epsilon r^2 \frac{1}{2}, \\
+  & = & -  \epsilon r^2.
+\end{eqnarray*}
+Integrating,
+\begin{eqnarray*}
+  r^{2}(s^* +s_{1},t_0-t,r_0) & \leq & r_1^{2}\exp\left\{- \epsilon s^*
+                        \right\}, \\
+  & \leq & (1+\delta) \exp\left\{- \epsilon s^* \right\}, \\
+  & \leq & 1 - \delta,
+\end{eqnarray*}
+for all $s^* \geq \ln \left((1+\delta)/(1-\delta)\right) / \e$. For
+ease of notation define the value \\
+$s_2 = \ln \left((1+\delta)/(1-\delta)\right) / \e$. Thus we now have
+\begin{equation*}
+  r^2(s,t_0-t,r_{0}) \leq 1 - \delta \qquad \qquad \forall  s_{1}+s_2
+        \leq s \leq \frac{t}{2},
+\end{equation*}
+and
+\begin{align}
+  1) \quad & t \geq 2(s_1+s_2). \nonumber \\
+  2) \quad & |\tanh (t_0- \frac{t}{2})| \geq \frac{1}{2} \label{tlargeeq}. \\
+  \nonumber
+\end{align}
+
+\subsection{Behaviour For r $<$ 1}\label{secrsm1}
+
+Consider the evolution of the trajectory within the unit
+circle. Let $r_{2} = r(s_1+s_{2}, t_0-t,r_{0})$ with $s_1, s_2$ and $t$
+defined as above. Here $r_2^2 \leq 1-\delta$. Then we are
+interested in the behaviour of
+\begin{equation*}
+  r(s^*+s_{1}+s_{2},t_0-t,r_{0}),
+\end{equation*}
+where $s = s^* + s_1 +s_2$.
+
+Now $ r^2(s^*+s_{1}+s_{2},t_0-t,r_{0}) \leq r_2^2 \leq 1 - \delta$.
+Then from the original equation (\ref{derivexeq}) we obtain
+\begin{eqnarray*}
+  \frac{d}{ds^*} r^2  & = & - 2r^2(1-r^2)^2 - 2 \epsilon r^2
+                        |\tanh(s^*+s_1+s_2+t_0-t)|, \\
+  & \leq & - 2r^{2}\delta^{2}.
+\end{eqnarray*}
+Integrating,
+\begin{align*}
+  r^2(s^*+s_1+s_2,t_0-t,r_0) & \leq r^2_2\exp\left\{-2\delta^{2}s^*
+                \right\}, \nonumber \\
+  & \leq (1-\delta)\exp\left\{-2\delta^{2}s^* \right\}, \\
+  r(s^*+s_1+s_2,t_0-t,r_0) & \leq \sqrt{1-\delta}\exp\left\{-
+        \delta^{2}s^* \right\}.
+\end{align*}
+
+\subsection{The Pullback Attractor}
+
+Allowing the pullback term to run to completion, that is by letting
+$s^*+s_1+s_2=t$, and for $t$ satisfying (\ref{tlargeeq}), we have
+\begin{eqnarray*}
+  r(t,t_0-t,r_0) & \leq & \sqrt{1-\delta} \exp\left\{\delta^2(s_1+s_2)
+        \right\} \exp\left\{- \delta^{2}t \right\}, \\
+  & = & A(r_0,\delta,\epsilon) \exp\left\{- \delta^{2}t \right\},
+\end{eqnarray*}
+where $A$ is a constant replacing and simplifying the expression
+on the previous line. The terms that constitute the definition of $A$ are:
+\begin{eqnarray*}
+  A(r_0,\delta,\epsilon) & = & \sqrt{1-\delta} \exp\left\{\delta^2(s_1+s_2)
+                \right\}. \\
+  s_1 & = & \frac{1}{2 \delta^{2}} \ln \left( \frac{r_{0}^2}{1+\delta}
+                \right). \\
+  s_2 & = & \frac{1}{\epsilon} \ln(\frac{1+\delta}{1-\delta}).
+\end{eqnarray*}
+Therefore the trajectory of any initial state $x_0 \in
+\mathbb{R}^2$ pullback converges to the origin for any
+time $t_0$.
+\[  \lim_{t\rightarrow\infty}r(t,t_0-t,r_0) \leq \lim_{t
+        \rightarrow \infty} A(r_0,\delta,\epsilon) \exp\left\{- \delta^{2}t
+        \right\} = 0. \]
+Hence,
+\[ A^{\e}(t_0) = 0 \qquad \forall t_0 \in \mathbb{R}. \]
+The motion of initial states for this system can be seen
+illustrated below for four points originating outside the unit
+circle. The motion follows a similar pattern to that of the
+original system, however as the state approaches the original
+attractor, it is pushed across the boundary by the small
+perturbation, falling into a region spiraling into the origin as
+in the original autonomous system. The perturbation has caused a
+collapse of the attractor, and here convergence to the original
+semi-group attractor is upper semi-continuous but not lower
+semi-continuous.
+
+\begin{figure}[htb]
+  \begin{center}
+  %\framebox[6.0cm][c]{
+  \leavevmode
+  \hbox{
+  \epsfxsize=9.5cm
+  \epsffile{eps/nlcc.eps}  }%}
+  \protect\caption{Pullback Attractor for a Perturbed Limit Cycle}
+        \protect\label{nlcpic}
+  \end{center}
+\end{figure}
+
+\endinput

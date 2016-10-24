@@ -1,0 +1,441 @@
+\section{Non-Autonomous Dynamical Systems}
+\label{NDSsec}
+
+Dynamical systems theory has for the most part focused largely on
+autonomous systems for which there is a group or semi-group
+evolution property satisfied and attracting objects are invariant
+with respect to time. Non-autonomous dynamical systems however,
+typically possess more varied and complex behaviour,
+exhibiting meaningful properties that are often no longer
+invariant. Hence, the semi-group representation used earlier is no
+longer directly valid as the initial time is now just as important
+as the time elapsed.
+
+\begin{eg}
+ Consider the NDE
+  \begin{equation}
+  \label{NDE} % NDE - Non autonomous differential equation
+  \dot{x} = f(\ta,x),
+  \end{equation}
+  where $\ta \in \mathbb{R}$, and $x \in E \subset \mathbb{R}^d$. Under
+  suitable conditions (\cite{Mo62},\cite{Re72}) and assumptions on the state
+space, $E$, and   continuity of $f$, there exists a unique solution $x =
+x(\ta;t_0,x_0)$,  to the initial value problem defined by $(t_0, x_0 ) \in \mathbb{R} \times E$.
+A  {\bf flow or cocycle property} (sometimes otherwise referred to as a $2$-
+  parameter group property or process) is also satisfied,
+  \begin{equation}
+  \label{CPeg}
+    x(t+\tau+t_0;t_0,x_0) = x(t+\tau+t_0;\tau+t_0,x(\tau+t_0;t_0,x_0)),
+  \end{equation}
+  for all $x_0 \in E$, and $t_0,t,\tau \in \mathbb{R}^+$ which is known as a
+  {\bf flow or cocycle property} (sometimes otherwise referred to as a $2$-
+  parameter group property or process).
+\end{eg}
+\begin{eg}
+The NDE
+\[ \dot{x} = 2\ta x, \]
+has solutions for the initial value problem $(t_0, x_0)$ given by
+\[ x(t+t_0,t_0,x_0) = x_0 e^{(t+t_0)^2 - t_0^2}, \]
+where $t$ is the elapsed time, $\ta = t + t_0$ is the actual time, and $t_0$ is the initial time.
+This then satisfies the cocycle property (\ref{CPeg}). This can be seen
+by noting that
+\begin{align*}
+  x(t+\tau+t_0,t_0,x_0) &= x_0 e^{(t + \tau+ t_0)^2 - t_0^2} \\
+                    &= [x_0 e^{(\tau+t_0)^2 - t_0^2}] e^{(t + \tau+ t_0)^2 -
+                    (\tau+t_0)^2} \\
+                    &= x(t+\tau+t_0,\tau+t_0,x(\tau+t_0,t_0,x_0)).
+\end{align*}
+\end{eg}
+
+The cocycle property (\ref{CPeg}), is the non-autonomous counterpart
+of the group or semi-group evolutionary property (\ref{SGP}), of an
+autonomous dynamical system. Essentially, it is analogous to resetting the
+clock.
+
+\subsection{Skew-Product Flow and Cocycle Representation}
+
+Several abstract formulations have evolved to serve as a
+non-autonomous counterpart to the semi-group representation.
+
+Sell's skew product flows (\cite{Se67},\cite{Se71}) on
+non-autonomous differential equations (\ref{NDE}), retain a
+semi-group property by replacing the dependence on the initial
+time variable with a function space, effectively converting the
+problem to one of an autonomous nature with an altered state
+space.
+
+To do this, Sell's Skew Product flows use the function space
+$\mathcal{F}$, a set of functions $F:\mathbb{R} \times \mathbb{R}^d
+\to \mathbb{R}^d$ that are continuous in both variables and Lipschitz in the second variable uniformly with respect to the first. 
+
+We then proceed to define a group of shift operators on $\mathcal{F}$ such that $\theta_t : \mathcal{F} \to \mathcal{F}$ with $\theta_0=id$ and $\theta_{t} F(t_0, \cdot) = F (t+t_0, \cdot)$. 
+
+Returning to the non-autonomous problem (\ref{NDE}), the product $\mathbb{R}^d \times \mathcal{F}$ of the state space with  this function space provides us with an alternate space that transforms the original non-autonomous problem to an autonomous one. Solutions may then be represented using the semi-group mappings of the previous section.
+
+Unfortunately, an attractor for such a semi-group is then a subset of the product space $\mathbb{R}^d \times \mathcal{F}$ and its meaning in terms of the original dynamics in $\mathbb{R}^d$ is not always clear or convenient. Sell's Skew Product flows are presented formally in the following definition.
+
+\begin{defn}[Skew-Product Flow Representation]
+  Let $\{ \theta_t, t \in \mathbb{R} \}$ act as a group of shift operators
+  on the function space $\mathcal{F}$ such that
+  $\theta_t : \mathcal{F} \to \mathcal{F}$, with $\theta_0=id$ and
+  $\theta_{t} F(t_0, \cdot) = F(t+t_0, \cdot)$. Finally let $\mathcal{X}= E
+  \times \mathcal{F}$ ($E \subseteq \mathbb{R}^d$), and define $S_t:\mathcal{X} \to  
+  \mathcal{X}$ by
+  \[ S_t(x_0,F) = (x(t+t_0;t_0, x_0),\theta_t F). \]
+  Then the family of mappings $\{S_t, t \in \mathbb{R} \}$ is a
+  continuous time semi-group on the state space $\mathcal{X}$ and is known as
+  a {\bf skew-product flow}.
+\end{defn}
+
+The asymptotic behaviour of semi-groups as outlined previously,
+apply to this semi-group also, and can be interpreted to draw
+some, though limited, information about the trajectories and
+characteristics of the non-autonomous system. For example, an
+attractor for such a semi-group generated by a skew product flow
+representation is a subset of the product space $\mathbb{R} \times
+\mathcal{F}$ and its meaning and conceptualisation in terms of the
+original state space is often not always clear or convenient,
+particularly if we wish to compute it numerically. However, this is
+of advantage if the function space is compact.
+
+Note that the semi-group property for the skew product flow,
+\[ S_{t+\tau}(x_0,F) = S_t \circ S_{\tau}(x_0,F), \]
+is also a form of the cocycle property, (\ref{CPeg}).
+In fact, the skew product flow representation is a special
+case of a generalised representation motivated by the
+characteristics of the cocycle property.
+
+\begin{defn}[Cocycle Representation] \label{crep}
+  Let $\{\theta_{t}, t \in \TT \}$ be a group of mappings on a nonempty
+parameter set $P$, that is  $\theta_{t}$ $:$ $P$ $\mapsto$ $P$
+with $\theta_{0}$ $=$ $id$ and $\theta_{t} \circ \theta_{\tau}$
+$=$ $\theta_{t+\tau}$ for all $t$, $\tau$ $\in$ $\TT$.
+
+A family of mappings $\{ \Phi_{(t,p)}, t \in \TT, p \in P \}$ with
+$\Phi_{(t,p)}:X \to X$ is called a {\bf cocycle} on $X$ with
+respect to the group $\{\theta_t, t \in \TT \}$ of mappings on $P$
+if
+  \begin{align}
+    (i) \quad & \Phi_{(0,p)} = id, \qquad \qquad  & \mbox{Identity Property}
+                          \\
+    (ii) \quad & \Phi_{(t +\tau, p)} = \Phi_{(t,\theta_{\tau}p)} \circ
+         \Phi_{(\tau,p)}, & \mbox{Cocycle Property} \label{CP}
+         %CP - cocycle property.
+  \end{align}
+for all  $t,\tau$ $\in$ ${\bf R}^{+}$ and $p$ $\in$ $P$.
+\end{defn}
+
+The set $\TT$ represents the time element for the dynamical
+system, and is usually either $\mathbb{R}$ (continuous time), or
+$\mathbb{Z}$ (discrete time). The state space will usually be the
+set $E$, ($E$ open and $E \subset \mathbb{R}^d$). For the
+following work with cocycles we will keep with the notation of
+using the state space $E$, as these will pertain to ideas
+presented later. However, most of these results are also
+applicable to other forms of the state space or even a generalised
+state space $X$, with some attention to detail. Uniqueness of the
+cocycle representation for a dynamical system is assumed. When
+used as the representation for a non-autonomous differential
+equation, existence and uniqueness of the cocycle follows from the
+usual continuity and Lipschitz conditions on $f$ in the
+differential equation \cite{Mo62}.
+
+Note: $\Phi$ will be used throughout as a cocycle or flow representation
+for non-autonomous dynamical systems to distinguish it from the semi-group
+representation $S_t$ introduced earlier.
+
+\begin{eg}
+  Consider again the initial value problem for Equation (\ref{NDE}),
+  \[ \dot{x} = f(\ta,x). \]
+  Here $\TT = \mathbb{R}$, and $x \in E \subset \mathbb{R}^d$.
+  The solution $x = x(t+t_0;t_0,x_0)$ generates a cocycle
+  $\{ \Phi_{(t,t_0)}; t \in \mathbb{R}^+, t_0 \in \mathbb{R} \}$ on $E$
+  \[ \Phi_{(t,t_0)}(x_0)=x(t+t_0;t_0,x_0) \]
+  with respect to the group $\theta_t; \mathbb{R} \mapsto
+  \mathbb{R}$, where $\{\theta_t;t\in \mathbb{R}^+\}$ is defined by
+  $\theta_t (t_0) = t_0 +t$.
+\end{eg}
+
+The generality involved in defining the parameter space $P$ within the
+cocycle definition is to allow a certain degree of flexibility when
+choosing a representation for the system. For such a generalised parameter set
+we define the following metric on $P$.
+
+\begin{defn}[Metric on $P$]
+  We define the metric $|\cdot|$ on $P$ by
+  \[ |p^* - p| = \{ |t^*| ; \theta_{t^*}p = p^* \}. \]
+  We say $p^* > p$ if  there exists a $t^* > 0$ for which $\theta_{t^*}p = p^*$,
+and $p^* < p$ if there exists a $t^* <   0$.
+\end{defn}
+
+The obvious and straight forward choice for the parameter set is
+the set of all possible initial times as illustrated in the example above. That
+is $P=\mathbb{R}$, with the group mapping defined by $\theta_t(t_0) = t_0 + t$.
+
+An alternative representation for the non-autonomous dynamical system
+(\ref{NDE}) may be obtained by representing $P$ as a function space,
+$\mathcal{F}$, defined by the set of functions $\{f \in \mathcal{F}; f:
+\mathbb{R} \times E \mapsto E \}$, which are continuous in both variables,
+and Lipschitz in the second variable uniformly with respect to the first
+(these are the typical continuity conditions constraining the function
+which defines the non-autonomous differential equation (\ref{NDE})). The
+group mapping is defined as $\theta_t(f(\cdot,\cdot)) =
+f(\cdot+t,\cdot)$. For initial values $x_0$, and
+$f(t_0,x_0)$,  we then have $\{\Phi_{(t,f)};t \in
+\mathbb{R}^+, f \in \mathcal{F}\}$ defined by $\Phi_{(t,f)}(x_0) =
+x(t+t_0;t_0, x_0)$, being a cocycle on $E$. This construction is identical to that used 
+for Sell's Skew Product flows except that it retains the original state space and
+preserves the non-autonomous aspect of the problem. While it appears less
+natural to represent solutions this way it is advantageous in the fact that the function
+space $\mathcal{F}$ can often be chosen to be a compact metric space.
+
+The cocycle formalism introduced here provides a natural generalisation of semi-groups to non-autonomous systems with the advantage of being able to retain the original state space (this is in contrast with representations such as Sell's Skew Product flows). This is of particular advantage since attracting and stable objects may be meaningfully represented on the original state space.
+
+Cocycles have been instrumental in developing numerical and random dynamical systems theory (\cite{Ar98}, \cite{FlSc96}, \cite{CrFl94}, \cite{Sc92}) and many of the results concerning asymptotic behaviour and attractors can be usefully transferred and reworked in the context of deterministic non-autonomous dynamical systems.
+
+\subsection{Asymptotic Behaviour: Stability}
+
+As mentioned earlier, the classical concepts of stability, and
+asymptotic stability are easily transferred to non-autonomous
+systems. These represent the basis for a classical analysis of
+stability. However, they represent a limited view of stability
+within a non-autonomous environment, and also  do not characterise
+attracting structures that may themselves be time-varying. These
+issues will be discussed in greater detail in Chapter
+\ref{cocyclechapter}.
+
+Using the cocycle representation for a non-autonomous system, a
+{\em stable set}, and an {\em asymptotically stable set} are
+defined as follows.
+
+\begin{defn}[Stability]\label{Stable}
+   A nonempty compact subset $A_0 \subset E$, ($E$ open and $E
+   \subset \mathbb{R}^d$) is {\bf stable} under the cocycle mapping
+   $\{ \Phi_{(t,p)} : t \in \mathbb{R}^+, p \in P\}$ on $E$, if for any
+   $\epsilon > 0$, and any $p \in P$, there exists a $\delta(p,
+   \epsilon)>0$ such that
+   \begin{equation}\label{SS}
+   H^*(\Phi_{(t,p)}(\mathcal{N}_{\delta(p)}(A_0)),A_0) < \epsilon,
+            \qquad \forall t \geq 0.
+   \end{equation}
+\end{defn}
+
+If the $\delta$ is independent of $p$, then the stability is
+referred to as uniform with respect to $p$. $A_0$ is said to be
+{\bf uniformly stable}.
+
+\begin{defn}[Asymptotically Stability]
+   A nonempty compact subset $A_0 \subset E$, ($E$ open and $E \subset
+   \mathbb{R}^d$) is {\bf asymptotically stable} under the cocycle mapping
+   $\{ \Phi_{(t,p)} : t \in \mathbb{R}^+, p \in P\}$ on $E$, if it is
+   both {\em stable}, and for any $p \in P$, there exists a $\delta(p)>0$
+   so that for each $x_0 \in \mathcal{N}_{\delta(p)}(A_0)$,
+\begin{equation}\label{ASS1}
+   H^*(\Phi_{(t,p)}(x_0),A_0) \rightarrow 0,
+            \quad \text{as} \quad t \rightarrow \infty.
+   \end{equation}
+\end{defn}
+Alternatively, the attraction property (\ref{ASS1}) may be
+restated slightly differently.  For each $p \in P$, there exists a
+$\delta(p) > 0$, so that for each $\epsilon > 0$, and $x_0 \in
+\mathcal{N}_{\delta(p)}(A_0)$ there is a $T(x_0, p, \epsilon)$
+such that
+\begin{equation}\label{ASS2}
+   \dist(\Phi_{(t,p)}(x_0),A_0) < \epsilon, \qquad \forall t > T.
+\end{equation}
+
+Similarly, if $A_0$ is uniformly stable, $\delta$ is
+independent of $p$, and $T=T(\epsilon)$ only, then $A_0$ is
+said to be {\bf uniformly asymptotically stable} under the cocycle mapping
+$\Phi$. This is the case in autonomous systems when $P$ is a singleton
+set, and hence any stable objects are automatically uniform with respect
+to $p$. The above definition then reduces to the one given in
+(\ref{AASS}).
+
+If in the above definition, $T$ is independent of $x_0$, that is
+$T = T(p,\e)$ only, then $A_0$ is said to be \textbf{
+equi-asymptotically stable}.
+
+We proceed with a few examples to illustrate these concepts.
+
+\begin{eg}
+Consider the non-autonomous dynamical system generated by
+\begin{equation}\label{asseg1eq}
+ \dot{x} = -x + e^{-\ta},
+\end{equation}
+where $x \in \mathbb{R}$, and $\ta \in \mathbb{R}$. The resulting solutions
+may be expressed as a cocycle (note $t$ is the elapsed time)
+\[ \Phi_{(t,t_0)}(x_0) = (t e^{-t_0} + x_0) e^{-t}, \]
+where the group shift mapping $\theta_t$ acts on the parameter space $P =
+\mathbb{R}$, and is defined by $\theta_t (t_0) = t +t_0$. Refer to Figure
+\ref{asseg1} for a graph of solutions for various values of $x_0$ at $t_0 =
+0$. It is noted that for different values of $t_0$, the families of
+solutions follow a similar pattern as that depicted in Figure \ref{asseg1}.
+In particular, the only major difference is in the initial point for which the
+solutions are strictly monotonically decreasing for all $t$. This occurs
+for all $x_0 > e^{-t_0}$.
+
+\begin{figure}[htb]
+\begin{center}
+%\framebox[6.0cm][c]{
+\leavevmode
+\hbox{
+\epsfxsize=8.5cm
+\epsffile{eps/asseg1.eps}  }%}
+\protect\caption{Asymptotic Convergence without Stability}
+      \protect\label{asseg1}
+\end{center}
+\end{figure}
+
+Obviously, the set $A_0 = \{0\}$ is asymptotically approached.
+However it is not asymptotically stable as it lacks the required
+property for stability (all solutions in a neighbourhood of $A_0$
+are guaranteed to travel outside a small enough epsilon
+neighbourhood. Take for example, $\epsilon = 0.1$.
+
+Note, however that it is `eventually stable'. This is often referred to as {\bf
+eventual asymptotic stability}, see \cite{RoHaLa77,Yo66}.
+\end{eg}
+
+\begin{eg}
+Consider the non-autonomous dynamical system generated by the ordinary
+differential equation (where conditions for uniqueness of solutions are
+assumed to be satisfied)
+\[ \dot{x} = f(p,x), \]
+where the state space $X=\mathbb{R}$. It is also known to possess an
+asymptotically stable set $A_0$.
+
+Since $A_0$ is asymptotically stable, there exists a $T(x_0,p,\epsilon)$ for
+every $p \in P$ guaranteeing attraction of any $x_0 \in
+\mathcal{N}_{\delta(p)}(A_0)$ to within an $\epsilon$-neighbourhood of
+$A_0$ in finite time. However, since the resulting solutions are
+unique, the only dependence $T$ has on the initial state $x_0 \in
+\mathcal{N}_{\delta(p)}$, is at the boundaries of the
+neighbourhood. For $\mathcal{N}_{\delta(p)}(A_0) \subset \mathbb{R}$,
+this consists of only two points. Hence for arbitrary $x_0$,
+\[ T(x_0,p,\epsilon) = \max \{T(x_1,p,\epsilon),T(x_2,p,\epsilon)\}, \]
+where $x_1,x_2$ are the boundary points. As $x_1,x_2$ depend on
+$\delta(p)$, we can conclude $T = T(p, \epsilon)$ only. As a result, any
+asymptotically stable set on $\mathbb{R}$ is automatically {\bf
+equi-asymptotically stable}. Note that this is not the case with higher
+dimensional state spaces as then the neighbourhood boundary consists of an
+infinite number of points, and an upper bound for the maximum may not exist.
+\end{eg}
+
+\subsection{Lyapunov Functions and Stability}
+\label{NLFsec}
+
+The concepts and theorems of Section \ref{ALF1} and \ref{ALF2} may
+be extended to dynamical systems of non-autonomous differential
+equations (\ref{NDE}). As the system is now dependent on initial
+times, the Lyapunov function is required to be a function of both
+state and time. As we are generalising to take into account more general parameter 
+fields $P$, the Lyapunov function will be of the form $V=V(p,x)$. Additionally, if the function $f(p,x)$ is periodic in $p$, then a Lyapunov function may be
+chosen (or found to exist) which is also periodic in $p$ (refer to
+\cite{RoHaLa77}).
+
+To investigate the rate of change of $V$ we use the upper right hand \textbf{Dini Derivative} of $V(p,x)$ calculated with respect to time
+\[ \overline{D_t}^{+} V(p,x) = \overline{\lim_{h\to 0^+}} \left[
+    \frac{V( \theta_h p, \Phi_{(h, p)}(x)) - V(p,x)}{h} \right], \]
+where $\Phi_{(t, p)}(x)$ is a solution to the differential equation (\ref{NDE}).
+
+%As with autonomous systems, a simplified and equivalent representation exists. We define this by
+
+%\[ D^{+}_{(\ref{NDE})} V(p,x) = \overline{\lim_{h\to 0^+}} \left[
+%    \frac{V( \theta_h p, x+hf(p,x)) - V(p,x)}{h} \right], \]
+
+%Again, since both ${D}^+_{(\ref{ADE})} V(x)$ and the Dini Derivative are equivalent, they may
+%always be interchanged where convenient. We will typically use the notation 
+%${D}^+_{(\ref{NDE})} V(p, x)$ when considering the decrescence of $V$ as it quickly and accurately
+% displays the system (\ref{NDE}) for which solutions $\Phi_{(t,p)}(x)$ belong. 
+
+The following theorems apply equally to autonomous systems
+and in fact reduce to those presented in Section \ref{ALF2} where
+$V(p,x)$ need only be a function of $x$.
+
+
+\subsubsection{Stability Theorems}
+
+\begin{therm}[Lyapunov Stability - Theorem]
+\label{LStherm} \hfill \\
+  A nonempty compact subset $A_0$ of $E$ is {\em stable}
+  if there exists a Lyapunov function $V:P \times
+  \mathcal{N}_R(A_0), \mapsto \mathbb{R}^+$, for some $R>0$ that satisfies
+  the following properties for some $a \in \mathcal{K}$ and for every
+  $(p,x) \in P \times \mathcal{N}_R(A_0)$:
+  \begin{enumerate}
+    \item $x \in A_0$, $\qquad V(p,x)=0$,
+    \item $a({\rm dist}(x,A_0)) \leq V(p,x)$,
+    \item $V(p,x)$ is locally Lipschitz in $x$, uniformly with $p$.
+    \item $\overline{D_t}^{+} V(p,x) \leq 0$.
+  \end{enumerate}
+  If in addition there is a $b \in \mathcal{K}$ so that we have $V(p,x)
+  \leq b({\rm dist}(x,A_0))$, then $A_0$ is {\em locally uniformly stable}.
+\end{therm}
+
+\begin{therm}[Lyapunov Uniform Asymptotic Stability - Theorem]
+\label{LAStherm} \hfill \\
+  A nonempty compact subset $A_0$ of $E$ is {\em uniformly
+  asymptotically stable} if there exists a Lyapunov function
+  $V:P \times \mathcal{N}_R(A_0), \mapsto \mathbb{R}^+$, for
+  some $R>0$ that satisfies the following properties for some $a,b$ and $c
+  \in \mathcal{K}$ and for every $(p,x) \in P \times
+  \mathcal{N}_R(A_0)$:
+  \begin{enumerate}
+    \item $a({\rm dist}(x,A_0)) \leq V(p,x) \leq b({\rm dist}(x,A_0))$,
+    \item $V(p,x)$ is locally Lipschitz in $x$, uniformly with $p$.
+    \item $\overline{D_t}^{+} V(p,x) \leq -c({\rm dist}(x,A_0))$.
+  \end{enumerate}
+\end{therm}
+
+{\bf Remark 1.} If the above two theorems are satisfied with
+$\mathcal{N}_R(A_0) = E$ and
+\[ a(r) \to \infty \quad \text{as} \quad r \to \infty, \]
+then the stability of $A_0$ is {\em global} in each case.
+
+{\bf Remark 2.} The existence of a Lyapunov function satisfying
+the above three conditions, with the exception that the first is satisfied
+only so that
+\begin{enumerate}
+  \item $a({\rm dist}(x,A_0)) \leq V(p,x), \quad V(p,0) = 0$,
+\end{enumerate}
+that is, there is no upper bounding $b \in \mathcal{K}$ for $V$, then there
+can be no guarantee that $V$ implies uniform asymptotic stability, nor even
+asymptotic stability.
+
+{\bf Remark 3.} The last condition may be replaced by
+$\overline{D_t}^{+} V(p,x) \leq -c V(p,x)$ and the result is still valid.
+
+\subsubsection{Converse Theorems}
+
+Variations of a converse theorem for Lyapunov's Theorem for
+uniform asymptotic stability above, exist in several forms. In
+many cases it is useful to know only that given an asymptotically
+stable set, a Lyapunov function does exist, and exhibits certain
+characteristics, even if the actual function is not known. We will
+use a converse theorem in developing various results analysing
+perturbations of existing systems in later chapters. For
+reference, it is given below.
+
+\begin{therm}[Lyapunov Uniform Asymptotic Stability - Converse Theorem]
+  \label{LUASCtherm} \hfill \\
+  Given a uniformly asymptotically stable subset $A_0$ of $E$
+  there exists a Lyapunov function $V:P \times
+  \mathcal{N}_R(A_0), \mapsto \mathbb{R}^+$, for some $R>0$ that satisfies
+  the following properties for some $a \in \mathcal{K}$, and some
+  constant $c > 0$, and for every $(p,x) \in P \times
+  \mathcal{N}_R(A_0)$:
+\begin{enumerate}
+    \item $V(p,x) \geq a({\rm dist}(x,A_0))$, $\qquad V(p,0)=0$,
+    \item $|V(p,x)- V(p,x')| \leq h(p) ||x-x'||$,
+    \item $\overline{D}^{+}_t V(p,x) \leq -c V(p,x)$,
+  \end{enumerate}
+  where $h(p)$ is a continuous scalar function.
+\end{therm}
+
+{\bf Remark 1.} If the system is autonomous, or if the original
+function $f(p,x)$ in (\ref{NDE}) satisfies a Lipschitz condition for
+any compact set $K$ on $E$, then the function $h(p)$ may be simply
+represented by a constant.
+
+\endinput

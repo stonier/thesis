@@ -1,0 +1,269 @@
+\documentstyle{article}
+
+\parskip 3mm
+\parindent 0mm
+
+\newlength{\widen} \newlength{\heighten}
+
+\setlength{\widen}{0.45in}
+\setlength{\heighten}{0.45in}
+
+\addtolength{\oddsidemargin}{-\widen}
+\addtolength{\evensidemargin}{-\widen}
+\addtolength{\textwidth}{2\widen}
+\addtolength{\topmargin}{-\heighten}
+\addtolength{\textheight}{2\heighten}
+
+\addtolength{\oddsidemargin}{+0.5in}
+\addtolength{\evensidemargin}{-0.5in}
+
+\title{Lyapunov Functions, Stability, and Boundedness}
+\author{Daniel Stonier}
+\date{April 7}
+
+\newtheorem{defn}{Definition}[section]
+\newtheorem{eg}{Example}[section]
+\newtheorem{therm}{Theorem}[section]
+
+
+\begin{document}
+
+\maketitle
+
+Referenced books.
+\begin{tabbing}
+  \hspace{1cm} \= [1] \= T.Yoshizawa \hspace{1.7cm} \= Stability Theory by
+  Lyapunov's Second Method \\
+  \> [2] \> H. Khalil \> Nonlinear Systems - Chapter 4\\
+  \> [3] \> P.Kloeden, B.Schmalfus \> Non-Autonomous Systems,  Cocycle
+  		Attractors \\
+  \> \> \>  and Variable Time-Step Discretization \\
+  \> [4] \> R.J.Stonier \> Phd Thesis Ch2 \\
+  \> [5] \> T.Yoshizawa \> Lyapunov's Function and Boundedness of Solutions -
+  		pp. 97-98\\
+
+\end{tabbing}
+
+\section{Dini Derivitive}
+
+{\bf [1] 'Yoshizawa' pp 3-4}
+
+\begin{defn}[Dini Derivitive]
+  {\bf ([1] - page 3)}
+  Given the continuous lyapunov function, $V(t,x(t))$, for the system
+  $\dot{x} = F(t,x)$, the {\bf dini derivitive} is defined as being
+  \[ \dot{V_{d}} = \lim_{h \rightarrow 0} \frac{1}{h} \{
+                             V(t+h,x(t)+hF(t,x))) - V(t,x) \} \]
+  \end{defn}
+
+\begin{therm}
+  If the lyapunov function is lipschitz as well as differentiable, then
+  \[ \dot{V_{d}}(t,x(t)) = \dot{V}(t,x(t)) \]
+\end{therm}
+
+\begin{footnotesize}
+  {\bf  Proof:}
+  Begin by proving $\dot{V}(t,x(t)) \leq \dot{V_{d}}(t,x(t))$.
+
+  \begin{tabbing}
+    \hspace{1in} \= $V(t+h,x(t+h)) - V(t,x(t))$ \= = \= $V(t+h,x+hF(t,x) +
+                   h \epsilon ) - V(t,x)$ \\
+    \> \> $\leq$ \> $V(t+h,x+hF(t,x)) + Lh||\epsilon|| - V(x,t)$ \\
+  \end{tabbing}
+  Using the limit defns of the dini and derivitives, and $\epsilon
+  \rightarrow 0$ as $h \rightarrow 0$, we have $\dot{V}(t,x(t)) \leq
+  \dot{V_{d}}(t,x(t))$.
+
+  Now, proving $\dot{V_{d}}(t,x(t)) \leq \dot{V}(t,x(t))$.
+
+  \begin{tabbing}
+    \hspace{1in} \= $V(t+h,x(t+h)) - V(t,x(t))$ \= = \= $V(t+h,x+hF(t,x) +
+                   h \epsilon ) - V(t,x)$ \\
+    \> \> $\geq$ \> $V(t+h,x+hF(t,x)) - Lh||\epsilon|| - V(x,t)$ \\
+  \end{tabbing}
+  And, as before this leads to $\dot{V_{d}}(t,x(t)) \leq \dot{V}(t,x(t))$.
+  Combining the two results, we have proven the original statement :
+  \[ \dot{V_{d}}(t,x(t)) = \dot{V}(t,x(t)) \]
+\end{footnotesize}
+
+\section{Lyapunov Results for Uniform Asymptotic Stability}
+
+{\bf [1] 'Yoshizawa' pp 31-5, [2] 'Kahlil' pp 166-171}
+
+Note the following lyapunov result has a converse, and is applicable only to
+\underline{uniformly} aysymptotically stable sets. For the convenience, the
+definition for uas is repeated below.
+
+\begin{defn}[Stable Sets]
+
+  {\bf [3] 'Kloeden, Schmalfuss' sec 2}
+
+  A nonempty compact set $A_{0}$, under the semigroup $S(t)$, is {\bf
+  uniformly stable} if for any $\epsilon > 0$ there exists a $\delta = \delta
+  ( \epsilon) > 0$ (ie dependant only on $\epsilon$, this is what makes it
+  uniform w.r.t. time - see example) so that
+
+  \[ dist(u(t;u_{0}),A_{0}) < \epsilon \hspace{1in} \forall t \geq 0 \]
+
+\begin{eg}[Stable, But Not Uniformly Stable Set]
+  Consider the dynamical system represented by the equation
+
+\[ x(t) = c \frac{\exp^{(c^{2} - 1)t}}{t} \]
+
+Then the set $x = 0$ is a stable, but not uniformly stable set. To see this
+note that the stable neighbourhood is bounded by the solutions for $c=-1,1$
+which are $x(t) = \frac{-1}{t} and x(t) = \frac{1}{t}$. See diagram below.
+
+\vspace{10cm}
+
+The 'stableness' of the system decreases for larger initial time. Given any
+$\epsilon > 0$, it is impossible to pick a $\delta = \delta(\epsilon)$ only,
+since you would eventually get to a point where $\frac{1}{t} < \delta$. The
+$\delta$ needed is given by
+
+\[ \delta(\epsilon,t_{0}) = min \{ \epsilon, \frac{1}{t_{0}} \} \]
+
+Hence the system is stable, but is not uniformly stable.
+
+\end{eg}
+
+  In addition it is {\bf uniformly asymptotically stable} if for
+  every bounded subset D, and $\epsilon > 0$ there exists a $T_{\epsilon,D} >
+  0$ (again uniformity - dependant only on $\epsilon$ and not $t_{0}$) such
+  that
+
+  \[ dist(S_{t}(u_{0}),A_{0}) < \epsilon \hspace{1mm} \forall u_{0} \in D, t
+   		\geq t_{0} + T_{\epsilon,D} \]
+\end{defn}
+
+\begin{therm}[Necessary conditions for uniform asymptotic stability]
+  Given a compact uniformly asymptotic stable set $A$, and $f(x)$ is
+  uniformly lipschitz on some large neighbourhood of $A$. Then $\exists
+  R_{0} > 0$ and a lyapunov function:
+
+  \[ V : \Re^{+} \times \aleph (A, R_{0}) \rightarrow \Re^{+} \]
+
+  which satisfies the following properties.
+  \begin{tabbing}
+    \hspace{2cm} \= i) \hspace{5mm} \= $V$ is Lipschitz on
+                        $\aleph(A,R_{0}) $ \\
+    \> ii) \>  $\exists$ cts, strictly increasing functions $\alpha, \beta
+      : [0,R_{0}) \rightarrow \Re^{+}$ with $\alpha (0) = \beta(0) = 0$ \\
+    \> \> and $\alpha (r) < \beta(r)$ such that  \\
+    \> \> \hspace{2cm} $\alpha (dist(x,A)) \leq V(x) \leq \beta(dist(x,A))
+                      $ \\
+    \> iii) \> $\exists C > 0$ such that \\
+    \> \> \hspace{2cm} V(S(t)U) $\leq e^{-Ct} V(U)$, $0 \leq t \leq T$ \\
+    \> \> provided $S(t)U \in \aleph (A, R_{0})$, $0 \leq t \leq T$ \\
+  \end{tabbing}
+  \label{yoshi}
+\end{therm}
+
+The sufficiency condition is similar, and can be found in Khalil.
+
+\section{Boundedness}
+
+{\bf [1] 'R.J.Stonier' Ch. 2}
+
+\begin{defn}[Strongly Bounded]
+  A Dynamical System is {\em Strongly Bounded} with respect to a point
+  $\xi$ if for each $(x_{0},t_{0}) \exists \hspace{4mm} \beta
+  (x_{0},t_{0})$ such that
+  \[ \rho ( S_{(t,t_{0})}(x_{0}),\xi) < \beta \hspace{1cm} \forall t \geq
+					  t_{0} \]
+\end{defn}
+
+\begin{defn}[Equi Bounded]
+  A Dynamical System is {\em Equi Bounded} with respect to a point
+  $\xi$ if for each $\alpha$, and $t_{0} \exists \hspace{4mm}
+  \beta (\alpha,t_{0})$ such that
+
+  \[ \rho ( S_{(t,t_{0})}(x_{0}),\xi) < \beta \hspace{1cm} \forall t \geq
+  					t_{0} \hspace{0.5cm} x_{0} \in
+					\aleph_{\alpha}(\xi) \]
+\end{defn}
+
+\begin{defn}[Uniformly Bounded]
+  A Dynamical System is {\em Uniformly Bounded} with respect to a point
+  $\xi$ if the $\beta$ in the definition above is dependant only on $\alpha$
+  and not $t$. ie. $\beta = \beta (\alpha)$.
+\end{defn}
+
+{\bf Note:} Equibounded implies strongly bounded but not the other way
+around. Consider the example (in polars)
+
+\begin{eg}[Strong, but not Equi]
+
+{\bf [5] 'Yoshizawa' p.97-8}
+
+\[ \dot{r} = r \frac{\dot{g}(t,\theta)}{g(t,\theta)} \]
+\[ \dot{\theta} = 0 \]
+
+where the function $g(t,\theta)$ is
+
+\[ g(t,\theta) = \frac{(1+t) \sin^{2}\theta}{sin^{4}\theta +
+		 (1-t \sin^{2}\theta)^{2}} + \frac{1}{(1+\sin^{4} \theta)
+		 (1+t^{2})} \]
+
+The solution is then simply
+
+\[ r = r_{0} g(t,\theta) \]
+
+Consider solutions for $\theta = 0$. $r = \frac{r_{0}}{1+ t^2}$. And
+therefore any point on the $\theta = 0$ line is bounded by $r_{0}$. Every
+point approximately close by is also bounded since r has a maximum finite
+bound for each point. To see this let $\tau = \frac{1}{\sin^{2}\theta}$
+
+\[ r = r_{0} \frac{(1 + t)}{1 + (t - \tau)^{2}} +
+		\frac{\tau^{2}}{1+\tau^{2}} . \frac{1}{1 + t^{2}} \]
+
+The last term is irrevelant as it gets smaller as t increases.
+The first term increases until $t = \tau$, after which it decreases until
+the whole solution approaches the origin. So any particular individual point
+(in particular, for each $\tau$) is bounded by the value set by it's own $t
+= \tau$ value.  However, the origin is not equi bounded since in any
+neighbourhood of the $\theta = 0$ axis, we can find a sequence of points so
+that $\theta \rightarrow 0^{+}$ ($\tau \rightarrow \infty$), and for $t =
+\tau$ for all points in the n'hood, we have $r \rightarrow \infty$ when $t
+\rightarrow \infty$ for points closing in on the $\theta = 0$ axis. That is
+there is no finite bound that works for all solutions within the $\alpha$
+n'hood of the origin.
+\end{eg}
+
+\begin{defn}[Ultimate Boundedness]
+   A dynamical system is {\bf ultimately bounded} in a neighbourhood of the
+set $\theta$, if there exists $b > 0$ and for each $(x,t) \in X \times
+\Re^{+}$, there exists $T(x,t) > 0$ for which
+
+\[ S_{(t',t)}(x) \in \aleph_{b}(\theta) \hspace{1cm} \forall t' > t + T \]
+\end{defn}
+
+\begin{defn}[Quasi Equi-Ultimate Boundedness]
+   A dynamical system is {\bf quasi equi-ultimately bounded} in a
+neighbourhood of the set $\theta$, if given any $\alpha > 0$ and  $x \in
+\aleph_{\alpha}(\theta)$ there exists $T = T(\alpha,t)$ as in the previous
+definition for which
+
+\[ S_{(t',t)}(x) \in S_{b}(\theta) \hspace{1cm} \forall t' > t + T \]
+\end{defn}
+
+\begin{defn}[Equi-Ultimate Boundedness]
+   A dynamical system is {\bf equi-ultimately bounded} in a
+neighbourhood of the set $\theta$, if given any $\alpha > 0$ and  $x \in
+\aleph_{\alpha}(\theta)$ and any $t_{0} \in \Re^{+}$, there exists $T =
+T(\alpha,t)$ as in the previous definition for which
+
+\[ S_{(t',t)}(x) \in S_{b}(\theta) \hspace{1cm} \forall t' > t + T \]
+\end{defn}
+
+Note that a system is equi-ultimate if the conditions hold for all t, while
+they only have to hold for some values of t to be quasi-equi-ultimate.
+
+\begin{defn}[Uniform-Ultimate Boundedness]
+   A dynamical system is {\bf uniformly - ultimately bounded} in a
+neighbourhood of the set $\theta$, if in the previous definition the $T$ is
+dependant on $\alpha$ only. ie $T = T(\alpha)$.
+\end{defn}
+
+\end{document}
+

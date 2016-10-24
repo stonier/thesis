@@ -1,0 +1,44 @@
+
+\section{Associated Attractor Results}
+
+In Section \ref{ANsec}, a pullback absorbing neighbourhood was
+shown to guarantee the existence of a pullback attractor within a
+pullback absorbing neighbourhood. However, confirmation in a
+likewise manner for forward attractors cannot be achieved.
+
+The only available approach to locate a forward attractor in a similar fashion
+is to locate a pullback attractor via an absorbing neighbourhood and determine
+its uniformity. The property of uniformity implies completeness of attraction
+(and hence forward convergence). This is formalised in the following lemmas
+which are an extension of Lemmas \ref{upscslem}, \ref{ufscslem},
+\ref{upascaslem}, \ref{ufascaslem}.
+
+\begin{lemma}
+\label{uattlem}
+If pullback attraction to a pullback attractor $\hat{A}$ is uniform, then
+$\hat{A}$ is a complete attractor.
+\end{lemma}
+\begin{prf}
+Pullback attraction to $\hat{A}$ is uniform. That is, given an $\e > 0$,
+there exists a $\hat{\delta} = \{\delta\}$ only, and a $T=T(\e)$ such that for
+every $p \in P$ and for all $t > T(\e)$
+\[ H^*(\Phi_{(t,\theta_{-t}p)}(\mathcal{N}_{\delta}(A(\theta_{-t}p)),A(p))
+                        < \e. \]
+We make the substitution $\theta_t p$ for $p$ in the above
+equation, noting that the bounds $\delta$ and $T(\e)$ are
+independent of $p$ and thus still valid. Then for some $\e > 0$,
+every $p \in P$ and $t > T(\e)$,
+\[ H^*(\Phi_{(t,p)}(\mathcal{N}_{\delta}(A(p)),A(\theta_t p)) < \e. \]
+Thus $\hat{A}$ satisfies the property of forwards convergence and as a
+result is a {\em complete attractor}.
+\end{prf}
+
+\begin{lemma}
+If forward attraction to a forward attractor $\hat{A}$ is uniform, then
+$\hat{A}$ is a complete attractor.
+\end{lemma}
+\begin{prf}
+The proof for the second Lemma follows similarly.
+\end{prf}
+
+\endinput

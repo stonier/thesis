@@ -1,0 +1,547 @@
+
+\section{Absorbing Neighbourhoods}
+\label{ANsec}
+
+It is possible to extend the concept of the absorbing set introduced in
+Definition \ref{abs} for autonomous dynamical systems to a broader
+classification of an absorbing neighbourhood for application within
+non-autonomous dynamical systems.
+
+However, the applicability of using such absorbing neighbourhoods
+in a non-autonomous environment (compare with the Limit Set
+Theorem (\ref{attset}) for autonomous systems) is relevant only to
+objects possessing pullback asymptotically stable characteristics.
+In this situation, Theorem \ref{attset} may be extended with
+application to pullback attracting structures. A similar extension
+is not possible for non-autonomous systems with forward
+asymptotically stable properties. This is considered in more
+detail in Section \ref{secFAN}.
+
+It is also important to note that the use of absorbing neighbourhoods
+is identical to that of the original absorbing sets when applied to autonomous
+systems.
+
+\subsection{Pullback Absorbing Neighbourhoods}
+
+For generality we consider families of sets dependent on $p \in P$ that possess
+pullback absorbing properties. This allows us to conveniently describe
+motions around pullback attractors that may vary with $p \in P$. Thus we
+will refer to them as pullback absorbing neighbourhoods.
+
+A set $A$ is said to {\bf pullback absorb} another set
+$B$ at $p \in P$ if there exists a $T = T(p,B)$ such that
+\[ \Phi_{(t, \theta_{-t}(p))}(B) \subset A \qquad \forall t > T. \]
+Similarly, a family of sets $\hat{A} = \{A(p):p \in P \}$ is
+said to {\bf pullback absorb} another family of sets $\hat{D} = \{D_p:p \in
+P\}$ at $p \in P$, if there exists a $T=T(p,\hat{D}) >0$ such that,
+\[ \Phi_{(t,\theta_{-t}p)}(D_{\theta_{-t}(p)}) \subset A(p)) \qquad
+             \forall t > T. \]
+A {\em pullback absorbing neighbourhood} is then defined as
+
+\begin{defn}[Pullback Absorbing Neighbourhoods] \label{PANdef}
+   A family $\hat{B}=\{B(p);p \in P\}$ of uniformly bounded compact subsets
+   of $E$, is called a {\bf Pullback Absorbing Neighbourhood} for a
+   cocycle $\{\Phi_{(t,p)}; t \in \mathbb{R}^{+},p \in P\}$ on $E$
+   if it pullback absorbs a uniformly bounded $\delta$ -
+   neighbourhood system of $\hat{B}$. That is, there exists an open
+   $\delta$-neighbourhood system
+   $\hat{\mathcal{N}}_{\hat{\delta},\hat{B}}$ defined by a delta set
+   $\hat{\delta} = \{\delta_p \in \mathbb{R}^+; p\in P\}$ so that for each
+   $p \in P$, there exists a $T_p>0$ such that
+   \begin{equation}
+     \Phi_{(t,\theta_{-t}p)}(\mathcal{N}_{\delta_p}(B(\theta_{-t}(p)))
+     \subset B(p) \qquad \forall t > T_p.
+   \end{equation}
+\end{defn}
+
+In many situations a single set $B$, for a dynamical system may be found
+which satisfies the requirements for a pullback absorbing neighbourhood for
+all $p$, that is $\hat{B} = B$. Indeed when this is the case many of the
+results associated with it become greatly simplified. The situation arising
+in Example \ref{per2deg} is such a case.
+
+In certain cases it may be possible to find a pullback absorbing
+neighbourhood that is positively invariant, however it is usually easier
+and less restrictive to consider neighbourhoods which satisfy only the
+above definition. Note that a pullback absorbing neighbourhood
+automatically satisfies the following property.
+
+\begin{lemma} \label{panepilem}
+If $\hat{B}$ is a pullback absorbing neighbourhood, then for each $p \in P$
+there exists a $T_p > 0$ such that
+\[ \Phi_{(t,\theta_{-t}(p))}(B(\theta_{-t}(p)))
+     \subset B(p) \qquad \forall t > T_p. \]
+\end{lemma}
+
+\vspace{0.5cm}
+
+\begin{eg}
+For this illustration we refer back to Example \ref{introeg}. A diagram
+illustrating the system's dynamics is repeated here for convenience (see
+Figure \ref{pb2eg}).
+\begin{figure}[htb]
+\begin{center}
+%\framebox[6.0cm][c]{
+\leavevmode
+\hbox{
+\epsfxsize=9.5cm
+\epsffile{eps/pbeg.eps}  }%}
+\protect\caption{Introductory Example}\protect\label{pb2eg}
+\end{center}
+\end{figure}
+
+Finding a pullback absorbing neighbourhood that is
+positively invariant typically requires a detailed knowledge of the system's
+dynamics. Here however, a single constant set such as $B =
+[-2,2]$, that is merely pullback absorbing for any $p \in P$, may be used
+to verify the existence of a pullback attractor. This will be shown shortly
+using Theorem \ref{abspat}, and is indeed a much simpler approach than finding a
+positively invariant family.
+\end{eg}
+
+Pullback absorbing neighbourhoods provide a means with which to
+identify pullback attractors in a similar fashion to that of absorbing sets
+for semi-group attractors.
+
+Again, it is often much easier to find a pullback absorbing neighbourhood system
+rather than the pullback attractor itself. Indeed, in many systems the attractor
+cannot be found and written explicitly and an estimate based on the progression
+of an absorbing neighbourhood must be made.
+
+The following theorem is an extension of Theorem \ref{attset}
+applied to pullback absorbing neighbourhoods for cocycles.
+
+A similar theorem has been presented by B. Schmalfuss \cite{Sc99},
+however the construction for the pullback attractor differs
+slightly as was mentioned in Section \ref{ANSsec}. The key
+difference lies in the assumption of uniformity present in a neighbourhood of
+attraction for the attractor which (as has been shown) may not neccessarily 
+exist.  Positive invariance of the absorbing
+neighbourhood is also assumed \cite{Sc99}. Although technically more
+complicated, neither uniformity nor positive invariance are required here.
+
+\begin{therm}
+  \label{abspat}
+  Let $\{\Phi_{(t,p)};t \in \mathbb{R}^+, p \in P \}$ be a cocycle of
+  continuous mappings on $E$ with a Pullback Absorbing Neighbourhood
+  $\hat{B}$. Then there exists a pullback attractor $\hat{A} = \{ A(p); p
+  \in P \}$ uniquely determined for each $p \in P$ by
+  \begin{equation}
+  \label{patfromabs}
+  A(p) = \bigcap_{\tau \geq 0} \overline{\bigcup_{t \geq \tau}
+            \Phi_{(t,\theta_{-t}p)}(B(\theta_{-t}p))}.
+  \end{equation}
+\end{therm}
+
+\begin{prf}
+  \hspace{3mm} \\
+  \hspace*{3mm} Proposing as our attractor the family of sets $\hat{A} =
+  \{ A(p); p \in P \}$ defined above we have
+  \[ A(p) = \bigcap_{\tau \geq 0} \overline{\bigcup_{t \geq \tau}
+            \Phi_{(t,\theta_{-t}p)}(B(\theta_{-t}p))} \]
+  Since $A(p)$ is an infinite intersection of nested compact sets, it must
+  contain at least one accumulation point. Hence we may conclude $A(p)$ is
+  non-empty. To show that this is indeed a pullback attractor, it must meet the
+  requirements in Definition \ref{PAdef}. This will be done in three steps.
+
+  \hspace*{3mm} i) {\em Uniform Boundedness and Compactness} : From
+  (\ref{patfromabs}) and using Lemma \ref{panepilem}
+  \begin{align*}
+  A(p) &= \bigcap_{\tau \geq 0} \overline{\bigcup_{t \geq \tau}
+            \Phi_{(t,\theta_{-t}p)}(B(\theta_{-t}p))}, \\
+  &\subseteq \bigcap_{\tau \geq T_p} \overline{\bigcup_{t \geq \tau}
+            \Phi_{(t,\theta_{-t}p)}(B(\theta_{-t}p))}, \\
+  &\subseteq \bigcap_{\tau \geq T_p} \overline{\bigcup_{t \geq \tau}
+            B(p)}, \\
+  &= \overline{B(p)}.
+  \end{align*}
+  Hence $\hat{A}$ is uniformly bounded since $\hat{B}$ is uniformly bounded
+  with respect to $p$. The attractor set is also compact as it is an
+  intersection of compact sets.
+
+  \hspace*{3mm} ii) {\em Pullback Property} : We need to find a pullback
+  convergent neighbourhood system as in (\ref{PAPC}). First we shall show
+  that $\hat{A}$ pullback attracts $\hat{B}$ at every $p \in P$. That is,
+  for each $p \in P$
+  \begin{equation}
+  \label{abscatp2}
+    \lim_{t \to \infty} H^* (\Phi_{(t, \theta_{-t}p)} (B(\theta_{-t}p)),
+           A(p)) = 0,
+  \end{equation}
+  where $A(p)$ is defined as above.
+
+  Assume this is not the case. Then for some $\epsilon > 0$ there exists
+  sequences $t_j \to \infty$ and $x_j \in \Phi_{(t_j,
+  \theta_{-t_j}p)} (B(\theta_{-t_j}p))$ such that
+  \begin{equation}
+  \label{abscatp3}
+    \dist(x_j,A(p)) > \epsilon \qquad \forall j.
+  \end{equation}
+  For large enough $j$, $x_j \in B(p)$ (Lemma \ref{panepilem}). Now since
+  $B(p)$ is compact, there exists a subsequence $t_{j'} \rightarrow
+  \infty$ and an associated convergent subsequence, $x_{j'} \to x_0$ with
+  $x_0 \in B(p)$. For any $\tau > 0$, the $x_{j'}$ satisfy
+  \[ x_{j'} \in \bigcup_{t \geq \tau} \Phi_{(t,\theta_{-t}p)}
+          (B(\theta_{-t}p)), \hspace{2cm} \quad t_{j'}>\tau. \]
+  As $x_0$ is the limit, we have for any $\tau \geq 0$,
+  \[ x_0 \in \overline{\bigcup_{t \geq \tau} \Phi_{(t,\theta_{-t}p)}
+         (B(\theta_{-t}p))}, \]
+  and hence
+  \[ x_0 \in \bigcap_{\tau \geq 0} \overline{\bigcup_{t \geq \tau}
+            \Phi_{(t,\theta_{-t}p)}(B(\theta_{-t}p))}. \]
+That is, $x_0 \in A(p)$, which contradicts (\ref{abscatp3}) and this implies
+$\dist(x_0,A(p)) \geq \e$. As the choice of $p$ was arbitrary, (\ref{abscatp2})
+holds true for all $p \in   P$.
+
+  From (\ref{abscatp2}), for any $\epsilon > 0$, and each $p \in P$, there
+  exists a $t_1 = t_1(\epsilon,p)$ such that
+  \[ H^*(\Phi_{(t_1,\theta_{-t_1}p)}
+           (B(\theta_{-t_1}p),A(p)) < \epsilon. \]
+  Let us take $\hat{\mathcal{N}}_{\hat{\delta}^*,\hat{A}}$ as our
+  neighbourhood system for the attractor, $\hat{A}$, defined by
+  $\hat{\delta}^* = \{ \delta^*_p; \delta^*_p =
+  \delta_{\theta_{-t_1}(p)}, \delta_p \in \hat{\delta} \}$
+  where $\hat{\delta}$ defines $\hat{\mathcal{N}}_{\hat{\delta}, \hat{B}}$,
+  the associated $\hat{\delta}$-neighbourhood of $\hat{B}$. We need to show
+  that $\hat{A}$ pullback attracts the system
+  $\hat{\mathcal{N}}_{\hat{\delta}^*,\hat{A}}$.
+
+  Using the cocycle property, and because $B(p)$ is pullback absorbing, we
+  can formulate attraction for elements of
+  $\hat{\mathcal{N}}_{\hat{\delta}^*,\hat{A}}$
+  \begin{equation*}
+  \begin{split}
+  &H^*(\Phi_{(t,
+  \theta_{-t}p)}(\mathcal{N}_{\delta^*_p}(A(\theta_{-t}p)),A(p)) \\
+  & \qquad \leq H^*(\Phi_{(t,
+  \theta_{-t}p)}(\mathcal{N}_{\delta^*_p}(B(\theta_{-t}p)),A(p)) \\
+  &\qquad = H^*(\Phi_{(t_1, \theta_{-t_1}p)}
+          \circ \Phi_{(t-t_1,
+          \theta_{-t}p)}
+          (\mathcal{N}_{\delta^*_p}(B(\theta_{-t}p)),A(p)) \\
+  &\qquad \leq H^*(\Phi_{(t_1, \theta_{-t_1}p)}
+          (B(\theta_{-t_1}p),A(p)) \\
+  &\qquad \leq \epsilon
+  \end{split}
+  \end{equation*}
+  for all $t > t_{(\theta_{-t_1}p)} +t_1$, where
+  $t_{(\theta_{-t_1}p)}$ is the finite absorption time described in the definition of  
+  the pullback absorbing neighbourhood.
+  Hence $\hat{A}$ satisfies the pullback property for each $p \in P$, that is,
+  \[ \lim_{t \to \infty} H^* (\Phi_{(t, \theta_{-t}p)}
+            (\mathcal{N}_{\delta^*_p}(A(\theta_{-t}p)),A(p)) = 0. \]
+
+  \hspace*{3mm} iii) {\em $\Phi$-Invariance} : We are required to prove
+  that the family of sets constituting $\hat{A}$ is equivariant as defined
+  in (\ref{PAInv}). Consider an element of the family $A(\theta_{-t^*}p)
+  \in \hat{A}$ for arbitrary $p$, and any $t^*>0$
+  \begin{equation}\label{shiftedatt}
+     A(\theta_{-t^*}p) = \bigcap_{\tau \geq 0} \overline{ \bigcup_{t \geq
+             \tau} \Phi_{(t, \theta_{-(t + t^*)}p)} (B(\theta_{-(t +
+             t^*)}p))}.
+  \end{equation}
+
+  First, we need to show
+  \begin{equation}\label{inclusion}
+  \begin{split}
+  & \Phi_{(t^*, \theta_{-t^*}p)}\left(\bigcap_{\tau \geq 0} \overline{
+\bigcup_{t         \geq \tau} \Phi_{(t, \theta_{-(t + t^*)}p)} (B(\theta_{-(t +
+        t^*)}p))}\right), \\
+  & \qquad = \bigcap_{\tau \geq 0} \Phi_{(t^*, \theta_{-t^*}p)}\left( \overline{
+     \bigcup_{t \geq \tau} \Phi_{(t, \theta_{-(t + t^*)}p)} (B(\theta_{-(t +
+        t^*)}p))}\right). \\
+  \end{split}
+  \end{equation}
+  The inclusion "$\subset$" is trivial. To prove "$\supset$", let $x$ be an element
+  of the right hand side,
+  \[ x \in \bigcap_{\tau \geq 0} \Phi_{(t^*, \theta_{-t^*}p)}\left( \overline{
+     \bigcup_{t \geq \tau} \Phi_{(t, \theta_{-(t + t^*)}p)} (B(\theta_{-(t +
+        t^*)}p))})\right). \]
+  Then for each $\tau > 0$, there exists
+  \[ x_{\tau} \in \overline{\bigcup_{t \geq \tau} \Phi_{(t, \theta_{-(t +
+        t^*)}p)} (B(\theta_{-(t + t^*)}p))}, \]
+  such that $x = \Phi_{(t^*, \theta_{-t^*}p)}(x_{\tau})$. For $\tau$ large
+  enough, $x_{\tau} \in B(\theta_{-t^*}p)$ due to Lemma \ref{panepilem}.
+  $B(\theta_{-t^*}p)$ is compact and hence there exists a subsequence
+  $\tau' \to \infty$, and an associated convergent subsequence
+  $x_{\tau'} \to x^*$ with $x^* \in B(\theta_{-t^*}p)$.
+
+  Now, given $\tau > 0$, we have
+  \[ x_{\tau'} \in \overline{\bigcup_{t \geq \tau} \Phi_{(t, \theta_{-(t +
+        t^*)}p)} (B(\theta_{-(t + t^*)}p))} \qquad \forall \tau' > \tau. \]
+  Further because of closure,
+  \[ x^* \in \overline{\bigcup_{t \geq \tau} \Phi_{(t, \theta_{-(t +
+        t^*)}p)} (B(\theta_{-(t + t^*)}p))}, \]
+  for any $\tau > 0$. Hence
+  \[ x^* \in \bigcap_{\tau \geq 0} \overline{\bigcup_{t \geq \tau} \Phi_{(t,
+        \theta_{-(t + t^*)}p)} (B(\theta_{-(t + t^*)}p))}. \]
+  Finally, the limit and continuity of the cocycle implies that
+  \[ \Phi_{(t^*,\theta_{-t^*}p)}(x^*) = x, \]
+  and so $x$ also belongs to
+  the left hand side. This verifies (\ref{inclusion}).
+
+  Returning to (\ref{shiftedatt}), using the result above and also making
+  use of the cocycle property, we have
+  \begin{align*}
+  \Phi_{(t^*, \theta_{-t^*}p)} &(A(\theta_{-t^*}(p))) \\
+  &=\Phi_{(t^*, \theta_{-t^*}p)}\left(\bigcap_{\tau \geq 0}
+       \overline{ \bigcup_{t
+       \geq \tau} \Phi_{(t, \theta_{-(t + t^*)}p)} (B(\theta_{-(t +
+       t^*)}p))}\right), \\
+  &= \bigcap_{\tau \geq 0} \Phi_{(t^*, \theta_{-t^*}p)}\left(
+     \overline{\bigcup_{t \geq \tau} \Phi_{(t, \theta_{-(t + t^*)}p)}
+     (B(\theta_{-(t + t^*)}p))}\right), \\
+  &= \bigcap_{\tau \geq 0} \overline{\bigcup_{t \geq \tau} \Phi_{(t^*,
+     \theta_{-t^*}p)} \Phi_{(t, \theta_{-(t + t^*)}p)} (B(\theta_{-(t +
+     t^*)}p))}, \\
+  &= \bigcap_{\tau \geq 0} \overline{\bigcup_{t \geq \tau} \Phi_{(t+t^*,
+     \theta_{-(t+t^*)}p)} (B(\theta_{-(t + t^*)}p))}, \\
+  &= \bigcap_{\tau \geq t^*} \overline{\bigcup_{s \geq \tau} \Phi_{(s,
+     \theta_{-s}p)} (B(\theta_{-s}p))},
+  \end{align*}
+  where we have made the substitution $s = t + t^*$. Now, for all $\tau <
+  t^*$,
+  \[ \overline{\bigcup_{s \geq \tau} \Phi_{(s, \theta_{-s}p)}
+     (B(\theta_{-s}p))} \supseteq \overline{\bigcup_{s \geq t^*} \Phi_{(s,
+     \theta_{-s}p)} (B(\theta_{-s}p))}. \]
+  Hence
+  \begin{align*}
+  \Phi_{(t^*, \theta_{-t^*}p)} &(A(\theta_{-t^*}p)) \\
+  &= \bigcap_{\tau \geq 0} \overline{\bigcup_{s \geq \tau} \Phi_{(s,
+     \theta_{-s}p)} (B(\theta_{-s}p))} \\
+  &= A(p). \\
+  \end{align*}
+  Thus the conditions for $\Phi$-Invariance are satisfied.
+\end{prf}
+
+ \begin{eg}[ {\em Attractor for a Perturbed Limit Cycle} ] \hfill \\ \label{per2deg}
+  Consider the two dimensional autonomous dynamical system
+  \begin{align*}
+    \dot{x} &= y + x - x(x^{2} + y^{2}), \\
+    \dot{y} &= -x +y - y(x^{2} + y^{2}). \\
+  \end{align*}
+  This system possesses an attractor $A_0$, being the stable limit
+  cycle centred on the unit circle. Now, suppose the original system is
+  perturbed slightly with a small non-autonomous perturbation resulting in
+  the dynamical system defined by
+  \begin{align*}
+    \dot{x} &= y + x - x(x^{2} + y^{2}) + \epsilon \cos(2\ta), \\
+    \dot{y} &= -x +y - y(x^{2} + y^{2}) + \epsilon \cos(2\ta). \\
+  \end{align*}
+  A transformation to polar co-ordinates yields
+  \begin{align*}
+    \dot{r} &= r(1-r^2) + (\cos \theta + \sin \theta) \epsilon \cos(2\ta), \\
+    \dot{\theta} &= -1 + \frac{1}{r^2} (\cos \theta - \sin \theta) \epsilon
+                             \cos(2\ta). \\
+  \end{align*}
+  If the perturbation parameter $\epsilon$, is kept small, it could be
+  expected that a pullback attractor may exist in the vicinity of the original
+  attractor $A_0$. To begin our search for such a pullback attractor, let us
+  start with the dynamics.
+
+  The $\theta$ dynamics remain rotating in the same
+  direction if $\epsilon$ is small enough, so we need only be concerned with
+  the radial variable. Similarly if we take $\epsilon$ small enough, let us
+  say $\epsilon < 0.5$, then we have $\dot{r}$ positive for $r \leq 0.5$, and
+  $\dot{r}$ negative for $r \geq 1.5$. Knowing this, we construct a
+  toroidal shaped pullback absorbing neighbourhood for the non-autonomously perturbed
+  system
+  \[ B = \{ (r,\theta) ; 0.5 \leq r \leq 1.5 \}. \]
+  In this case, our pullback neighbourhood needs only a single set, and
+  satisfies all the conditions required for a pullback absorbing
+  neighbourhood.
+
+    \begin{figure}[htb]
+  \begin{center}
+  %\framebox[6.0cm][c]{
+  \leavevmode
+  \hbox{
+  \epsfxsize=9.5cm
+  \epsffile{eps/per2dc.eps}  }%}
+  \protect\caption{Pullback Attraction to a Non-Autonomously
+                          Perturbed Limit Cycle}
+        \protect\label{per2dpic}
+  \end{center}
+  \end{figure}
+
+  By Theorem \ref{abspat} we verify the
+  existence of a pullback attractor, $\hat{A}$ contained within $B$. In fact,
+  by numerically pullback integrating $B$ to arrive at an
+  estimation for (\ref{patfromabs}), we obtain a good approximation for
+  $\hat{A}$. Using this approach, initial states from the inner and
+  outer boundaries of $B$ were mapped (using a Runge-Kutta method)
+  from a pulled back initial time towards a fixed final time. This process
+  was repeated for various values of the final time between $\ta = 40$ and $\ta
+  = 50$, and the final approximations for $A(\ta)$ were plotted, see Figure
+  \ref{per2dpic}. As can be seen the original fixed limit cycle has
+  evolved with the non-autonomous perturbation to become a structure with
+  similar characteristics, but now moving periodically (due to the
+  nature of the $\cos(2t)$ perturbation) around the old limit cycle, $A_0$.
+\end{eg}
+
+A converse result for the above theorem also holds under
+restricted conditions on the neighbourhood. If a non-autonomous
+dynamical system possesses a pullback attractor for which its
+pullback attracting neighbourhood system is known to be
+independent of $p$ (that is, $\hat{\delta} = \delta$), then it can
+be shown that there exists an associated pullback absorbing
+neighbourhood. This condition effectively places a uniformity
+requirement on the pullback attractivity of the pullback
+attractor. This result is proved in \cite{Kl98}, and reiterated in a
+similar fashion here for completeness.
+
+\begin{therm}
+  \label{catabs}
+  Let $\{\Phi_{(t,p)};t \in \mathbb{R}^+, p \in P \}$ be a cocycle of
+  continuous mappings on $E$ with a pullback attractor $\hat{A} = \{ A(p); p
+  \in P \}$ that pullback attracts a $\delta$-neighbourhood system
+  $\hat{\mathcal{N}}_{\delta,\hat{A}}$ for some $\delta > 0$. Then there
+  exists a Pullback Absorbing Neighbourhood $\hat{B}$, associated with
+  $\hat{A}$.
+\end{therm}
+\begin{prf} \hfill \\
+  By Theorem \ref{papasthm}, the pullback attractor $\hat{A}$ is {\em
+  pullback asymptotically stable}, and hence also {\em pullback stable}. If
+  we take $\epsilon = \delta$ (where $\delta$ is such that $\hat{A}$
+  pullback attracts $\hat{\mathcal{N}}_{\delta,\hat{A}}$), then there
+  exists a corresponding $\hat{\delta}^* = \{ \delta_p^* \in \mathbb{R}^+ ;
+  p \in P \}$ as in the definition for pullback stability.
+
+  We construct a $\delta$-neighbourhood system
+  $\hat{\mathcal{N}}_{(\hat{\delta}^*, \hat{A})}$ of $\hat{A}$ defined by
+  $\hat{\delta}^*$ (note that this system will also serve as a pullback
+  attracting neighbourhood system for the pullback attractor $\hat{A}$),
+  and propose as our Pullback Absorbing Neighbourhood $\hat{B} = \{ B(p); p
+  \in P \}$ where
+  \[ B(p) = \overline{\bigcup_{t \geq 0} \Phi_{(t, \theta_{-t}(p))}
+        (\mathcal{N}_{\delta_p^*}(A(\theta_{-t}(p)))}, \]
+  for each $p \in P$. To see that it is indeed a pullback absorbing
+  neighbourhood for the pullback attractor $\hat{A}$ we must show it
+  satisfies the conditions in Definition \ref{PANdef}. This is accomplished
+  in two stages.
+
+  \hspace*{3mm} i) {\em Boundedness and Compactness}: Given the
+  pullback stability of $\hat{A}$ and the method of construction of $B(p)$,
+  it is easy to see that $B(p) \subseteq \mathcal{N}_{\delta}(A(p))$ for
+  every $p \in P$. Hence $\hat{B} \subseteq \mathcal{N}_{(\delta,
+  \hat{A})}$ which is uniformly bounded and so $\hat{B}$ is also uniformly
+  bounded. It is also compact due to the closure.
+
+  \hspace*{3mm} ii) {\em Pullback Absorption} :
+  Note that $\hat{\mathcal{N}}_{\delta, \hat{A}}$ also qualifies as a
+  $\delta$ - neighbourhood system for $\hat{B}$. We will proceed to show
+  that $\hat{B}$ pullback absorbs this $\delta$-neighbourhood system.
+
+  $\hat{A}$ pullback attracts $\hat{\mathcal{N}}_{\delta, \hat{A}}$,
+  and hence for each $p \in P$, there exists a $T=T(\delta^*_p, p)$ such
+  that
+  \begin{align*}
+  \Phi_{(t,\theta_{-t}(p))}(\mathcal{N}_{\delta}(A(\theta_{-t}(p)))
+  &\subseteq \mathcal{N}_{\delta^*_p}(A(p))\\
+  &\subseteq B(p), \\
+  \end{align*}
+
+  for all $t > T$. Thus $\hat{B}$ pullback absorbs the
+  $\delta$-neighbourhood system $\hat{\mathcal{N}}_{\delta, \hat{A}}$.
+\end{prf}
+
+\subsection{Forward Absorbing Neighbourhoods}
+\label{secFAN}
+
+A forward absorbing neighbourhood may be constructed in a similar
+manner to that above. However, analysis of a limiting object as in Theorem
+\ref{abspat}  cannot be undertaken in a similar fashion.
+
+To see this, consider an appropriately defined
+neighbourhood with forward absorbing properties.
+
+The set $A$ is said to {\bf forward absorb} another set
+$B$ from $p \in P$ if there exists a $T = T(p,B)$ such that
+\[ \Phi_{(t, (p))}(B) \subset A \qquad \forall t > T. \]
+Similarly, a family of sets $\hat{A} = \{A(p):p \in P \}$ is
+said to {\bf forward absorb} another family of sets $\hat{D} = \{D_p:p \in
+P\}$ at $p \in P$, if there exists a $T=T(p,\hat{D}) >0$ such that,
+\[ \Phi_{(t, p)}(D(p)) \subset A( \theta_{t}p)) \qquad
+             \forall t > T \]
+A {\em forward absorbing neighbourhood} is then defined as
+
+\begin{defn}[Forward Absorbing Neighbourhood] \label{FANdef}
+   A family $\hat{B}=\{B(p);p \in P\}$ of uniformly bounded compact subsets
+   of $E$, is called a {\bf Forward Absorbing Neighbourhood} for a
+   cocycle $\{\Phi_{(t,p)}; t \in \mathbb{R}^{+},p \in P\}$ on $E$
+   if it forward absorbs a uniformly bounded $\delta$-neighbourhood
+   system of $\hat{B}$. That is, there exists an open
+   $\delta$-neighbourhood system
+   $\hat{\mathcal{N}}_{\hat{\delta},\hat{B}}$ defined by a delta set
+   $\hat{\delta} = \{\delta_p \in \mathbb{R}^+; p\in P\}$ so that for each
+   $p \in P$, there exists a $T_p>0$ such that
+   \begin{equation}
+     \Phi_{(t, p)}(\mathcal{N}_{\delta_p}(B(p))
+     \subset B(\theta_t p) \qquad \forall t > T_p.
+   \end{equation}
+\end{defn}
+
+\begin{eg}
+Consider again Example \ref{introeg}. In this dynamical system
+the constant set $B=[-2,2]$ satisfies the requirements for a forward absorbing
+neighbourhood. However, if the limiting set is calculated in a similar fashion
+as \ref{patfromabs}, we find
+\begin{align*}
+A &= \bigcap_{\tau \geq 0} \overline{\bigcup_{t \geq \tau} \Phi_{(t,p)}(B)}, \\
+  &= [ -1/ \sqrt{2}, 1/ \sqrt{2}]. \\
+\end{align*}
+$A$ is not invariant and hence does not satisfy the conditions for
+a forward attractor.
+\end{eg}
+
+It is not even possible to draw any conclusions regarding the existence of a
+forward attractor within a forward absorbing neighbourhood. This is illustrated
+in the following counter-example which possesses a forward absorbing
+neighbourhood that does not contain a forward attractor.
+
+\begin{eg}
+Consider the non-autonomous dynamical system arising from the ODE
+\[ \dot{x} = \frac{10e^{-\ta}}{1+10e^{-\ta}}( - x + \tanh(\ta/2) ) +
+                \frac{2e^{-\ta}}{(1+e^{-\ta})^2}. \]
+Its behaviour is similar to those examples presented in Section
+\ref{stabatt} and is shown in Figure \ref{acasegfig}.
+
+We propose the set $B = [-1.5,1.5]$ as an absorbing neighbourhood. By
+considering bounds on the derivative, it can be seen that $\dot{x}$ is always
+negative (and positive respectively) on the upper (and lower respectively)
+boundaries of the neighbourhood. Hence $B$ is positively invariant
+and is both a pullback and forward absorbing neighbourhood. By Theorem
+\ref{abspat}, we can conclude there exists a pullback attractor contained
+within $B$. Determined analytically, the pullback attractor takes the form
+$A(\ta) = \tanh(\ta/2)$.
+
+\begin{figure}[htb]
+\begin{center}
+%\framebox[6.0cm][c]{
+\leavevmode
+\hbox{
+\epsfxsize=9.5cm
+\epsffile{eps/acaseg.eps}  }%}
+\protect\caption{$\hat{A}$ is not a Forward Attractor}
+\protect\label{acasegfig} \end{center}
+\end{figure}
+
+However, as seen in Figure \ref{acasegfig}, it is clear that $B$ does not
+forward converge to a distinctly defined forward attractor, nor even to the
+pullback attractor $\hat{A}$.
+
+Analytically this is clear upon investigation of the solutions expressed using
+a cocycle representation,
+\[ \Phi_{(t,t_0)}(x_0) = \tanh((t+t_0)/2) +\frac{1+10e^{-(t+t_0)}}
+         {1+10e^{-t_0}}(x_0 - \tanh(t_0/2)). \]
+Solutions originating at any $(t_0,x_0)$ do not approach any closer than a
+distance of $(x_0 - \tanh(t_0/2))/(1+10e^{-t_0})$ from the pullback attractor.
+\end{eg}
+
+The above result is in contrast with both pullback results and analogous results
+for autonomous systems. The reasons permitting attractor structures to exist
+within pullback absorbing neighbourhoods and not necessarily for forwards
+absorbing neighbourhoods, or of a method to guarantee existence of a forward
+attractor are open topics for further research.
+
+\endinput

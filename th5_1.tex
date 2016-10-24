@@ -1,0 +1,134 @@
+
+\chapter[Lyapunov Theory]{Lyapunov Theory for Non-Autonomous
+         Dynamical Systems} \label{Lyapchapter}
+
+\section{Introduction}
+
+Lyapunov functions provide an effective practical and theoretical tool in
+assisting in the analysis of a dynamical's system stability, either in
+verification of its stability or as a method of determining controls to ensure
+its stability. They have also been used theoretically to
+characterise a particular stability property, which has been useful in
+approximating asymptotically stable sets in perturbed autonomous systems (of
+which numerical approximations are included) \cite{St94}.
+
+Lyapunov functions were introduced earlier (Section \ref{ALF1}, \ref{NLFsec})
+to illustrate their use and importance in asserting the forward stability of
+sets that remain constant over time. In this chapter we will concern ourselves
+with \textit{time-varying} families of sets, and Lyapunov functions associated with
+forward, complete and pullback stability results respectively and the
+difficulties arising with using such techniques for pullback behaviour.
+
+To clearly state the problem we will initially define a few general assumptions
+concerning the dynamical system under investigation and the character of
+Lyapunov functions.
+
+We consider the non-autonomous differential equation
+\begin{equation}
+\label{NDEeq}
+\dot{x} = f(p, x ),
+\end{equation}
+and assume the following properties hold.
+
+{\bf F1:} The function $f(p, x)$ is continuous in both $p$ and $x$.
+
+{\bf F2:} $f(p, \cdot)$ satisfies locally a Lipschitz condition with respect to
+$x$. That is, for any given $\delta > 0$, and $x'$ such that $|x - x'| <
+\delta$, there exists a constant $L(p, \delta)$ satisfying
+\[ |f(p, x) - f(p, x')| < L(p, \delta)|x - x'|. \]
+
+{\bf F3:} There is a group of mappings $\{\theta_t, t \in
+\mathbb{R}^+ \}$ with $\theta_t : P \to P$, continuous on $P$ and satisfying
+$\theta_{t} \circ \theta_{\tau}$ $=$ $\theta_{t+\tau}$ for all $t$, $\tau$
+$\in$ $T$.
+
+A Lyapunov function $V(p, x)$ will be assumed to be a scalar continuous
+function that satisfies locally a Lipschitz condition with respect to $x$.
+The Dini Derivative is used to measure the rate of change of $V$ for trajectories 
+in (\ref{NDEeq}). It is repeated here for ease of reference.
+\begin{equation}
+\label{Dinieq}
+  \overline{D_t}^+ V(p, x) = \overline{\lim_{h \to 0}} \frac{V(\theta_{h}p,
+\Phi_{(h, p)}(x)) - V(p, x)}{h}.
+\end{equation}
+
+\subsection{Lemmas}
+The subsequent lemmas will be utilised throughout the rest of this
+chapter in the various Lyapunov proofs. The first ascertains a
+single neighbourhood for a uniformly forward asymptotically stable
+family, for which solutions from any state within the
+neighbourhood are guaranteed to remain close for all time, and to
+also attract asymptotically toward the sets in consideration.
+
+\begin{lemma}
+\label{intro1lem}
+If $\hat{A} = \{A(p); p \in P\}$ is uniformly forward asymptotically stable,
+then given any $\e^* > 0$ there exists a $\delta = \delta(\e^*)$ such that for
+any $\e > 0$, and each $p \in P$, $x \in \mathcal{N}_{\delta} (A(p))$,
+\begin{align*}
+  i) \quad & \dist( \Phi_{(t, p)}(x), A(\theta_{t}p)) < \e^* \hspace{1cm} &
+  \text{for all} \quad t > 0, \\
+  ii) \quad & \dist( \Phi_{(t, p)}(x), A(\theta_{t}p)) < \e \hspace{1cm} &
+  \text{for all} \quad t > T(\e),
+\end{align*}
+where $T=T(\e)$ is as defined for uniform forward asymptotic stability.
+The same parameters then also hold for uniform pullback asymptotic stability.
+\end{lemma}
+\begin{prf}
+  Let $\delta = \min \{ \delta_1, \delta_2  \}$ where $\delta_1 =
+  \delta_1(\e^*)$ as defined for stability, and $\delta_2$ as defined for
+  asymptotic attraction. The results i), ii) follow immediately.
+
+  Due to uniformity, the equivalence of forward and pullback stability
+  guarantees the same parameters will satisfy the conditions for pullback
+  asymptotic stability.
+\end{prf}
+
+The following two lemmas (the first being Gronwall's Lemma which can be found in
+one version or another in various texts, see for example \cite{Pe91}) provide
+bounds on differences in solutions beginning from initial values close to one
+another.
+
+\begin{lemma}[Gronwall's Lemma]
+\label{intro2lem}
+Given $x_0, x_1$ such that $|\Phi_{(t, p)}(x_0) - \Phi_{(t, p)}(x_1))| <
+\e$, for some $\e > 0$, and any $t > 0$, then
+\[ | \Phi_{(t, p)}(x_0) - \Phi_{(t, p)}(x_{1} ) | \leq |x_{0} - x_{1}|
+\exp\left( \int_{0}^{t} L(\theta_{s} p, \e) ds\right). \]
+\end{lemma}
+\begin{prf}
+We have
+\begin{align*}
+| \Phi_{(t, p)}(x_0) - &\Phi_{(t, p)}(x_{1} ) |  \\
+  &\leq |x_0 - x_1| + \int_0^t
+       |f(s, \Phi_{(s, p)}(x_0)) - f(s, \Phi_{(s, p)}(x_1))| ds, \\
+  &\leq |x_0 - x_1| + \int_0^t L(\theta_{s} p, \e)|\Phi_{(s, p)}(x_0) -
+            \Phi_{(s, p)}(x_1))| ds. \\
+\end{align*}
+Taking the derivative with respect to $t$,
+\[  \frac{d|\Phi_{(t, p)}(x_0) - \Phi_{(t, p)}(x_{1} ) |}{dt} \leq
+      L(\theta_{t}p,\e)|\Phi_{(t, p)}(x_0)  - \Phi_{(t, p)}(x_1))|, \]
+or
+\[  \frac{d}{dt} \left(|\Phi_{(t, p)}(x_0) - \Phi_{(t, p)}(x_{1} ) | \exp\left(
+   - \int_{0}^{t} L(\theta_{s} p, \e) ds\right) \right) \leq 0, \]
+Hence we arrive at the required result,
+\[ | \Phi_{(t, p)}(x_0) - \Phi_{(t, p)}(x_{1} ) | \leq |x_{0} - x_{1}|
+           \exp\left( \int_{0}^{t} L(\theta_{s} p, \e) ds\right). \]
+\end{prf}
+
+The following lemma is an elementary result that provides a bound for
+differences of solutions that lie on the same trajectory. It is also
+feasible to consider the maximum over larger intervals, as will be assumed
+in Theorem \ref{confasthm}.
+
+\begin{lemma}
+\label{intro3lem}
+For each $p, x$ such that any solutions in future time exist and are unique,
+and any $t' < t$,
+\[  | \Phi_{(t, p)}(x) - \Phi_{(t', p)}(x) | \leq \max_s \{ |f(\theta_s p, x)|
+  \} |t - t'|, \]
+where the maximum is taken over the interval $t' < s < t$.
+\end{lemma}
+
+
+\endinput

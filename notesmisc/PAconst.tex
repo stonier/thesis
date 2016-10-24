@@ -1,0 +1,62 @@
+\documentclass{article}
+
+\usepackage{dlayout}
+
+\title{Physical Construction of a Cocycle Attractor}
+\author{Daniel Stonier}
+
+\begin{document}
+
+\maketitle
+
+\section{Construction for One Dimensional Systems}
+
+We propose as the cocycle attractor a family of bounded, compact sets of
+the form $A(t) = f(t)$, where $f(t)$ is a smooth continuous function.
+From this we attempt to define a non-autonomous system with exponential
+attraction to this proposed cocycle attractor.
+
+Consider
+
+\begin{equation}
+  \dot{x} = - x + f(t) + f'(t)
+\label{sys}
+\end{equation}
+
+Solving we get
+
+\begin{align*}
+  \frac{d}{dt}[x e^t] & = e^t[f(t) + f'(t)] \\
+  (xe^t)|_{t_0}^{t} & = \int_{t_0}^{t}e^tf(t)dt +
+                \int_{t_0}^{t}e^tf'(t)dt \\
+  xe^t - x(t_0)e^{t_0} & = (e^tf(t))|_{t_0}^{t} - \int_{t_0}^{t}e^tf'(t)dt
+                + \int_{t_0}^{t}e^tf'(t)dt \\
+  x(t) & = f(t) + [x(t_0) - f(t_0)]e^{-(t-t_0)} \\
+\end{align*}
+
+To see that $A(t) = f(t)$ is a cocycle attractor for the system
+(\ref{sys}), consider the pullback properties of solutions to time $t_0$.
+
+\[ x(t^*,t_0-t^*,x_0) = f(t_0) + [x_0 - f(t_0-t^*)]e^{-t^*} \]
+
+then if we place the restriction that the function $f(t)$ is
+subexponentially bounded, i.e. $\lim_{|t| \to \infty}e^{-\alpha|t|}f(t) =
+0$, $\forall \alpha > 0$, we have solutions converging exponentially
+towards the proposed cocycle attractor. Also that solutions originating on
+$f(t)$ are invariant.
+
+\section{Varying the Exponential Convergence Rate}
+
+To increase the exponential rate at which the solutions converge to the
+attractor consider the equation (\ref{sys}) slightly modified as follows
+
+\begin{equation}
+  \dot{x} = - \alpha x + \alpha f(t) + f'(t)
+\label{sysa}
+\end{equation}
+
+Solutions to this are then of the form
+
+\[ x(t^*,t_0-t^*,x_0) = f(t_0) + [x_0 - f(t_0-t^*)]e^{-\alpha t^*} \]
+
+\end{document}

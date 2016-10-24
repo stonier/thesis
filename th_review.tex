@@ -1,0 +1,40 @@
+
+\documentclass[12pt]{book}
+
+\usepackage{phd}
+% \usepackage[active]{srcltx}
+
+\begin{document}
+\pagestyle{empty}{}{}
+
+Most of the changes required were simple textual or diagramatical changes (grammar etc). Any comments on these are made on the sheets faxed through. The following are some brief comments with regards to the more significant amendments requested by both Examiners.
+
+\section{Examiner 1}
+
+The major change requested (also by Examiner 2) was to remove the confusion/ambiguity created by
+using $t$ to represent two concepts, occasionally within the same problem. The initial problem arose due to the contrasting conventions within differential equations theory, where $t$ typically represents the actual time, and dynamical systems where semi-group mappings and cocycles use $t$ for the elapsed time. 
+
+I've replaced all instances of $t$ where it represents the actual time with $\ta$. If it needs to be chosen a little less similar it can be done through a single entry in the phd.sty file. Just let me know.
+
+\section{Examiner 2}
+
+\textbf{ Points 19-21, 29)} Requested changing the references in many definitions and theorems from the form "there exists \textem{a} $\delta > 0$", or "there exists \textem{a} $T > 0$" to the form "there exists $\delta > 0$" (i.e. omitting the 'a' in such references).
+
+There seems to be two, actually three different common methods applied to representing such concepts in the literature. Many of the newer texts in real/functional analysis and dynamical systems ("Introductory Real Analysis" - Dangello/Seyfried, "DE's and Dynamical Systems" - L.Perko) use the style I have used in the thesis, whereas others often omit the '{\em a}'. 
+
+The third style is to strictly express such concepts mathematically (e.g. $\forall \epsilon >0 \exists \delta > 0$). This is probably the best way to write such concepts, however the former two styles are typically used for ease of reading. 
+
+As far as expressing it in english, I believe either of the first two styles are fine - they both express the mathematical concept without conflicting with any element of it.
+I have left the thesis as is for the moment as there's a good chance I'll miss some and I'm not sure its an essential change. If it is really needed I can make the change. 
+
+\textbf{Points 33,47,48,50 and others)} Dini Derivatives - I had incorrectly defined early in the thesis (in the autonomous section) an equivalent function which wasn't by strict definition the Dini Derivative by definition (point 33). The one I used was the one adopted by Yoshizawa and Kloeden in their work. I have rewritten this, introducing the strict definition of the Dini D. for V, and then introducing the equivalent definition which I use in Chapter 4 with a reference to Yoshizawa for the equivalence proof. 
+
+Moving on to Dini Derivitives for non-autonomous systems (point 47-48,50), the function I use throughout the rest of the thesis for non-autonomous theory is the actual Dini Derivative. In addition, I dont ever require the Dini D. in a form such as that given in point 47) so I have omitted introducing this. I did however, make changes to the way it was written - I deleted the unused simplified expression I originally had here on page 22 (this was originally incorrectly labelled as the Dini D.) and replaced it with the definitive Dini Derivative. It is also defined in such a way that it includes general parameter fields $P$ and not just the special case where $P = T$. This brings it into line with the rest of the asymptotic definitions which are all generalised for parameter fields $P$.
+
+\textbf{Points 38,39,43)} Skew Product Flows and Function Spaces- I had written this very early in the thesis. Going over it, I picked up a couple of errors which no doubt made it unclear as expressed in these comments. Consequently, it got a complete rewrite, hopefully should be clarified and correct in its present form.
+
+\textbf{Points 6, 55 and others)} Notation for systems of neighbourhood families. I think he missed
+the point of these which probably wasn't too hard to do. It was a long while of playing around with examples and concepts before I found I finally needed these, and some time further before I realised these were the equivalents of classical forward asymptotic analysis, just expressed differently with the pullback analysis and the roving attractors. At any rate, since he missed the reasoning behind it, no doubt it wasn't written as well as it could have been. Gave the whole section a rewrite - hopefully it will read a little better now. The few notational hats ($\hat{\mathcal{N}}$) I missed have also been included.
+
+
+\end{document}

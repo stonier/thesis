@@ -1,0 +1,393 @@
+\documentclass{article}
+\usepackage{dlayout}
+\usepackage{color, graphics}
+%\usepackage{amsmath, amsfonts, amssymb}
+
+
+\begin{document}
+\section{Attractor Definitions}
+
+Much of the work developed by Kloeden et. al. originated and
+remains in an investigation into global attractors. The development of his ideas
+carry these concepts of global attraction into a local context.
+
+Alternatively, the approach that I have used in the thesis
+investigates the entire subject of stability within non-autonomous
+systems, that is, stability, asymptotic stability and attraction
+from a local perspective. It addresses the requirements of local
+definitions in a different manner than the approach of Kloeden's.
+
+The following analysis is an attempt to clearly illustrate the
+problems with Kloeden's constructions, and hence the justification
+and outline for the approach I have used in the thesis. This
+change in perspective required a need to reconstruct several key
+base theorems before the latter results in the thesis were
+developed.
+
+There are several considerations involved when uniquely defining the
+differences between global and local forward/pullback attractors. We step
+through the process of definition beginning with a global analysis and then
+addressing the changes needed when shifting to a local context.
+
+\subsection{Global Attractors}
+
+The situation for global attractors is distinctly simplified in as much as
+convergence of solutions to a pullback/forward attractor need only consider
+attraction of bounded subsets within $\mathcal{R}^d$. Much of  Kloeden's
+analysis involves the assumption of global attractors and hence the mechanics
+for such attractors remains relatively simple.
+
+\subsection{Local Forward Attractors}
+
+The local region of attraction for local forward attractors has
+long been defined in terms of $\delta$ - neighbourhoods that vary
+with respect to time. For example, for each $p \in P$ (the
+parameter set $P$ is typically represented by the set of initial
+times, however the theory leaves it generalised for various
+reasons which are not relevant here), there exists a
+$\delta_p$-neighbourhood of the attractor $A(p)$ at $p$ so that
+the neighbourhood asymptotically converges in the usual forward
+sense to the attractor. That is, for each $p \in P$ there exists a
+$\delta_p > 0$ such that
+\[ \lim_{t \to \infty} H^*( \Phi_{(t, p)}(\mathcal{N}_{\delta_p}(A(p)),
+   A(\theta_t p)) = 0. \]
+Here $\mathcal{N}_{\delta_p}(A(p)$ represents a $\delta$ -
+neighbourhood of the forward attractor $\hat{A}$ at $p$.
+
+Using Kloeden's terminology this can be alternatively stated as possessing a
+domain of attraction $\mathcal{D}_{att}$ consisting of all families of bounded
+subsets $\hat{D} = \{D_p ; p \in P \}$ with $\hat{D} \in \mathcal{D}_{att}$ such
+that each $\hat{D}$ converges to the attractor $\hat{A}$. That is for each
+$\hat{D} \in \mathcal{D}_{att}$, and each $p \in P$
+\begin{equation}\label{dattdefn}
+  \lim_{t \to \infty} H^*( \Phi_{(t, p)}(D_p), A(\theta_t p)) = 0.
+\end{equation}
+This construction is expressed in a similar fashion to the usual
+definitions for global attractors. However it only applies to
+forward equi-asymptotically stable families as attractors are
+automatically equi-asymptotically stable.
+
+By contrast, using $\delta$ - neighbourhoods as I have adopted in the
+thesis, it is a straightforward procedure to also discuss concepts of
+stability, asymptotic stability as well as attraction.
+
+\subsection{Local Pullback Attractors}
+
+How to construct the concept of domains of attraction for local pullback
+attractors? As mentioned there are two approaches, one I have used within the
+thesis, and the other adopted for cocycle attractors by Kloeden et. al.
+
+\subsubsection{Stonier's Construction:}
+
+Since we are interested in a set of state values which converge to
+the attractor at some point $p \in P$, it would be intuitive to analyse the
+characteristics of convergence to $A(p)$ from some reasonably constant
+neighbourhood of the attractor. Hence for each $p \in P$ we determine
+\[ \lim_{t \to \infty} H^*( \Phi_{(t,
+        \theta_{-t}p)}(\mathcal{N}_{\delta_p}(A(\theta_{-t}p)), A(p)), \]
+that is, the convergence of a neighbourhood of constant size as it is pulled
+back in time.
+
+It was deemed contextually important to adopt a similar terminology to that used
+for forward attraction, to bring the concepts of stability and
+attraction within non-autonomous systems together as a cohesive analysis.
+The various examples developed in the thesis justified the modifications made,
+and refined the notation. Some of the key concerns that illustrate the
+differences with Kloeden's construction (presented later)  are given below.
+
+To be analogous to neighbourhoods of attraction for local forward
+attractors, it would be expected that the size (determined by
+$\delta_p$) of this neighbourhood may in some instances vary with
+$p \in P$. This is in fact demonstrated with the example below
+which possesses a non-uniform (with respect to $p$) neighbourhood
+of pullback attraction.
+
+\begin{example}\label{pavnhoodeg}
+Consider the one dimensional dynamical system generated by
+\begin{equation*}
+  \dot{x} =
+     \begin{cases}
+       - e^t, & \text{if $x > e^{3t}$;} \\
+       - (3/2)x^{1/3}, & \text{if $-e^{3t} \leq x \leq e^{3t}$;} \\
+       e^{t}, & \text{if $x < -e^{3t}$.} \\
+     \end{cases}
+\end{equation*}
+Here the parameter set is simply represented by the set of all initial time
+values, that is, $P = R$. We have smoothness of the
+derivative across the boundaries  $s^+(t) = e^{3t}$ and $s^-(t) =
+e^{3t}$, guaranteeing uniqueness and existence
+of solutions except at the origin which finite attracts solutions in
+a local neighbourhood.
+
+Due to the finite attraction of $\dot{x} = -(3/2)x^{1/3}$ it is clear that the
+origin has attractive properties and is in fact a global forward attractor.
+\begin{figure}[hb]
+\begin{center}
+\input{eps/patt.pstex_t}
+\caption{Pullback Attractor with Variable Neighbourhood of Attraction}
+\protect\label{pavnhoodfig}
+\end{center}
+\end{figure}
+To investigate properties of pullback convergence let us consider without loss
+in generality, pullback attraction to the origin at $t_0=0$ (the same argument
+can be applied for other values of $t_0$). Solutions in this region behave as
+depicted in Figure \ref{pavnhoodfig}. By reverse integrating solutions from
+(0,0) along its positive path (this trajectory is highlighted in the diagram),
+we find solutions approach $x_0 \approx 0.94$ as $t \to -\infty$. This value in
+fact determines the maximum boundary for the neighbourhood of pullback
+attraction. If $x > x_0$ pullback convergence to the origin clearly does not
+occur while for $x \leq x_0$ pullback convergence occurs.
+
+Now consider pullback convergence of $x_0$ to the origin at $t_0 = t^*$. As a
+result of the system's dynamics we find regardless of how far $x_0$ is pulled
+back, it will never cross the boundary defined by $s^+(t)$. In fact we have
+\[ \lim_{t \to \infty} \Phi_{(t, t^*-t)}(x_0) = s^+(t^*). \]
+The boundary defining neighbourhood of pullback attraction for any $t_0 < 0$
+can be developed as was done for $t_0 = 0$, resulting in a smaller
+neighbourhood of attraction than that developed for $t_0 = 0$.
+Consequently, the neighbourhood of pullback attraction can be show to
+be shrinking as $t_0$ decreases.
+\end{example}
+
+For the construction defined above there exists one unusual and interesting
+characteristic defining the structure of these neighbourhoods. Although the
+neighbourhood of attraction may shrink as $t_0$ decreases as illustrated in the
+example above, it can conversely be held constant as $t_0$ increases. That is,
+the neighbourhood of pullback attraction for some $t^*$ is suitable as a
+neighbourhood of attraction for all $t_0> t^*$. The lemma below switches back to
+the generalised terminology used in the thesis to develop the proof.
+
+\textbf{Lemma:} Given a neighbourhood of attraction at some $p \in P$ defined by
+$\delta_p > 0$, a local neighbourhood of attraction for $\theta_{\tau} p$  may
+be defined by setting $\delta_{\theta_{\tau} p} =  \delta_{p}$ for all $\tau >
+0$.
+
+\textbf{Proof:} Suppose that for some $p \in P$  there exists a neighbourhood
+$\hat{\mathcal{N}}_{(\delta, \hat{A})}$ of $\hat{A}$ that
+converges in a pullback sense to $A(p)$, and we wish to consider convergence to
+$\hat{A}(\theta_{\tau}p)$ for some $\tau>0$. We define
+$\mathcal{F}_{\tau} : B(X) to B(X)$ (here $B(X)$ represents the space of all
+bounded subsets of $X$) mapping bounded sets of the dynamical system's state
+space at $p$ to their image at $\theta_{\tau}p$. $\mathcal{F}_{\tau}$
+continuous, etc etc and
+\begin{align*}
+  \lim_{t \to \infty} & \Phi_{(t, \theta_{-t+\tau}p)}
+              (\mathcal{N}_{\delta_p} (A(\theta_{-t + \tau}p)))
+              = \lim_{t \to \infty}  \mathcal{F}_{\tau} ( \Phi_{(t,
+              \theta_{-t}p)} (\mathcal{N}_{\delta_p}(A(\theta_{-t}p))) , \\
+  &=  \mathcal{F}( \lim_{t \to \infty} \Phi_{(t, \theta_{-t}p)}
+              (\mathcal{N}_{\delta_p}(A(\theta_{-t}p))) , \\
+  &= F(A(p)) = A(\theta_{\tau}p).
+\end{align*}
+
+Concluding, given the above construction, the local neighbourhood of attraction
+is no longer a visualisable space within $\mathbb{R}^d$ in a straightforward way
+unless a neighbourhood can be chosen such that $\delta_p$ is
+uniform with respect to $p$. Rather it is a separate neighbourhood of the
+attractor across the entire space for each $p \in P$. This is analogous in
+concept design to the construction of neighbourhoods of attraction for forward
+attractors.
+
+\subsubsection{Kloeden's construction}
+
+Kloeden's definitions are identical to that for forward attractors (Equation
+\ref{dattdefn} and repeated here for convenience).
+
+There exists a space labelled the domain of attraction
+$\mathcal{D}_{att}$ consisting of all families of bounded subsets
+$\hat{D} = \{D_p ; p \in P \}$ with $\hat{D} \in
+\mathcal{D}_{att}$ such that each $\hat{D}$ converges (in the
+pullback sense) to the attractor $\hat{A}$. That is for each
+$\hat{D} \in \mathcal{D}_{att}$, and each $p \in P$
+\[ \lim_{t \to \infty} H^*( \Phi_{(t,
+                  \theta_{-t} p)}(D_{\theta_{-t}p}),            A(p)) = 0. \]
+This is an intuitive formulation when considering global pullback
+attractors where $\mathcal{D}_{att} = \mathbb{R}^n$ yet for pullback attractors
+with local neighbourhoods of pullback attraction this presents
+difficulties.
+
+\textbf{i)} Elements within a region close to the attractor as they are
+pulled back may ultimately converge in a pullback sense but may fall in and
+out of the boundaries defined by $\mathcal{D}_{att}$. Refer to Figure
+\ref{dattfig}.
+
+Take for example the simple case of a singleton attractor when $\hat{A} = \{0
+\}$. An analysis of a single state $x_0$ as it is pulled back in time may no
+longer be feasible, in as much as it may fall in and out of the neighbourhood of
+attraction, yet still ultimately converge in a pullback sense. Any state that is
+in the neighbourhood of attraction at some point in time and known to converge
+must naturally be a part of the neighbourhood of attraction at all times.
+
+\begin{figure}
+\begin{center}
+\input{eps/datt.pstex_t}
+\caption{Domains of Pullback Attraction}
+\protect\label{dattfig}
+\end{center}
+\end{figure}
+
+Example \ref{pavnhoodeg} also highlights this issue. $x_0$ is in
+the neighbourhood of attraction for $t_0 = 0$, thus pullback attracted to the
+origin from all previous times. As a result it should be included
+within $\mathcal{D}_{att}$ for all $t \leq 0$.  However, it is not pullback
+attracting to the origin for any $t_0 < 0$. A single instance of
+$\mathcal{D}_{att}$ cannot represent both these cases, as it cannot represent
+the inclusion of $x_0$ within the neighbourhood of attraction for the case of
+$t_0 = 0$, and the exclusion of $x_0$ for the case $t_0 < 0$ simultaneously.
+
+\textbf{ii)}Second, how are the boundaries of the domain of attraction defined
+at any $p \in P$? Kloeden's definitions give no defining criteria
+establishing the boundaries of the domain of attraction except for that of
+pullback convergence. The only boundaries of importance that characterise
+pullback convergence are as $t \to -\infty$.
+
+The definition of boundaries at all other times are
+inconsequential regarding the matter of convergence. In fact using
+Kloeden's definitions it is possible to generate attractors that
+exhibit pullback convergence by his definition of the attractor,
+yet in actuality, exhibit pullback divergence. This can be shown
+by taking a pullback divergent system, and constructing
+$\mathcal{D}_{att}$ by shrinking the domain of attraction as $t\to
+-\infty$ at a rate faster than solutions diverge at $p$. The
+example below illustrates this.
+
+\begin{example}
+\label{improperpaeg}
+Consider the simple dynamics of $\dot{x} = x$. Solutions for this clearly
+diverge exponentially. Solutions are given by
+\[ x(t) = x_0 e^{t-t_0}. \]
+Alternatively expressed using cocycle notation to represent a state $x_0$
+pulled back to time $t_0 - t$ and evolved to time $t_0$, we have
+\[ \Phi_{(t, t_0-t)}(x_0) = x_0 e^t. \]
+Now consider pullback convergence of solutions to the origin at $t_0 =
+0$ by pulling back a decreasing sequence of initial points at $(e^{-2t}, -t)$
+(procedure as per Kloeden's definitions). We then have
+\begin{align*}
+  \lim_{t \to \infty} \Phi_{(t, t_0-t)}(e^{-2t}) &= \lim_{t \to \infty}
+                    e^{-2t}e^t, \\
+             &= 0.
+\end{align*}
+\begin{figure}
+\begin{center}
+\input{eps/improperpa.pstex_t}
+\caption{Improper Pullback Attractor}
+\protect\label{improperpafig}
+\end{center}
+\end{figure}
+Thus for a domain of attraction shrinking with the sequence of points chosen,
+the origin is by the above definition a pullback attractor. Yet it is clear this
+system diverges in both a pullback and forward sense. Refer to Figure
+\ref{improperpafig}.
+\end{example}
+
+\subsection{Consequences}
+
+A key theorem in the development of neighbourhood systems (Theorem
+2 - "A Lyapunov Function for Pullback Attractors of Non-autonomous
+Differential Equations) for pullback attractors that is frequently
+later used as a foundation result in Kloeden's papers is that of
+the existence of a pullback absorbing neighbourhood system
+accompanying a known pullback attractor. There are two key
+concerns here.
+
+ \textbf{1)} A conclusion made early in the proof does not appear to hold. That
+is the generation of an absorbing neighbourhood exists within the domain of
+attraction. Although it does not affect the proof of the theorem at all, it does
+confuse the necessities required of the domain of attraction
+$\mathcal{D}_{att}$.
+
+\textbf{2)} Second, the key property of positive invariance holds only because
+the domain of attraction $\mathcal{D}_{att}$ is defined uniformly with respect
+to $p$ (as discussed above), thus providing a link between $B(p)$ and
+$B(\theta_t p)$ ensuring positive invariance.
+
+For the construction of attractors I have adopted in the thesis (utilising
+$\hat{\delta}$ to define the local neighbourhood of attraction) this is not
+possible unless the neighbourhood of attraction is effectively
+constant with respect to $p$. With the use of the previous lemma however, an
+equivalent result may be made, arriving at the result given by Kloeden, with
+the definitions within the thesis for a local analysis.
+
+In conclusion, both constructions are valid and equivalent in a global
+context, however when reduced to a local definition the latter
+(utilising PK's $\mathcal{D}_{att}$) is inappropriate as shown above
+and illustrated in Example \ref{pavnhoodeg}.
+
+For cases where the local neighbourhood of attraction of a known attractor can
+be found to be uniform with respect to $p$, it works appropriately and such a
+domain of attraction may be constructed, The theorems that follow
+then proceed to obtain intuitive results. As a general definition however they
+allow for attractors by definition which may exhibit no pullback convergence at
+all.
+
+The definitions used in the thesis exclude improper possibilities for the
+definition of an attractor, and yields the results in Kloeden's work with the
+relevant extensions to definitions for neighbourhood systems and attention to
+detail when modifying the proofs for the respective theorems.
+
+Much of the early work in the thesis was involved in correcting
+these problems, allowing for the introduction of attractors within
+a local context (P. Kloeden's appeared to have problems at the
+time, and hence the early chapters of the thesis were undertaken
+in an effort to resolve this), as well as redefining the concepts
+of stability which had not been done before, and modifying several
+theorem proofs significantly to arrive at equivalent results. In
+addition the properties of forward and pullback attraction were
+brought together in a complete context. This was several months
+effort in itself.
+
+Previous to this attractors for non-autonomous systems as used by
+P.Kloeden et. al. were referred to as cocycle attractors only.
+Since the early chapters of the thesis were initially proof-read
+by Kloeden two years ago there has been several articles
+investigating both pullback and forward attraction by P. Kloeden
+developing on the constructions contained within the thesis
+without recognition of its origination. I was not informed of any
+of this work by Kloeden that proceeded concurrently with the work
+in the thesis.
+
+\section{Lyapunov-like Construction}
+
+There are distinct differences in the ideology behind both the
+construction for a Lyapunov like theory used in the thesis and P.
+Kloeden's function.
+
+The construction developed in the thesis characterises pullback attraction, and
+additionally characterises the rate of pullback attraction, a feature which is
+lacking in Kloeden's definition.
+
+Alternatively an attraction property is formulated in Kloeden's Lyapunov
+function that resembles forward attraction.  Although this property
+is utilised in his paper on the discretisation of uniform pullback
+attractors, it is this property which simply utilises the forward attraction of
+the uniform attractor (uniformity implying both pullback and forward
+simultaneously) to guarantee the result.
+
+This however can be done using existing lyapunov theory for non-autonomous
+systems which possess forward asymptotic stability (Chapter 7 of the thesis). As
+a result the usefulness of a function designed for pullback stability is not
+realised, and quite possibly could not be realised in a pullback context as it
+does not characterise the rate of pullback attraction.
+
+The Lyapunov-like function in the thesis is hoped to be useful under such
+circumstances (work is currently ensuing to make use of this function). The
+differences in approach here I hope are clear and distinctly worthwhile.
+
+\section{Discretisation}
+
+As mentioned, the discretisation of uniform attractors is covered in both
+Kloeden's and Stonier's work using different methods.
+
+Within the thesis I proceed to tackle the problem's more difficult
+questions which are distinctly avoided in the paper by Kloeden.
+
+\textbf{i)} A non-uniform lipschitz bound on the driving function $f(p, x)$
+behind the dynamical system is accounted for. This occurs for almost all
+non-autonomous dynamical systems and as such is an important consideration that
+is neatly avoided in the written article.
+
+\textbf{ii)} Discretisation for non-uniform forward attractors is covered. Very
+little has been established on non-uniform structures and this work took a
+considerable period of time to cover.
+
+\end{document}

@@ -1,0 +1,31 @@
+\begin{picture}(0,0)%
+\includegraphics{eps/loci4.pstex}%
+\end{picture}%
+\setlength{\unitlength}{3947sp}%
+%
+\begingroup\makeatletter\ifx\SetFigFont\undefined%
+\gdef\SetFigFont#1#2#3#4#5{%
+  \reset@font\fontsize{#1}{#2pt}%
+  \fontfamily{#3}\fontseries{#4}\fontshape{#5}%
+  \selectfont}%
+\fi\endgroup%
+\begin{picture}(4402,2826)(911,-2478)
+\put(3994,-415){\makebox(0,0)[rb]{\smash{\SetFigFont{10}{12.0}{\rmdefault}{\mddefault}{\updefault}{\color[rgb]{0,0,0}Loci}%
+}}}
+\put(3050,-1649){\makebox(0,0)[lb]{\smash{\SetFigFont{10}{12.0}{\rmdefault}{\mddefault}{\updefault}{\color[rgb]{0,0,0}A}%
+}}}
+\put(5313,-2382){\makebox(0,0)[lb]{\smash{\SetFigFont{10}{12.0}{\familydefault}{\mddefault}{\updefault}0}}}
+\put(5313,-1889){\makebox(0,0)[lb]{\smash{\SetFigFont{10}{12.0}{\familydefault}{\mddefault}{\updefault}0.4}}}
+\put(5313,-1395){\makebox(0,0)[lb]{\smash{\SetFigFont{10}{12.0}{\familydefault}{\mddefault}{\updefault}0.8}}}
+\put(5313,-1148){\makebox(0,0)[lb]{\smash{\SetFigFont{10}{12.0}{\familydefault}{\mddefault}{\updefault}1}}}
+\put(5313,-902){\makebox(0,0)[lb]{\smash{\SetFigFont{10}{12.0}{\familydefault}{\mddefault}{\updefault}1.2}}}
+\put(5313,-408){\makebox(0,0)[lb]{\smash{\SetFigFont{10}{12.0}{\familydefault}{\mddefault}{\updefault}1.6}}}
+\put(5313, 86){\makebox(0,0)[lb]{\smash{\SetFigFont{10}{12.0}{\familydefault}{\mddefault}{\updefault}2}}}
+\put(5256,-2478){\makebox(0,0)[b]{\smash{\SetFigFont{10}{12.0}{\familydefault}{\mddefault}{\updefault}0}}}
+\put(4430,-2478){\makebox(0,0)[b]{\smash{\SetFigFont{10}{12.0}{\familydefault}{\mddefault}{\updefault}2}}}
+\put(3604,-2478){\makebox(0,0)[b]{\smash{\SetFigFont{10}{12.0}{\familydefault}{\mddefault}{\updefault}4}}}
+\put(2778,-2478){\makebox(0,0)[b]{\smash{\SetFigFont{10}{12.0}{\familydefault}{\mddefault}{\updefault}6}}}
+\put(1953,-2478){\makebox(0,0)[b]{\smash{\SetFigFont{10}{12.0}{\familydefault}{\mddefault}{\updefault}8}}}
+\put(1148,-2478){\makebox(0,0)[b]{\smash{\SetFigFont{10}{12.0}{\familydefault}{\mddefault}{\updefault}t}}}
+\put(5313,255){\makebox(0,0)[lb]{\smash{\SetFigFont{10}{12.0}{\familydefault}{\mddefault}{\updefault}x}}}
+\end{picture}

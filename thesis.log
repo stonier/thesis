@@ -1,0 +1,710 @@
+This is pdfeTeX, Version 3.141592-1.21a-2.2 (Web2C 7.5.4) (format=latex 2005.8.28)  10 NOV 2005 00:17
+entering extended mode
+**thesis.tex
+(./thesis.tex
+LaTeX2e <2003/12/01>
+Babel <v3.8d> and hyphenation patterns for american, french, german, ngerman, b
+ahasa, basque, bulgarian, catalan, croatian, czech, danish, dutch, esperanto, e
+stonian, finnish, greek, icelandic, irish, italian, latin, magyar, norsk, polis
+h, portuges, romanian, russian, serbian, slovak, slovene, spanish, swedish, tur
+kish, ukrainian, nohyphenation, loaded.
+(/usr/share/texmf/tex/latex/base/book.cls
+Document Class: book 2004/02/16 v1.4f Standard LaTeX document class
+(/usr/share/texmf/tex/latex/base/bk12.clo
+File: bk12.clo 2004/02/16 v1.4f Standard LaTeX file (size option)
+)
+\c@part=\count79
+\c@chapter=\count80
+\c@section=\count81
+\c@subsection=\count82
+\c@subsubsection=\count83
+\c@paragraph=\count84
+\c@subparagraph=\count85
+\c@figure=\count86
+\c@table=\count87
+\abovecaptionskip=\skip41
+\belowcaptionskip=\skip42
+\bibindent=\dimen102
+) (./phd.sty
+Package: phd 13/03/2003 - Phd Format
+
+(/usr/share/texmf/tex/latex/amsfonts/amsfonts.sty
+Package: amsfonts 2001/10/25 v2.2f
+\@emptytoks=\toks14
+\symAMSa=\mathgroup4
+\symAMSb=\mathgroup5
+LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
+(Font)                  U/euf/m/n --> U/euf/b/n on input line 132.
+)
+(/usr/share/texmf/tex/latex/amsmath/amsmath.sty
+Package: amsmath 2000/07/18 v2.13 AMS math features
+\@mathmargin=\skip43
+
+For additional information on amsmath, use the `?' option.
+(/usr/share/texmf/tex/latex/amsmath/amstext.sty
+Package: amstext 2000/06/29 v2.01
+
+(/usr/share/texmf/tex/latex/amsmath/amsgen.sty
+File: amsgen.sty 1999/11/30 v2.0
+\@emptytoks=\toks15
+\ex@=\dimen103
+))
+(/usr/share/texmf/tex/latex/amsmath/amsbsy.sty
+Package: amsbsy 1999/11/29 v1.2d
+\pmbraise@=\dimen104
+)
+(/usr/share/texmf/tex/latex/amsmath/amsopn.sty
+Package: amsopn 1999/12/14 v2.01 operator names
+)
+\inf@bad=\count88
+LaTeX Info: Redefining \frac on input line 211.
+\uproot@=\count89
+\leftroot@=\count90
+LaTeX Info: Redefining \overline on input line 307.
+\classnum@=\count91
+\DOTSCASE@=\count92
+LaTeX Info: Redefining \ldots on input line 379.
+LaTeX Info: Redefining \dots on input line 382.
+LaTeX Info: Redefining \cdots on input line 467.
+\Mathstrutbox@=\box26
+\strutbox@=\box27
+\big@size=\dimen105
+LaTeX Font Info:    Redeclaring font encoding OML on input line 567.
+LaTeX Font Info:    Redeclaring font encoding OMS on input line 568.
+\macc@depth=\count93
+\c@MaxMatrixCols=\count94
+\dotsspace@=\muskip10
+\c@parentequation=\count95
+\dspbrk@lvl=\count96
+\tag@help=\toks16
+\row@=\count97
+\column@=\count98
+\maxfields@=\count99
+\andhelp@=\toks17
+\eqnshift@=\dimen106
+\alignsep@=\dimen107
+\tagshift@=\dimen108
+\tagwidth@=\dimen109
+\totwidth@=\dimen110
+\lineht@=\dimen111
+\@envbody=\toks18
+\multlinegap=\skip44
+\multlinetaggap=\skip45
+\mathdisplay@stack=\toks19
+LaTeX Info: Redefining \[ on input line 2666.
+LaTeX Info: Redefining \] on input line 2667.
+)
+(/usr/share/texmf/tex/latex/amsfonts/amssymb.sty
+Package: amssymb 2002/01/22 v2.2d
+)
+(/usr/share/texmf/tex/latex/amscls/amsthm.sty
+Package: amsthm 2004/08/06 v2.20
+\thm@style=\toks20
+\thm@bodyfont=\toks21
+\thm@headfont=\toks22
+\thm@notefont=\toks23
+\thm@headpunct=\toks24
+\thm@preskip=\skip46
+\thm@postskip=\skip47
+\thm@headsep=\skip48
+\dth@everypar=\toks25
+)
+(/usr/share/texmf/tex/generic/epsf/epsf.tex
+This is `epsf.tex' v2.7k <10 July 1997>
+\epsffilein=\read1
+\epsfframemargin=\dimen112
+\epsfframethickness=\dimen113
+\epsfrsize=\dimen114
+\epsftmp=\dimen115
+\epsftsize=\dimen116
+\epsfxsize=\dimen117
+\epsfysize=\dimen118
+\pspoints=\dimen119
+\epsfnoopenhelp=\toks26
+) (/usr/share/texmf/tex/latex/graphics/color.sty
+Package: color 1999/02/16 v1.0i Standard LaTeX Color (DPC)
+
+(/usr/share/texmf/tex/latex/graphics/color.cfg
+File: color.cfg 2005/02/03 v1.3 color configuration of teTeX/TeXLive
+)
+Package color Info: Driver file: dvips.def on input line 125.
+
+(/usr/share/texmf/tex/latex/graphics/dvips.def
+File: dvips.def 1999/02/16 v3.0i Driver-dependant file (DPC,SPQR)
+)
+(/usr/share/texmf/tex/latex/graphics/dvipsnam.def
+File: dvipsnam.def 1999/02/16 v3.0i Driver-dependant file (DPC,SPQR)
+))
+(/usr/share/texmf/tex/latex/graphics/graphics.sty
+Package: graphics 2001/07/07 v1.0n Standard LaTeX Graphics (DPC,SPQR)
+
+(/usr/share/texmf/tex/latex/graphics/trig.sty
+Package: trig 1999/03/16 v1.09 sin cos tan (DPC)
+)
+(/usr/share/texmf/tex/latex/graphics/graphics.cfg
+File: graphics.cfg 2005/02/03 v1.3 graphics configuration of teTeX/TeXLive
+)
+Package graphics Info: Driver file: dvips.def on input line 80.
+)
+\c@notn=\count100
+\c@defn=\count101
+\c@example=\count102
+\c@therm=\count103
+\c@lemma=\count104
+\c@cor=\count105
+)
+(/home/snorri/texmf/tex/latex/srcltx/srcltx.sty
+Package: srcltx 1999/10/11 v1.002 DVI Search
+\PAGETOP=\count106
+\LASTLINE=\count107
+\INPSP=\count108
+\everypar=\toks27
+) (./thesis.aux (./thabs.aux)
+(./thterm.aux) (./th1_1.aux) (./th1_2.aux) (./th1_3.aux) (./th1_4.aux)
+(./th2_1.aux) (./th2_2.aux) (./th2_3.aux) (./th2_4.aux) (./th3_1.aux)
+(./th3_2.aux) (./th3_3.aux) (./th4_1.aux) (./th4_2.aux) (./th4_3.aux)
+(./th5_1.aux) (./th5_2.aux) (./th5_3.aux) (./th6_1.aux) (./th6_2.aux)
+(./th7_1.aux) (./th7_2.aux) (./th7_3.aux) (./thcon.aux) (./thesisb.aux))
+\openout1 = `thesis.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 16.
+LaTeX Font Info:    ... okay on input line 16.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 16.
+LaTeX Font Info:    ... okay on input line 16.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 16.
+LaTeX Font Info:    ... okay on input line 16.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 16.
+LaTeX Font Info:    ... okay on input line 16.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 16.
+LaTeX Font Info:    ... okay on input line 16.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 16.
+LaTeX Font Info:    ... okay on input line 16.
+LaTeX Font Info:    Try loading font information for U+msa on input line 17.
+
+(/usr/share/texmf/tex/latex/amsfonts/umsa.fd
+File: umsa.fd 2002/01/19 v2.2g AMS font definitions
+)
+LaTeX Font Info:    Try loading font information for U+msb on input line 17.
+
+(/usr/share/texmf/tex/latex/amsfonts/umsb.fd
+File: umsb.fd 2002/01/19 v2.2g AMS font definitions
+) [1
+
+
+]
+:<+ thabs.tex
+\openout2 = `thabs.aux'.
+
+(./thabs.tex [2
+
+
+]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [1])
+[2]
+:<-
+(./thesis.toc [3
+
+
+] [4]
+Underfull \vbox (badness 1057) has occurred while \output is active []
+
+ [5]
+[6])
+\tf@toc=\write3
+\openout3 = `thesis.toc'.
+
+ [7] [8
+
+] (./thesis.lof
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [9])
+\tf@lof=\write4
+\openout4 = `thesis.lof'.
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [10]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [11]
+:<+ thterm.tex
+\openout2 = `thterm.aux'.
+
+(./thterm.tex [12
+
+
+] [13] [14
+
+]) [15]
+:<-
+:<+ th1_1.tex
+\openout2 = `th1_1.aux'.
+
+(./th1_1.tex [16
+
+
+
+]
+Chapter 1.
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 11.
+(/usr/share/texmf/tex/latex/base/omscmr.fd
+File: omscmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
+)
+LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <12> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 11.
+ [1]) [2]
+:<-
+:<+ th1_2.tex
+\openout2 = `th1_2.aux'.
+
+(./th1_2.tex [3
+
+
+]
+Underfull \vbox (badness 5607) has occurred while \output is active []
+
+ [4]
+[5] [6] [7] [8] [9] [10] [11] [12] [13] [14]) [15] [16]
+:<-
+:<+ th1_3.tex
+\openout2 = `th1_3.aux'.
+
+(./th1_3.tex [17
+
+
+]
+Underfull \vbox (badness 2158) has occurred while \output is active []
+
+ [18]
+[19] [20] [21]
+Overfull \hbox (2.00702pt too wide) in paragraph at lines 228--233
+[]\OT1/cmr/bx/n/12 Definition 1.3.5 \OT1/cmr/m/n/12 (Asymp-tot-i-cally Sta-bil-
+ity)\OT1/cmr/bx/n/12 . [][]\OT1/cmr/m/it/12 A nonempty com-pact sub-set $\OML/c
+mm/m/it/12 A[] \OMS/cmsy/m/n/12 ^^Z
+ []
+
+[22] [23] [24] [25]) [26]
+:<-
+:<+ th1_4.tex
+\openout2 = `th1_4.aux'.
+
+(./th1_4.tex [27
+
+
+] [28]) [29]
+:<-
+:<+ th2_1.tex
+\openout2 = `th2_1.aux'.
+
+(./th2_1.tex [30
+
+
+
+]
+Chapter 2.
+
+Underfull \vbox (badness 1442) has occurred while \output is active []
+
+ [31]
+[32] [33] [34] [35] [36] [37] [38] [39] [40] [41] [42] [43] [44] [45] [46]
+[47] [48] [49] [50]) [51]
+:<-
+:<+ th2_2.tex
+\openout2 = `th2_2.aux'.
+
+(./th2_2.tex [52
+
+
+] [53] (./eps/patt.pstex_t
+File: eps/patt.pstex Graphic file (type eps)
+ <eps/patt.pstex>) [54]
+(./eps/improperpa.pstex_t
+File: eps/improperpa.pstex Graphic file (type eps)
+ <eps/improperpa.pstex>) [55] [56] [57] [58] [59]
+[60]) [61]
+:<-
+:<+ th2_3.tex
+\openout2 = `th2_3.aux'.
+
+(./th2_3.tex
+Overfull \hbox (19.43684pt too wide) in paragraph at lines 42--51
+[]\OT1/cmr/bx/n/12 Definition 2.3.1 \OT1/cmr/m/n/12 (Pull-back Ab-sorb-ing Neig
+h-bour-hoods)\OT1/cmr/bx/n/12 . [][]\OT1/cmr/m/it/12 A fam-ily $[] \OT1/cmr/m/n
+/12 = \OMS/cmsy/m/n/12 f\OML/cmm/m/it/12 B\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 p\O
+T1/cmr/m/n/12 ); \OML/cmm/m/it/12 p \OMS/cmsy/m/n/12 2
+ []
+
+[62
+
+
+] [63] [64] [65] [66] [67] [68] [69] [70] [71] [72]
+Overfull \hbox (12.51747pt too wide) in paragraph at lines 469--478
+[]\OT1/cmr/bx/n/12 Definition 2.3.2 \OT1/cmr/m/n/12 (For-ward Ab-sorb-ing Neigh
+-bour-hood)\OT1/cmr/bx/n/12 . [][]\OT1/cmr/m/it/12 A fam-ily $[] \OT1/cmr/m/n/1
+2 = \OMS/cmsy/m/n/12 f\OML/cmm/m/it/12 B\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 p\OT1
+/cmr/m/n/12 ); \OML/cmm/m/it/12 p \OMS/cmsy/m/n/12 2
+ []
+
+[73] [74]) [75]
+:<-
+:<+ th2_4.tex
+\openout2 = `th2_4.aux'.
+
+(./th2_4.tex) [76
+
+
+]
+:<-
+:<+ th3_1.tex
+\openout2 = `th3_1.aux'.
+
+(./th3_1.tex
+Chapter 3.
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [77
+
+
+
+]
+[78] [79]) [80]
+:<-
+:<+ th3_2.tex
+\openout2 = `th3_2.aux'.
+
+(./th3_2.tex [81
+
+
+] [82]) [83]
+:<-
+:<+ th3_3.tex
+\openout2 = `th3_3.aux'.
+
+(./th3_3.tex
+Overfull \hbox (7.06975pt too wide) in paragraph at lines 15--25
+[]\OT1/cmr/bx/n/12 Definition 3.3.1 \OT1/cmr/m/n/12 (Dis-crete For-ward Sta-bil
+-ity)\OT1/cmr/bx/n/12 . [][]\OT1/cmr/m/it/12 A dis-crete fam-ily $[] \OT1/cmr/m
+/n/12 = \OMS/cmsy/m/n/12 f\OML/cmm/m/it/12 A\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 p
+\OT1/cmr/m/n/12 ); \OML/cmm/m/it/12 p \OMS/cmsy/m/n/12 2
+ []
+
+
+Overfull \hbox (9.35445pt too wide) in paragraph at lines 31--41
+[]\OT1/cmr/bx/n/12 Definition 3.3.2 \OT1/cmr/m/n/12 (Dis-crete Pull-back Sta-bi
+l-ity)\OT1/cmr/bx/n/12 . [][]\OT1/cmr/m/it/12 A dis-crete fam-ily $[] \OT1/cmr/
+m/n/12 = \OMS/cmsy/m/n/12 f\OML/cmm/m/it/12 A\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 
+p\OT1/cmr/m/n/12 ); \OML/cmm/m/it/12 p \OMS/cmsy/m/n/12 2
+ []
+
+[84
+
+
+]
+Overfull \hbox (11.63498pt too wide) in paragraph at lines 82--92
+[]\OT1/cmr/bx/n/12 Definition 3.3.5 \OT1/cmr/m/n/12 (Dis-crete For-ward At-trac
+-tor)\OT1/cmr/bx/n/12 . [][]\OT1/cmr/m/it/12 A dis-crete fam-ily $[] \OT1/cmr/m
+/n/12 = \OMS/cmsy/m/n/12 f\OML/cmm/m/it/12 A\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 p
+\OT1/cmr/m/n/12 ); \OML/cmm/m/it/12 p \OMS/cmsy/m/n/12 2
+ []
+
+
+Overfull \hbox (13.91968pt too wide) in paragraph at lines 102--112
+[]\OT1/cmr/bx/n/12 Definition 3.3.6 \OT1/cmr/m/n/12 (Dis-crete Pull-back At-tra
+c-tor)\OT1/cmr/bx/n/12 . [][]\OT1/cmr/m/it/12 A dis-crete fam-ily $[] \OT1/cmr/
+m/n/12 = \OMS/cmsy/m/n/12 f\OML/cmm/m/it/12 A\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 
+p\OT1/cmr/m/n/12 ); \OML/cmm/m/it/12 p \OMS/cmsy/m/n/12 2
+ []
+
+[85] [86] [87] [88]) [89]
+:<-
+:<+ th4_1.tex
+\openout2 = `th4_1.aux'.
+
+(./th4_1.tex [90
+
+
+
+]
+Chapter 4.
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [91]
+[92]
+Overfull \hbox (11.8885pt too wide) in paragraph at lines 94--96
+[]\OT1/cmr/bx/n/12 Theorem 4.1.1 \OT1/cmr/m/n/12 (Non-Au-tonomous Per-tur-ba-ti
+on)\OT1/cmr/bx/n/12 . [][]\OT1/cmr/m/it/12 For the per-turbed au-tonomous
+ []
+
+[93] [94] [95] [96] [97] [98] [99]) [100]
+:<-
+:<+ th4_2.tex
+\openout2 = `th4_2.aux'.
+
+(./th4_2.tex [101
+
+
+] [102] [103] [104] [105]) [106]
+:<-
+:<+ th4_3.tex
+\openout2 = `th4_3.aux'.
+
+(./th4_3.tex [107
+
+
+] [108] [109] [110] [111] [112] [113] [114]) [115]
+:<-
+:<+ th5_1.tex
+\openout2 = `th5_1.aux'.
+
+(./th5_1.tex [116
+
+
+
+]
+Chapter 5.
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [117]
+[118]
+Overfull \hbox (26.21677pt too wide) in paragraph at lines 94--96
+[]\OT1/cmr/bx/n/12 Lemma 5.1.2 \OT1/cmr/m/n/12 (Gron-wall's Lemma)\OT1/cmr/bx/n
+/12 . [][]\OT1/cmr/m/it/12 Given $\OML/cmm/m/it/12 x[]; x[]$ \OT1/cmr/m/it/12 s
+uch that $\OMS/cmsy/m/n/12 j\OT1/cmr/m/n/12 ^^H[](\OML/cmm/m/it/12 x[]\OT1/cmr/
+m/n/12 ) \OMS/cmsy/m/n/12 ^^@ \OT1/cmr/m/n/12 ^^H[](\OML/cmm/m/it/12 x[]\OT1/cm
+r/m/n/12 ))\OMS/cmsy/m/n/12 j \OML/cmm/m/it/12 <
+ []
+
+[119]) [120]
+:<-
+:<+ th5_2.tex
+\openout2 = `th5_2.aux'.
+
+(./th5_2.tex [121
+
+
+] [122] [123] [124] [125] [126] [127] [128]
+Underfull \vbox (badness 3088) has occurred while \output is active []
+
+ [129]
+[130]) [131]
+:<-
+:<+ th5_3.tex
+\openout2 = `th5_3.aux'.
+
+(./th5_3.tex
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [132
+
+
+]
+[133] [134] [135] [136]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [137]
+[138]) [139] [140]
+:<-
+:<+ th6_1.tex
+\openout2 = `th6_1.aux'.
+
+(./th6_1.tex
+Chapter 6.
+[141
+
+
+
+] [142]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [143]
+[144] [145] [146] [147] [148]
+Overfull \hbox (2.22963pt too wide) in paragraph at lines 325--330
+[]\OT1/cmr/bx/n/12 Corollary 6.1.1 \OT1/cmr/m/n/12 (Dis-creti-sa-tion of Uni-fo
+rm At-trac-tors)\OT1/cmr/bx/n/12 . [][]\OT1/cmr/m/it/12 Let $\OMS/cmsy/m/n/12 f
+\OT1/cmr/m/n/12 ^^H[]; \OML/cmm/m/it/12 t \OMS/cmsy/m/n/12 2 \U/msb/m/n/12 R[]\
+OML/cmm/m/it/12 ; p \OMS/cmsy/m/n/12 2
+ []
+
+[149]) [150]
+:<-
+:<+ th6_2.tex
+\openout2 = `th6_2.aux'.
+
+(./th6_2.tex [151
+
+
+] [152] [153] [154] [155] [156] [157] [158] [159] [160]
+[161] [162] [163] [164]) [165]
+:<-
+:<+ th7_1.tex
+\openout2 = `th7_1.aux'.
+
+(./th7_1.tex [166
+
+
+
+]
+Chapter 7.
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [167]
+(./eps/loci0.pstex_t
+File: eps/loci0.pstex Graphic file (type eps)
+ <eps/loci0.pstex>) [168] [169] [170] (./eps/loci3.pstex_t
+File: eps/loci3.pstex Graphic file (type eps)
+
+<eps/loci3.pstex>) [171] [172] [173] (./eps/loci1.pstex_t
+File: eps/loci1.pstex Graphic file (type eps)
+ <eps/loci1.pstex>)
+[174] [175] (./eps/loci2.pstex_t
+File: eps/loci2.pstex Graphic file (type eps)
+ <eps/loci2.pstex>) [176] [177]
+(./eps/loci4.pstex_t
+File: eps/loci4.pstex Graphic file (type eps)
+ <eps/loci4.pstex>) [178] [179] [180] (./eps/loci5.pstex_t
+File: eps/loci5.pstex Graphic file (type eps)
+
+<eps/loci5.pstex>)) [181] [182]
+:<-
+:<+ th7_2.tex
+\openout2 = `th7_2.aux'.
+
+(./th7_2.tex (./eps/loci6.pstex_t
+File: eps/loci6.pstex Graphic file (type eps)
+ <eps/loci6.pstex>) (./eps/loci7.pstex_t
+File: eps/loci7.pstex Graphic file (type eps)
+
+<eps/loci7.pstex>) [183
+
+
+] (./eps/loci8.pstex_t
+File: eps/loci8.pstex Graphic file (type eps)
+ <eps/loci8.pstex>)
+(./eps/loci9.pstex_t
+File: eps/loci9.pstex Graphic file (type eps)
+ <eps/loci9.pstex>) [184] [185]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [186]
+[187] (./eps/loci10.pstex_t
+File: eps/loci10.pstex Graphic file (type eps)
+ <eps/loci10.pstex>) [188] [189]) [190]
+:<-
+:<+ th7_3.tex
+\openout2 = `th7_3.aux'.
+
+(./th7_3.tex [191
+
+
+] (./eps/pdisc0.pstex_t
+File: eps/pdisc0.pstex Graphic file (type eps)
+ <eps/pdisc0.pstex>) [192]
+(./eps/locinum1.pstex_t
+File: eps/locinum1.pstex Graphic file (type eps)
+ <eps/locinum1.pstex>) (./eps/pdisc1.pstex_t
+File: eps/pdisc1.pstex Graphic file (type eps)
+
+<eps/pdisc1.pstex>) [193] [194] (./eps/pdisc5.pstex_t
+File: eps/pdisc5.pstex Graphic file (type eps)
+ <eps/pdisc5.pstex>)
+[195] (./eps/pdisc6.pstex_t
+File: eps/pdisc6.pstex Graphic file (type eps)
+ <eps/pdisc6.pstex>) [196] (./eps/pdisc3.pstex_t
+File: eps/pdisc3.pstex Graphic file (type eps)
+
+<eps/pdisc3.pstex>) [197] (./eps/pdisc4.pstex_t
+File: eps/pdisc4.pstex Graphic file (type eps)
+ <eps/pdisc4.pstex>) [198]
+Overfull \hbox (10.36948pt too wide) in paragraph at lines 295--296
+[]\OT1/cmr/bx/n/12 Lemma 7.3.2 \OT1/cmr/m/n/12 (LDS 1 - Nu-mer-i-cal Al-go-rith
+m)\OT1/cmr/bx/n/12 . [][]\OT1/cmr/m/it/12 Given the lin-ear non-autonomous
+ []
+
+
+Underfull \vbox (badness 3492) has occurred while \output is active []
+
+ [199]
+[200] [201] [202] (./eps/pdisc2.pstex_t
+File: eps/pdisc2.pstex Graphic file (type eps)
+ <eps/pdisc2.pstex>) [203] [204]
+Overfull \hbox (5.31013pt too wide) in paragraph at lines 530--531
+[]\OT1/cmr/bx/n/12 Lemma 7.3.5 \OT1/cmr/m/n/12 (SDS 2 - Trun-ca-tion Er-ror)\OT
+1/cmr/bx/n/12 . [][]\OT1/cmr/m/it/12 Given the sep-a-ra-ble non-autonomous
+ []
+
+[205] [206] [207] [208] [209] [210] [211] [212]
+Underfull \vbox (badness 2119) has occurred while \output is active []
+
+ [213]
+[214] [215] [216] [217] [218] [219]) [220]
+:<-
+:<+ thcon.tex
+\openout2 = `thcon.aux'.
+
+(./thcon.tex
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [221
+
+
+
+])
+[222]
+:<-
+:<+ thesisb.tex
+\openout2 = `thesisb.aux'.
+
+(./thesisb.tex
+Underfull \hbox (badness 1748) in paragraph at lines 20--25
+[][]\OT1/cmr/m/n/12 Julyan Cartwright & Oreste Piro, \OT1/cmr/m/it/12 The Dy-na
+m-ics of Runge-Kutta
+ []
+
+
+Underfull \hbox (badness 2080) in paragraph at lines 20--25
+\OT1/cmr/m/it/12 Meth-ods\OT1/cmr/m/n/12 , School of Math-e-mat-i-cal Sci-ences
+, Uni-ver-sity of Lon-don,
+ []
+
+[223
+
+
+
+] [224]
+Underfull \hbox (badness 1303) in paragraph at lines 116--119
+[][]\OT1/cmr/m/n/12 R.Moore, \OT1/cmr/m/it/12 In-tro-duc-tion to Dif-fer-en-tia
+l Equa-tions\OT1/cmr/m/n/12 , Al-lyn and Ba-con,
+ []
+
+[225]
+Underfull \hbox (badness 3168) in paragraph at lines 177--180
+[][]\OT1/cmr/m/n/12 Daniel Stonier, \OT1/cmr/m/it/12 Du-al-ity of At-trac-tion\
+OT1/cmr/m/n/12 , Jour-nal of Non-lin-ear Sci-
+ []
+
+) [226]
+:<-
+(./thesis.aux (./thabs.aux) (./thterm.aux) (./th1_1.aux) (./th1_2.aux)
+(./th1_3.aux) (./th1_4.aux) (./th2_1.aux) (./th2_2.aux) (./th2_3.aux)
+(./th2_4.aux) (./th3_1.aux) (./th3_2.aux) (./th3_3.aux) (./th4_1.aux)
+(./th4_2.aux) (./th4_3.aux) (./th5_1.aux) (./th5_2.aux) (./th5_3.aux)
+(./th6_1.aux) (./th6_2.aux) (./th7_1.aux) (./th7_2.aux) (./th7_3.aux)
+(./thcon.aux) (./thesisb.aux)) ) 
+Here is how much of TeX's memory you used:
+ 2471 strings out of 49501
+ 27479 string characters out of 426789
+ 84942 words of memory out of 1100000
+ 5350 multiletter control sequences out of 10000+15000
+ 20642 words of font info for 76 fonts, out of 400000 for 2000
+ 580 hyphenation exceptions out of 1000
+ 34i,18n,24p,789b,392s stack positions out of 1500i,500n,1500p,200000b,5000s
+
+Output written on thesis.dvi (244 pages, 752872 bytes).

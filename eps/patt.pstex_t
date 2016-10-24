@@ -1,0 +1,42 @@
+\begin{picture}(0,0)%
+\includegraphics{eps/patt.pstex}%
+\end{picture}%
+\setlength{\unitlength}{3947sp}%
+%
+\begingroup\makeatletter\ifx\SetFigFont\undefined%
+\gdef\SetFigFont#1#2#3#4#5{%
+  \reset@font\fontsize{#1}{#2pt}%
+  \fontfamily{#3}\fontseries{#4}\fontshape{#5}%
+  \selectfont}%
+\fi\endgroup%
+\begin{picture}(3993,2381)(733,-2999)
+\put(4726,-1711){\makebox(0,0)[lb]{\smash{\SetFigFont{10}{12.0}{\rmdefault}{\mddefault}{\updefault}{\color[rgb]{0,0,0}$(0,0)$}%
+}}}
+\put(4051,-1336){\makebox(0,0)[lb]{\smash{\SetFigFont{10}{12.0}{\rmdefault}{\mddefault}{\updefault}{\color[rgb]{0,0,0}$s^+(t)$}%
+}}}
+\put(4126,-2236){\makebox(0,0)[lb]{\smash{\SetFigFont{10}{12.0}{\rmdefault}{\mddefault}{\updefault}{\color[rgb]{0,0,0}$s^-(t)$}%
+}}}
+\put(1051,-2086){\makebox(0,0)[lb]{\smash{\SetFigFont{10}{12.0}{\rmdefault}{\mddefault}{\updefault}{\color[rgb]{0,0,0}$A$}%
+}}}
+\put(938,-1006){\makebox(0,0)[lb]{\smash{\SetFigFont{10}{12.0}{\rmdefault}{\mddefault}{\updefault}{\color[rgb]{0,0,0}$x_0
+\approx 0.94$}%
+}}}
+\put(2821,-938){\makebox(0,0)[lb]{\smash{\SetFigFont{10}{12.0}{\rmdefault}{\mddefault}{\updefault}{\color[rgb]{0,0,0}$\mathcal{N}_{\delta_{0},A}$}%
+}}}
+\put(2311,-750){\makebox(0,0)[lb]{\smash{\SetFigFont{10}{12.0}{\rmdefault}{\mddefault}{\updefault}{\color[rgb]{0,0,0}$\mathcal{N}_{\delta_{-.5},A}$}%
+}}}
+\put(733,-2875){\makebox(0,0)[rb]{\smash{\SetFigFont{10}{12.0}{\familydefault}{\mddefault}{\updefault}-1.5}}}
+\put(733,-2519){\makebox(0,0)[rb]{\smash{\SetFigFont{10}{12.0}{\familydefault}{\mddefault}{\updefault}-1}}}
+\put(733,-2163){\makebox(0,0)[rb]{\smash{\SetFigFont{10}{12.0}{\familydefault}{\mddefault}{\updefault}-0.5}}}
+\put(733,-1807){\makebox(0,0)[rb]{\smash{\SetFigFont{10}{12.0}{\familydefault}{\mddefault}{\updefault}0}}}
+\put(733,-1451){\makebox(0,0)[rb]{\smash{\SetFigFont{10}{12.0}{\familydefault}{\mddefault}{\updefault}0.5}}}
+\put(733,-1095){\makebox(0,0)[rb]{\smash{\SetFigFont{10}{12.0}{\familydefault}{\mddefault}{\updefault}1}}}
+\put(733,-739){\makebox(0,0)[rb]{\smash{\SetFigFont{10}{12.0}{\familydefault}{\mddefault}{\updefault}1.5}}}
+\put(807,-2999){\makebox(0,0)[b]{\smash{\SetFigFont{10}{12.0}{\familydefault}{\mddefault}{\updefault}-2}}}
+\put(1776,-2999){\makebox(0,0)[b]{\smash{\SetFigFont{10}{12.0}{\familydefault}{\mddefault}{\updefault}-1.5}}}
+\put(2746,-2999){\makebox(0,0)[b]{\smash{\SetFigFont{10}{12.0}{\familydefault}{\mddefault}{\updefault}-1}}}
+\put(3715,-2999){\makebox(0,0)[b]{\smash{\SetFigFont{10}{12.0}{\familydefault}{\mddefault}{\updefault}-0.5}}}
+\put(4684,-2999){\makebox(0,0)[b]{\smash{\SetFigFont{10}{12.0}{\familydefault}{\mddefault}{\updefault}0}}}
+\put(4594,-2759){\makebox(0,0)[b]{\smash{\SetFigFont{10}{12.0}{\familydefault}{\mddefault}{\updefault}t}}}
+\put(919,-756){\makebox(0,0)[b]{\smash{\SetFigFont{10}{12.0}{\familydefault}{\mddefault}{\updefault}x}}}
+\end{picture}

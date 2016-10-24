@@ -1,0 +1,258 @@
+\documentstyle{article}
+
+\parskip 3mm
+\parindent 0mm
+
+\newlength{\widen} \newlength{\heighten}
+
+\setlength{\widen}{0.55in}
+\setlength{\heighten}{0.55in}
+
+\addtolength{\oddsidemargin}{-\widen}
+\addtolength{\evensidemargin}{-\widen}
+\addtolength{\textwidth}{2\widen}
+\addtolength{\topmargin}{-\heighten}
+\addtolength{\textheight}{2\heighten}
+\addtolength{\oddsidemargin}{+0.0in}
+\addtolength{\evensidemargin}{-0.0in}
+
+\title{Perturbed Autonomous Attractor Without Lower Semi-Continuous
+            Convergence}
+\author{Peter Kloeden, Daniel Stonier}
+\date{April 28}
+
+\newtheorem{defn}{Definition}[section]
+\newtheorem{eg}{Example}[section]
+\newtheorem{therm}{Theorem}[section]
+\newtheorem{lemma}{Lemma}[section]
+
+
+\begin{document}
+
+\maketitle
+
+Referenced books.
+\begin{tabbing}
+  \hspace{1cm} [1] \= P.Kloeden, D.Stonier \hspace{4mm} \= Cocycle
+Attractors
+            in Non-Autonomous Perturbed DE's \\ \end{tabbing}
+
+\section{Introduction}
+
+The perturbed autonomous attractor in [1] proved to be upper
+semi-continuous in its convergence with respect to the initial
+autonomous attractor it is derived from, i.e. the perturbed
+attractor is always contained within the autonomous attractor for
+the limit as the perturbation goes to zero.
+
+\[ \lim_{\epsilon \rightarrow 0^{+}} H^{*}(A_{\epsilon}(t_{0}),A_{0}) = 0
+\]
+
+Lower semi-continuity of the perturbed attractor does not necessarily
+hold, however, as the following counter-example shows.
+
+\section{Counter Example}
+\subsection{Defining The Perturbed System}
+
+\begin{eg}
+  Consider the 2-dimensional autonomous dynamical system
+
+  \begin{equation}
+    \dot{x} = y - x(x^{2} + y^{2} - 1)^{2}
+    \label{auto}
+  \end{equation}
+  \[ \dot{y} = -x - y(x^{2} + y^{2} - 1)^{2} \]
+
+  In polar co-ordinates this system is expressed by the equations,
+
+  \begin{equation}
+    \dot{r} = - r (r^{2} - 1)^2
+    \label{autopolar1}
+  \end{equation}
+  \[ \dot{\theta} = -1 \]
+
+It consists of a semi-stable limit cycle at $r = 1$, with trajectories
+converging to the limit cycle from outside the unit circle, and
+trajectories converging to the origin from inside the unit circle. In this
+case the global attractor for the system is the disk at the origin with unit
+radius.
+
+  Now if we perturb the original system of equations (\ref{auto}) with
+
+  \begin{equation}
+    \dot{x} = y - x(x^{2} + y^{2} - 1)^{2} - \epsilon x  |\tanh t|
+    \label{pert}
+  \end{equation}
+  \[ \dot{y} = -x - y(x^{2} + y^{2} - 1)^{2} - \epsilon y  |\tanh t| \]
+
+  The polar equations become:
+
+  \begin{equation}
+    \dot{r} = - r (r^{2} - 1)^2 - \epsilon r |\tanh t|
+    \label{autopolar2}
+  \end{equation}
+  \[ \dot{\theta} = -1 - \epsilon |\tanh t| \cos(2\theta) \]
+\end{eg}
+
+According to [1], this perturbed system has a cocycle attractor which is
+upper semicontinuous with respect to the autonomous attractor (unit disk).
+However, it is not lower semicontinuous as will be shown.
+
+
+\subsection{Pullback Behaviour of the Perturbed System}
+
+Let us consider the forwards asymptotic behaviour of trajectories. The
+$\theta$ dynamics remain rotating in the same direction if $\epsilon$ is
+small enough, so we need only be concerned with the radial variable.
+Let $r$ $=$ $r(s,s_0,r_0)$ where  $s$ $\geq$ $0$ is the time elapsed since
+we start at $s_0$. Then
+
+\[ \frac{d}{ds} r^2 = - 2r^2(1-r^2)^2 - 2 \epsilon r^2 |\tanh (s+s_{0})| \]
+
+Consider pull-back convergence of the system, using arbitrary initial values
+of $t_{0}$, and $r_{0} > 1$. Substituting the notation for pullback terms we have $s_{0} = t_{0} - t$ and with $0 \leq s \leq t$ we obtain
+
+\[  r = r(s,t_{0}-t,r_{0}) \]
+
+\begin{equation}
+  \frac{d}{ds} r^2 = - 2r^2(1-r^2)^2 - 2 \epsilon r^2 |\tanh (s+t_{0}-t)|
+\label{deriv}
+\end{equation}
+
+Since $r_{0} > 1$ we may choose a $\delta$ small so that $(r_{0}^{2}-1)^{2} \geq \delta^{2}$.  Also, consider the case for $t_{0} = 0$. Then while $r^2(s,t_{0}-t,r_{0}) > 1 + \delta$ we have
+
+\begin{eqnarray*}
+  \frac{d}{ds} r^2  & = & - 2r^2(1-r^2)^2 - 2 \epsilon r^2 |\tanh (s-t)| \\
+  & \leq & - 2 r^2 \delta^{2}
+\end{eqnarray*}
+
+which gives us
+
+\begin{eqnarray*}
+r^2(s,-t,r_0)  & \leq & r_0^2 exp(- 2 \delta^{2}s) \\[2ex]
+& \leq & 1 + \delta
+\end{eqnarray*}
+
+for all $s \geq \frac{1}{2 \delta^{2}} \ln \left( \frac{r_{0}^2}{1+\delta}
+\right)$ (provided $t$ is made large enough). For ease of notation, let $s_{1}(r_{0},\delta) = \frac{1}{2 \delta^{2}} \ln \left( \frac{r_{0}^2}{1+\delta}
+\right)$. Thus we have
+
+\begin{equation}
+  r^2(s,-t,r_{0}) \leq 1 + \delta \hspace{1cm} \forall s_{1} \leq s \leq t
+\end{equation}
+
+\subsection{Behaviour Near r = 1}
+
+Consider the evolution of the trajectory accross the boundary of the unit circle now we are within it's neighbourhood. Let $r_{1} = r(s_{1},t_{0}-t,r_{0})$. If $r_{1}^2 \leq 1 - \delta$ we can proceed automatically to the next step, else
+we are now interested in the cocycle (note in this case $1 - \delta \leq r_{1}^2 \leq 1 + \delta$).
+
+\begin{equation}
+  r(s+s_{1},-t,r_{0})
+\end{equation}
+
+where $s_{1}$ is defined as above and $0 \leq s \leq t-s_{1}$.
+
+Using our original equation for the derivative of the system (\ref{deriv}) then we have
+
+\begin{eqnarray*}
+  \frac{d}{ds} r^2 & = & - 2r^2(1-r^2)^2 - 2 \epsilon r^2 |\tanh (s+s_{1}-t)| \\
+  & \leq & - 2 \epsilon r^2 |\tanh (s+s_{1}-t)|
+\end{eqnarray*}
+
+Now if we choose to make $s \leq \frac{1}{2}t - s_1$ and $t$ large enough so that $|\tanh (-\frac{1}{2}t)| \geq \frac{1}{2}$ then
+
+\begin{eqnarray*}
+  \frac{d}{ds} r^2 & \leq & - 2 \epsilon r^2 |\tanh (-\frac{t}{2})| \\
+  & \leq & - 2 \epsilon r^2 \frac{1}{2} \\
+  & = & -  \epsilon r^2
+\end{eqnarray*}
+
+Integrating,
+
+\begin{eqnarray*}
+  r^{2}(s+s_{1},-t,r_0) & \leq & r_1^{2}\exp\left\{- \epsilon s \right\} \\
+  & \leq & (1+\delta) \exp\left\{- \epsilon s \right\} \\
+  & \leq & 1 - \delta
+\end{eqnarray*}
+
+for all $s \geq \frac{1}{\epsilon}\ln(\frac{1+\delta}{1-\delta})$. For ease of notation denote this value by $s_2$ ie $s_2 = \frac{1}{\epsilon} \ln(\frac{1+\delta}{1-\delta})$. Thus we now have
+
+\begin{eqnarray*}
+  r^2(s,-t,r_{0}) & \leq & 1 - \delta \\
+  & \forall & s_{1}+s_2 \leq s \leq \frac{t}{2} \\
+  & and & t \geq \max \left\{2(s_1+s_2),|\tanh (-t)| \geq \frac{1}{2} \right\}
+\end{eqnarray*}
+
+\subsection{Behaviour For r $<$ 1}
+
+Consider the evolution of the trajectory now we are within the unit circle. Let $r_{2} = r(s_1+s_{2},-t,r_{0})$ with $s_1, s_2$ and $t$ defined as above. Here we have $r_2^2 \leq 1-\delta$. Then we are interested in the behaviour of
+
+\begin{equation}
+  r(s+s_{1}+s_{2},-t,r_{0}) \hspace{1cm} s+s_1+s_2 \leq t
+\end{equation}
+
+Now $ r^2(s+s_{1}+s_{2},-t,r_{0}) \leq r_2^2 \leq 1 - \delta$.
+Then from the original derivitive (\ref{deriv})
+
+\begin{eqnarray*}
+  \frac{d}{ds} r^2  & = & - 2r^2(1-r^2)^2 - 2 \epsilon r^2 |\tanh(s+s_1+s_2-t)| \\
+  & \leq & - 2r^{2}\delta^{2}
+\end{eqnarray*}
+
+which gives us
+
+\begin{eqnarray}
+r^2(s+s_1+s_2,-t,r_0) & \leq & r^2_2\exp\left\{-2\delta^{2}s                \right\} \nonumber \\
+& \leq & (1-\delta)\exp\left\{-2\delta^{2}s \right\}
+\end{eqnarray}
+
+and so on taking square roots of positive quantities we have
+
+\begin{equation}
+r(s+s_1+s_2,-t,r_0) \leq \sqrt{1-\delta}\exp\left\{- \delta^{2}s \right\}
+\end{equation}
+
+Replacing the pullback term (ie substituting $s+s_1+s_2=t$) for $s$
+
+\begin{eqnarray}
+r(t,-t,r_0) & \leq & \sqrt{1-\delta} \exp\left\{\delta^2(s_1+s_2) \right\} \exp\left\{- \delta^{2}t \right\} \\
+& = & A(r_0,\delta,\epsilon) \exp\left\{- \delta^{2}t \right\}
+\end{eqnarray}
+
+where $A$ is a constant replacing and simplying the expression on the previous line. ie
+
+\begin{eqnarray*}
+  A(r_0,\delta,\epsilon) & = & \sqrt{1-\delta} \exp\left\{\delta^2(s_1+s_2)             \right\} \\
+  s_1 & = & \frac{1}{2 \delta^{2}} \ln \left( \frac{r_{0}^2}{1+\delta}
+        \right) \\
+  s_2 & = & \frac{1}{\epsilon} \ln(\frac{1+\delta}{1-\delta})
+\end{eqnarray*}
+
+Now consider pullback convergence to the point $t_{0}=0$.
+
+\begin{eqnarray*}
+  \lim_{t\rightarrow\infty}r(t,-t,r_0) & \leq & \lim_{t                 \rightarrow \infty} A(r_0,\delta,\epsilon) \exp\left\{- \delta^{2}t \right\} \\
+  & \rightarrow & 0
+\end{eqnarray*}
+
+Therefore the trajectory converges in the pullback sense to the origin and so by definition the cocycle attractor at $t_0=0$ is simply the origin.
+
+\[ A_{\epsilon}(0) = 0 \]
+
+\subsection{The Cocycle Attractor}
+
+This particular nonautonomous example has the special property of having an equilibrium point at the origin (ie $r(s,s_0,0) = 0$ for all $s$ and $s_0$). Combining this fact with the shift property of cocycle attractors (see [1]) which states
+
+\[ S_t(A_{\epsilon}(t_0)) = A_{\epsilon}(t_0+t) \]
+
+or equivalently
+
+\[ r(t,t_{0},A_{\epsilon}(t_{0}) = A(t_{0}+t) \]
+
+we note that the cocycle attractor of this perturbed system for any $\epsilon > 0$ and times forward of 0 must simply be the origin. Replacing $t_0 = 0$ with a negative initial time in the procedure above, will follow through with the same bounds on $s_1$, $s_2$ and lower bound for $t$ and pullback convergence to the origin (the only point where the importance of the initial time comes into play is when considering the behaviour around $r=1$. Since negative initial times don't change the procedure at all, there is no problem here). Hence the entire cocycle attractor is simply the origin.
+
+As a result, lower semicontinuous convergence does not hold.
+
+\[ \lim_{\epsilon \rightarrow 0^{+}} H^{*} (A_{0},A_{\epsilon}(t_0)) = 1 \]
+
+\end{document}

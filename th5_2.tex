@@ -1,0 +1,418 @@
+\section{Forward Lyapunov Theory}
+\label{FLyapsec}
+
+At present there are several results concerning forwards stability of time
+varying families of sets (refer to Yoshizawa, \cite{Yo66}), though these results
+are infrequently used due to lack of information concerning attraction to the
+family of sets anywhere except approaching infinity. The results for
+Forward Lyapunov Theory for families of sets are similar, in general terms, to those of  Yoshizawa. They are extended here to incorporate an analysis for local
+neighbourhoods, and to allow for general parameter sets $P$ (as opposed to the
+construction used in \cite{Yo66} where $P=\mathbb{R}^+$).
+
+\subsection{Sufficiency Theorems}
+
+\begin{therm}[Forward Stability] \hfill \\ \label{fsthm}
+  Given a family of uniformly bounded compact sets $\hat{A} =
+  \{A(p);p   \in P \}$, suppose there exists a Lyapunov function $V: P \times
+  \hat{\mathcal{N}}_{\e, \hat{A}} \to \mathbb{R}$ for some $\e > 0$ which
+  satisfies the following conditions:
+\begin{itemize}
+  \item[a)] $V(p, x) = 0$ for each $p \in P$ and $x \in A(p),$
+  \item[b)] $a(dist( x, A(p))) \leq V(p, x),$
+    where $a \in \mathcal{K}$,
+  \item[c)] $\overline{D_t}^+ V(p, x) \leq 0$.
+  \item[d)] $V(p, x)$ is continuous in both variables and locally Lipschitz in
+    $x$.
+\end{itemize}
+Then $\hat{A}$ is \textbf{forward stable}.
+\end{therm}
+\begin{prf} \hfill \\
+Let $p \in P$ be arbitrarily chosen. For any $\e > 0$ we may choose a
+$\delta_p(\e) > 0$ such that
+\[ \dist(x_0, A(p)) < \delta_p \implies V(p, x_0) < a( \e), \]
+because of the continuity of $V$ in the state variable. Now suppose that
+some solution $\Phi_{(t^*, p)}(x_0)$ with $\dist(x_0, A(p)) < \delta_p$ satisfies
+$\dist( \Phi_{(t^*, p)}(x_0), A(\theta_{t^*}p)) = \e$ at some $t^* > 0$.
+We have by property {\em b)},
+\begin{align*}
+  a( \e ) &\leq V(\theta_{t^*}p, \Phi_{(t^*, p)}(x_0) ), \\
+  &\leq V(p, x_0), \\
+  &< a( \e).
+\end{align*}
+This is a contradiction. Hence all trajectories with initial values
+$x_0 \in \mathcal{N}_{\delta_p}(A(p))$ must remain within an
+epsilon neighbourhood of $\hat{A}$. Thus $\hat{A}$ is forward stable.
+\end{prf}
+
+\begin{therm}[Uniform Forward Stability] \hfill \\
+\label{ufsthm}
+  Given a family of uniformly bounded compact sets $\hat{A} = \{A(p);p
+  \in P \}$, suppose there exists a Lyapunov function $V: P \times
+  \hat{\mathcal{N}}_{\e, \hat{A}} \to \mathbb{R}$ for some $\e > 0$ which
+  satisfies the following conditions:
+\begin{itemize}
+  \item[a)] $V(p, x) = 0$ for each $p \in P$ and $x \in A(p),$
+  \item[b)] $a(dist( x, A(p))) \leq V(p, x) \leq b( dist( x, A(p)))$
+    where $a, b \in \mathcal{K}$,
+  \item[c)] $\overline{D_t}^+ V(p, x) \leq 0$,
+  \item[d)] $V(p, x)$ is continuous in both variables and locally Lipschitz in
+    $x$.
+\end{itemize}
+Then $\hat{A}$ is \textbf{uniformly forward stable}.
+\end{therm}
+\begin{prf} \hfill \\
+  Choose $\delta > 0$, $\delta = \delta(\e)$ so that $b(\delta) < a(\e)$. Note
+  that this is possible since $a, b$ are both continuous and class
+  $\mathcal{K}$.
+
+  We conclude that solutions originating from within
+  $\mathcal{N}_{\delta}(A(p))$, for arbitrary $p \in P$, must remain within the
+  $\e$ - neighbourhood of $\hat{A}$ for all future times.
+
+To see this, assume otherwise. That is, there exists some $p
+\in   P$, $x \in   \mathcal{N}_{\delta}(A(p))$, and a time $t^*>0$ such that
+  \[ dist( \Phi_{(t^*, p)}(x), A(\theta_{t^*}p) ) = \e. \]
+  Then we have,
+  \[ a(\e) \leq V(\theta_{t^*}p, \Phi_{(t^*, p)}(x)) \leq V(p, x) \leq b(\delta)
+               < a(\e), \]
+  which is a contradiction. Hence the original assertion must be valid, and
+  $\hat{A}$ is uniformly forward stable.
+\end{prf}
+
+\begin{therm}[Uniform Forward Asymptotic Stability] \hfill \\
+\label{fasthm}
+  Given a family of uniformly bounded compact sets $\hat{A} = \{A(p);p
+  \in P \}$, suppose there exists a Lyapunov function $V: P \times
+  \hat{\mathcal{N}}_{\e_o, \hat{A}} \to \mathbb{R}$ for some $\e_0 > 0$ which
+  satisfies the following conditions:
+\begin{itemize}
+  \item[a)] $V(p, x) = 0$ for each $p \in P$ and $x \in A(p),$
+  \item[b)] $a(dist( x, A(p))) \leq V(p, x) \leq b( dist( x, A(p)))$
+    where $a, b \in \mathcal{K}$,
+  \item[c)] $\overline{D_t}^+ V(p, x) \leq -cV(p, x)$ for some constant $c >
+    0$,
+  \item[d)] $V(p, x)$ is continuous in both variables and locally lipschitz in
+    $x$.
+\end{itemize}
+Then $\hat{A}$ is \textbf{uniformly forward asymptotically stable}.
+\end{therm}
+\begin{prf} \hfill \\
+  By Theorem \ref{fsthm}, $\hat{A}$ is uniformly forward stable. Thus there
+  exists some $\delta_0 = \delta_0(\e_0)$ such that for all $p \in P$, $x \in
+  \mathcal{N}_{\delta_0}(A(p))$, solutions are guaranteed to exist
+  and remain within the domain of definition for $V(p, x)$. That is, for all
+  $t > 0$,
+  \[ dist( \Phi_{(t,p)}(x), A(\theta_{t}p) < \e_0. \]
+  Consider some $\e > 0$ with $\e \leq \delta_0$. Then there exists
+  a $\delta = \delta(\e)$ as defined for uniform forward stability. It will be
+  shown that every solution from $x \in \mathcal{N}_{\delta_0}(A(p))$,
+  satisfies
+
+  \[ \dist(\Phi_{(t^*, p)}(x),A(\theta_{t^*}p)) < \delta(\e), \]
+  at some time $t^* > 0$.
+
+  Assume that this is not the case. Then there exists some
+  $x \in \mathcal{N}_{\delta_0}(A(p))$ such that
+  \[ \dist(\Phi_{(t, p)}(x),A(\theta_{t}p)) > \delta(\e), \hspace{1cm} \forall
+   t > 0. \]
+  Now by c),
+  \[ V( \theta_t p, \Phi_{(t, p)}(x)) \leq e^{-ct}V(p, x), \]
+  for all $t>0$. Let $\displaystyle T = - \ln [
+  a(\delta)/b(\delta_0) ] /c  $. Then
+  \[ a(\delta) \leq V( \theta_t p, \Phi_{(t, p)}(x)) \leq e^{-ct}V(p, x) <
+    a(\delta), \]
+  for all $t > T$. Consequently,  we have a contradiction. Thus there exists
+  some $t^* \leq T$   such that $\dist(\Phi_{(t^*, p)}(x),A(\theta_{t^*}p)) <
+  \delta(\e)$, and  hence for all $t > T$ we have (by definition of
+   $\delta(\e)$)
+  \[ \dist(\Phi_{(t, p)}(x),A(\theta_{t}p)) < \e. \]
+  Since this argument holds for each $p \in P$ and all $x \in
+  \mathcal{N}_{\delta_0}(A(p))$ we have the required result. Note that $T$
+  depends on $\e$ only (through $\delta(\e)$), as needed for uniformity.
+\end{prf}
+
+{\bf Remark:} The required asymptotic attraction can be achieved
+with alternative (usually slightly weaker) conditions on the Dini
+Derivative (for example, with $\overline{D_t}^+ V(p, x) < 0)$) .
+The manipulation of the proof follows in a similar manner.
+
+\subsection{Converse Theorems}
+
+\begin{therm}[Uniform Forward Asymptotic Stability] \hfill \\
+\label{confuasthm}
+Suppose the dynamical system (\ref{NDEeq}) possesses a family $\hat{A} =
+\{A(p) ; p \in P \}$ that is uniformly forward asymptotically stable. Then
+there exists a Lyapunov function $V:P \times \mathcal{N}_{K,\hat{A}}$ defined
+on a neighbourhood of $\hat{A}$, $\mathcal{N}_{K,\hat{A}}$ which satisfies:
+\begin{itemize}
+  \item[a)] $V(p, x) = 0$ for each $p \in P$ and $x \in A(p),$
+  \item[b)] $a(dist( x, A(p))) \leq V(p, x) \leq b( dist( x, A(p)))$
+    where $a, b \in \mathcal{K}$,
+  \item[c)] $\overline{D_t}^+ V(p, x) \leq -cV(p, x)$ for some constant $c >
+    0$,
+  \item[d)] $V(p, x)$ is continuous in both variables and locally Lipschitz in
+    $x$.
+\end{itemize}
+\end{therm}
+\begin{prf} \hfill \\
+  Since $\hat{A}$ is a uniformly asymptotically stable family of sets, given any
+$\e^* > 0$, then there exists a $\delta(\e^*) > 0$ that satisfies the properties
+of Lemma \ref{intro1lem}.
+
+For this $\e^*>0$, we define:
+\begin{align*}
+  L(p) &= L(p, \e^*), \\
+\intertext{as the Lipschitz constant for $f$ on a $\e^*$ bounded region of
+the state space;}
+ T &= T( \e ), \\
+\intertext{as defined in property ii) of Lemma \ref{intro1lem};}
+  F(p, \e)  &= 1 + \max |f(\theta_t p,x)|, \\
+\intertext{where the maximum is taken over all $-T(\e) \leq t \leq T(\e)$ and $x
+\in \mathcal{N}_{\e^*}A(\theta_t p)$;}
+  \mathcal{A}(p, \e) &= e^{cT(\e)}2 F(p, \e) \exp \left( \int_0^{T(\e)}
+        L(\theta_s p)ds \right), \\
+\intertext{defined for any arbitrarily chosen $c> 0$.}
+\end{align*}
+
+  Utilising a slightly modified form of the result by J. Massera, detailed
+  in \cite{Yo66}, there exists functions $l, g$ satisfying $l(p) > 0,$ $0 < g(\e)
+  \leq 1$ for $\e > 0$ and $g(0) = 0$, such that
+\begin{equation} \label{eqmass}
+   g(\e)\mathcal{A}(p,\e) \leq l(p).
+\end{equation}
+  Finally we begin composing the Lyapunov function for the required purpose. For
+$n = 1, 2 \dots$, we define $V_n(p, x)$ for each $p \in P$   and $x \in
+\mathcal{N}_{\delta}(A(p))$ by:
+\begin{equation*}
+  V_n(p, x) = g(1/n) \sup \left\{ D_n( dist( \Phi_{(\tau, p)}(x),
+  A(\theta_{\tau} p) ) ) e^{c \tau } ; \tau \geq 0 \right\}.
+  \end{equation*}
+  Here the function $D_n( r )$ is defined as
+  \begin{equation*}
+  D_n( r ) = \begin{cases}
+  r - 1/n & ( r \geq 1/n ), \\
+  0 & ( 0 \leq r \leq 1/n ).
+  \end{cases}
+  \end{equation*}
+
+  {\em i)}
+  From the definition of $V_n(p, x)$ and the invariance of $A(p)$ it is clear
+  that for each $p \in P$,
+  \begin{equation}
+  V_n(p, x) = 0 \hspace{1cm} \forall x \in A(p).
+  \end{equation}
+
+  {\em ii) Lower Bound -} Define $a_n(r)$ by
+  \[ a_n(r) = g(1/n) A_n(r), \]
+  where $A_n(r)$ is given by
+  \begin{equation*}
+  A_n( r ) = \begin{cases}
+  1/\left(n(n-1)\right) & (r \geq 1/(n-1) ), \\
+  r - 1/n & ( 1/n \leq r \leq 1/(n-1) ), \\
+  0 & ( 0 \leq r \leq 1/n ).
+  \end{cases}
+  \end{equation*}
+  Note that $A_n(r) \leq D_n(r)$, and that $a_n$ is a non-negative
+  monotonically increasing function and is continuous with respect to $r$.
+  Then if we set $r = dist( x, A(p) )$, we have
+  \begin{align*}
+  V_n(p, x) &\geq g(1/n) D_n(dist( x, A(p) ) ), \\
+  &\geq a_n(r). \\
+  \end{align*}
+
+  {\em iii) Upper Bound -} Note that
+  \[ D_n( dist( \Phi_{(\tau, p)}(x), A(\theta_{\tau} p) ) ) = 0 \]
+  for all $\tau > T(1/n)$. Using this property together with that of
+  uniform forward stability for $\hat{A}$ we have,
+  \begin{align*}
+  V_n(p, x) &= g(1/n) \sup \{ D_n( dist(
+  \Phi_{(\tau, p)}(x), A(\theta_{\tau} p) ) ) e^{c \tau }; \tau \geq 0 \}, \\
+   &\leq g(1/n) \sup \{ D_n( \e^* )
+   e^{c \tau } ; 0 \leq \tau \leq T(1/n) \}, \\
+   &\leq g(1/n) e^{cT(1/n)} \e^*( dist(x, A(p)) ), \\
+   &\leq g(1/n) \mathcal{A}(p^*, 1/n) \e^*( dist(x, A(p)) ), \\
+   &\leq l(p^*) \e^*( dist(x, A(p)) ),
+  \end{align*}
+  for any arbitrarily chosen $p^* \in P$.
+  Here $\e^*( dist(x, A(p)) )$ refers to the inverse function associated with
+the function $\delta =   \delta( \e^* )$ corresponding to the uniform forward
+stability of $\hat{A}$. We have also used the fact that $e^{cT(1/n)} <
+\mathcal{A}(p^*, 1/n)$ for arbitrarily chosen $p^* \in P$.
+
+  {\em iv) Decrescence -} Let $h > 0$ be some constant. Now for any
+  $x \in \mathcal{N}_{\delta}(A(p))$, let $x^*$ denote the state at some time
+  $h$ later. That is, $x^* = \Phi_{(h, p)}(x)$. Then
+  \begin{align*}
+  V_n( \theta_h p, x^* ) &= g(1/n) \sup \{ D_n(
+  dist( \Phi_{(\tau, \theta_h p)}(x^*), A(\theta_{\tau+h} p) ) )
+  e^{c \tau } ; \tau \geq 0 \} \\
+  &= g(1/n) \sup \{ D_n(
+  dist( \Phi_{(\tau + h, p)}(x), A(\theta_{\tau+h} p) ) )
+  e^{c \tau } ; \tau \geq 0 \} \\
+  &= g(1/n) \sup \{ D_n(
+  dist( \Phi_{(\tau, p)}(x), A(\theta_{\tau} p) ) ) e^{c \tau }
+  e^{-ch} ; \tau \geq h \} \\
+  &\leq e^{-ch} V_n(p, x). \\
+  \end{align*}
+  Taking the Dini derivative of $V_n(p, x)$ for solutions at $p, x$ we obtain,
+  \begin{align*}
+  \overline{D_t}^+ V_n(p, x) &= \overline{\lim_{h \to 0^+}} \frac{V_n(
+  \theta_h p, x^* ) - V_n(p, x)}{h}, \\
+  &\leq \overline{\lim_{h \to 0^+}} \frac{(e^{-ch} - 1) V_n(p, x)}{h}, \\
+  &= - c V_n(p, x).
+  \end{align*}
+
+  {\em v) Continuity -} Let $p, p' \in P$, such that $\theta_{t^*}p' = p$ for
+  some $t^* > 0$, and $x \in \mathcal{N}_{\delta}(A(p)), x' \in
+  \mathcal{N}_{\delta}(A(p'))$. Then
+  \begin{align*}
+  |V_n(p, x) - &V_n( p',x')| \leq g(1/n) | \sup \{
+    e^{c\tau} D_n(\Phi_{(\tau, p)}(x)) ; \tau \geq 0 \}\\
+  &\hspace{1cm}  - \sup \{
+    e^{c\tau} D_n(\Phi_{(\tau, p')}(x')) ; \tau \geq 0 \} |, \\
+  &\leq g(1/n) \sup \{ |\Phi_{(\tau, p)}(x) - \Phi_{(\tau,
+    p')}(x')| e^{c\tau} ; 0 \leq \tau \leq T \}, \\
+  &\leq g(1/n) e^{cT(1/n)} \sup \{ |\Phi_{(\tau, p)}(x) - \Phi_{(\tau,
+    p)}(X)|  \\
+  & \hspace{2cm} + |\Phi_{(\tau+t^*, p')}(x') - \Phi_{(\tau, p')}(x')| ; 0 \leq
+    \tau \leq T \}, \\
+  \end{align*}
+  where $X = \Phi_{(t^*, p')}(x')$.
+
+  Set
+  \[ \mathcal{L}(p, 1/n) = \exp \left( \int_0^T L(\theta_{-s} p) ds \right), \]
+  for ease of notation, noting that $\mathcal{L}(p, 1/n) > 1$ for all $p, n$.
+  Now from Lemma \ref{intro2lem} we have
+  \begin{align}
+  \label{ctsbnd}
+  |V_n(p, x) - V_n( p',x')| &\leq g(1/n) e^{cT(1/n)} \left\{ F(p, 1/n) |p-p'|
+    \right. \notag \\
+  &\hspace{1cm} \left. + \mathcal{L}(p, 1/n) |X - x| \right\}.
+  \end{align}
+  Let $t^*$ be small enough so that $t^* < T(1/n)$, then
+  \begin{align*}
+  |X - x| &\leq (|X - x'| + |x' - x|), \\
+  &\leq (F(p, 1/n)<p, p'> + |x' - x|. \\
+  \end{align*}
+  Substituting back into (\ref{ctsbnd}), we have
+  \begin{align*}
+  |V_n(p, x) & - V_n( p',x')| \\
+   & \leq g(1/n) e^{cT(1/n)} \left\{ F(p, 1/n) \right.
+             (1 + \mathcal{L}(p, 1/n))<p, p'> \\
+   & \hspace{1cm} \left. + \mathcal{L} (p, 1/n)|x - x'| \right\}, \\
+  &\leq g(1/n) e^{cT(1/n)} F(p, 1/n) 2 \mathcal{L}(p, 1/n)) \\
+  &\hspace{1cm} (<p, p'> + |x - x'|), \\
+  &\leq g(1/n) \mathcal{A}(p, 1/n) (<p, p'> + |x - x'|), \\
+  &\leq l(p) (<p, p'> + |x - x'|), \\
+  \end{align*}
+  for all $p'$ close enough to $p$.  Hence each $V_n(p, x)$ is continuous and
+  locally Lipschitz with respect to both $p$, and $x$.
+
+  Finally we define the Lyapunov function $V$ by
+  \[ V(p, x) = \sum_{n=1}^{\infty} \frac{1}{2^n} V_n(p, x). \]
+  Note that convergence of this is automatically ensured as a consequence of
+  iii). Properties a) - d) will be verified sequentially.
+
+  {\em a)} Obviously from i) we have for each $p \in P$ and all $x \in A(p)$
+  \[ V(p, x) = 0. \]
+
+  {\em b-i) Lower Bound - } From ii), if we set
+  \[ a(r) = \sum_{n=1}^{\infty} \frac{1}{2^n} a_n(r), \]
+  we have $a(r) \in \mathcal{K}$. Clearly $a(0)=0$. Also
+  $a(0) > 0$ for $r>0$ since for any $r$ there exists an $n$ such that $(1/n) <
+  r$ and hence $a(r) > a_n(r) = g(1/n) (r - 1/n)$. Since each
+  $a_n$ is upper bounded by $1/n(n-1)$, and $g(\cdot) < 1$, the
+  Weierstrass M-test can be used to conclude that the infinite
+  series is continuous. Finally, to see that it is a
+  lower bound for $V(p,x)$,
+  \begin{align*}
+  V(p, x) &= \sum_{n=1}^{\infty} \frac{1}{2^n} V_n(p, x), \\
+    &\geq \sum_{n=1}^{\infty} \frac{1}{2^n} a_n(\dist(x, A(p)), \\
+    &\geq a(\dist(x,A(p)). \\
+  \end{align*}
+
+  {\em b-ii) Upper Bound - } From iii) we have
+  \begin{align*}
+  V(p, x) &= \sum_{n=1}^{\infty} \frac{1}{2^n} V_n(p, x), \\
+    &\leq \sum_{n=1}^{\infty} \frac{1}{2^n} l(p^*) \e^*(\dist(x,
+            A(p))), \\
+    &\leq l(p^*) \e^*(\dist(x, A(p))), \\
+    &\leq b(\dist(x, A(p))). \\
+  \end{align*}
+  where $b(r) = l(p^*) \e^*(r)$. Note that the function $b \in \mathcal{K}$
+since   $\e^*(\delta)$ is continuous and monotonically increasing from zero.
+
+  {\em c) Decrescence - } From iv),
+  \begin{align*}
+  V( \theta_h p, \Phi_{(h, p)}(x) ) &= \sum_{n=1}^{\infty} \frac{1}{2^n}
+       V_n( \theta_h p, \Phi_{(h, p)}(x) ), \\
+    &\leq e^{-ch} \sum_{n=1}^{\infty} \frac{1}{2^n} V_n(p,x), \\
+    &\leq e^{-ch} V(p, x). \\
+  \end{align*}
+
+  Again, taking the Dini derivative for $V(p, x)$, we arrive at the required
+  result.
+
+  {\em d) Continuity and Lipschitz Properties of V -} This follows
+  directly from the continuity and Lipschitzness of each $V_n$ in v).
+\end{prf}
+
+\begin{therm}[Forward Equi-Asymptotic Stability] \hfill \\
+\label{confasthm} Suppose the dynamical system (\ref{NDEeq})
+possesses a family $\hat{A} = \{A(p) ; p \in P \}$ that is forward
+equi - asymptotically stable. Then there exists a Lyapunov
+function $V$ defined on a neighbourhood of $\hat{A}$, $\mathcal{N}_{K,\hat{A}}$,
+satisfying
+\begin{itemize}
+  \item[a)] $V(p, x) = 0$ for each $p \in P$ and $x \in A(p),$
+  \item[b)] $a(\dist( x, A(p))) \leq V(p, x)$
+    where $a\in \mathcal{K}$,
+  \item[c)] $\overline{D_t}^+ V(p, x) \leq -cV(p, x)$ for some constant $c >
+    0$,
+  \item[d)] $V$ is continuous in both variables and locally Lipschitz in
+    $x$.
+\end{itemize}
+\end{therm}
+\begin{prf} \hfill \\
+The proof is similar to that of Theorem \ref{confuasthm}
+where the rate of attraction is now dependent on $T=T(p, \e)$ and
+the neighbourhoods $\delta = \delta(p, \e)$. The resulting
+properties follow identically with the exception that the upper
+bounding function $b \in \mathcal{K}$, does not hold.
+\end{prf}
+
+\subsection{Complete Lyapunov Theory}
+\label{CLiapssec}
+
+Recalling that uniformity guarantees complete stability/asymptotic
+stability (Lemmas \ref{upscslem}, \ref{ufscslem},
+\ref{upascaslem}, \ref{ufascaslem}) it suffices to show using
+Lyapunov functions that if a family of sets $\hat{A} = \{A(p); p
+\in P\}$ is uniformly forward stable/asymptotically stable, then
+its stability is complete. That is, it is also uniformly pullback
+stable/asymptotically stable. Similarly, the converse theorems
+will also hold for completely stable/asymptotically stable
+families of sets that are uniform.
+
+The current development of \textit{pullback attractors} (\cite{CrFl94},
+\cite{FlSc96}, \cite{FS95}, \cite{Kl98}) generally involve structures that are
+uniform in nature. For these, use of forward stability theory and Lyapunov
+theory for such structures is perfectly applicable.
+
+For completeness, the theorems may be applied for uniform complete
+stability/asymptotic stability and are referenced below.
+
+\begin{therm}[Sufficiency]
+Given a family of uniformly bounded compact sets $\hat{A} = \{A(p);p \in P\}$,
+and a Lyapunov function $V(p, x)$ satisfying the conditions in either Theorem
+\ref{fsthm} or \ref{fasthm} respectively, implies uniform complete stability or
+uniform complete asymptotic stability of $\hat{A}$ respectively.
+\end{therm}
+
+\begin{therm}[Converse]
+If a family of uniformly bounded compact sets $\hat{A} = \{A(p);p \in P\}$ is
+uniformly completely asymptotically stable, then there exists a function
+$V(p,x)$ satisfying conditions a)-d) in Theorem \ref{confuasthm}.
+\end{therm}
+
+\endinput

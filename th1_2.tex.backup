@@ -1,0 +1,551 @@
+\section{Autonomous Dynamical Systems}
+\label{ADSsec}
+
+The predominant characteristic of an autonomous dynamical system
+is its dependence solely on the time elapsed and not on the
+current value of the time itself. As a result the behaviour of the
+system is simplified in comparison to that of a non-autonomous
+system, and any attracting objects or stability properties it may
+possess are generally invariant with respect to a time parameter.
+
+\subsection{Semi-group Representation}
+
+The definition of a semi-group when applied to a collection of
+mappings can be used to describe the evolution of autonomous dynamical
+systems on a state space $E$ as outlined below.
+
+\begin{defn}[Semi-group Representation]
+  A family of mappings $\{S_t, t \in \TT \}$ with $S_t$ $:$
+  $E$ $\mapsto$ $E$ for each $t$ $\in$ $\TT$ is called a {\bf
+  semi-group\/} on $E$ if
+  \begin{align}
+    (i) \quad & S_0 = id, \qquad \qquad  & \mbox{Identity Property}
+                          \\
+    (ii) \quad & S_{t + \tau} = S_t \circ S_{\tau},
+         & \mbox{Semi-group Property} \label{SGP} %SGP - semi group prop.
+  \end{align}
+  for  all $t,\tau$ $\in$ $\TT$, where $id$ is the identity
+  mapping.
+\end{defn}
+
+Elements of $\TT$ are representative of the time set used. Usually
+$\TT = \mathbb{R}^+$ (continuous dynamical systems), or $\TT =
+\mathbb{Z}$ (discrete systems).
+
+One can consider the evolution of an initial state by following the mapping
+as it traces the trajectory followed by the state with increasing time.
+For continuous systems this is often called the {\bf flow} of the
+dynamical system for that initial state. It is also useful to consider the
+flow of nonempty subsets of the state space for fixed periods of time. In
+this way, the dynamical system as a whole can be more easily observed,
+noting features such as basins of attraction, cycles, etc.
+
+\begin{eg}
+  Autonomous differential equations generate dynamical systems which
+  may be represented by a semi-group mapping. Consider the ODE
+  \begin{equation}
+  \label{ADEeg}
+  \dot{x} = -x,
+  \end{equation}
+  where $x \in \mathbb{R}$. The ODE
+  generates an autonomous dynamical system with solution
+  \[x(\ta) = x_0 e^{-(\ta-t_0)}, \]
+  to the initial value problem defined by $x(t_0)=x_0$. Solutions are
+  dependent only on the time elapsed $t=(\ta-t_0)$, and not the initial time.
+  In fact any ODE with
+  $\dot{x} = f(x)$ under assumptions guaranteeing uniqueness and
+  extendability (notably continuity and Lipschitz continuity of $f$ with
+  respect to $x$ - refer to any well versed book on ordinary differential
+  equations, \cite{Mo62},\cite{Re72}), generates an autonomous dynamical
+  system.
+
+  The solution may also be written in the form $\{S_t,t \in \mathbb{R}^+ \}$
+  using the semi-group representation above. In this case the state space is
+  simply the Euclidean Space, $\mathbb{R}^d$, and the mapping is defined by
+  \begin{align} \label{SG} %SG - Semi-Group
+    S_0(x_0) &= x_0, \\
+    S_t(x_0) &= x(t + t_0), \notag \\
+             &= x_0 e^{-t}, \notag
+  \end{align}
+  for each $t \in \mathbb{R}^+$ and $x_0 \in \mathbb{R}^d$. (Note that $t$
+  in this representation indicates the time elapsed and not the actual
+  time).
+\end{eg}
+
+Being autonomous by definition, the behaviour of a semi-group
+generating dynamical system is determined largely by any
+properties or structures it may possess as the elapsed time is
+allowed to become infinite, its \emph{asymptotic} behaviour. There
+is a host of literature on autonomous dynamical systems and their
+asymptotic behaviour. The presence of various structures such as
+limit cycles, attractors, stable and asymptotically stable sets
+often clearly describe the asymptotic nature of the overall
+system. Elements of Lyapunov theory (\cite{Yo66}) can also
+predetermine the existence and location of some of these features.
+For completeness, a few of the definitions for such structures and
+Lyapunov results for autonomous dynamical systems using the
+semi-group representation follow.
+
+\subsection{Asymptotic Behaviour: Stability}
+
+Firstly, we will briefly introduce a few distance terminologies that will be
+used extensively in the following definitions and examples.
+
+For consistency, lower case letters will be used to denote point elements of
+the space, (e.g. $x,y \in E$), and upper case letters for nonempty
+subsets of the space (e.g. $A, A_0 \subset E$).
+
+$||\cdot||$ represents the usual metric on the space, $E$, representing
+the distance between two points.
+
+The distance of a point $x \in E$ from a compact set $A$ is defined as
+\[ \dist(x,A) = \min_{a \in A}||x-a||. \]
+
+The $\delta$-neighbourhood of a set $A$ is given by
+\[ \mathcal{N}_{\delta}(A) = \{x;\dist(x,A) <\delta, \delta > 0 \}. \]
+
+The {\bf Hausdorff Separation} $H^*(A,B)$ of nonempty compact subsets $A,B
+\subset E$, is defined as
+\[ H^*(A,B) = \max_{a \in A} \dist (a,B) = \max_{a \in A} \min_{b \in
+                        B}||a-b||, \]
+The quantity $H(A,B) = \max \{ H^*(A,B), H^*(B,A) \}$ then satisfies the properties 
+for a metric and is called the Hausdorff metric on the space
+$\mathcal{H}(\mathbb{R}^d)$ of nonempty compact subsets of
+$\mathbb{R}^d$. $H^*(A,B)$ is often called the Hausdorff
+semi-metric on $\mathcal{H}(\mathbb{R}^d)$. It is a measure of the difference
+between two sets $A$ and $B$ (refer to Figure \ref{hdorffpic}).
+
+\begin{figure}[htb]
+\begin{center}
+  \framebox[5.5cm][c]{ \leavevmode \hbox{
+  \epsfxsize=5.0cm
+  \epsffile{eps/hdorff.eps}  } }
+  \protect\caption{Hausdorff Semi-Metric}
+      \protect\label{hdorffpic}
+\end{center}
+\end{figure}
+
+The following concepts of stability, asymptotic stability and
+attraction assist in understanding asymptotic behaviour within
+autonomous dynamical systems. They are extendable to
+non-autonomous systems for which they characterise stability only
+in part (refer to Section \ref{NDSsec}).  A
+comprehensive analysis of stability for non-autonomous dynamical
+systems is covered in Chapter \ref{cocyclechapter}. Utilising the
+semi-group notation introduced previously, {\em stable} and {\em
+asymptotically stable} sets are defined below.
+
+\begin{defn}[Stable Set]\label{UStable}
+   A nonempty compact subset $A_0 \subset E$, ($E$ open and $E
+   \subset \mathbb{R}^d$) is {\bf stable} under the semi-group
+   mapping $\{ S_t : t \in \mathbb{R}^+\}$, if for every $\epsilon > 0$
+   there exists a $\delta(\epsilon)>0$ such that
+   \begin{equation}\label{ASS}
+    H^*(S_t(\mathcal{N}_{\delta}(A_0)),A_0) < \epsilon, \qquad \forall t
+          \geq 0.
+   \end{equation}
+\end{defn}
+
+\begin{defn}[Asymptotically Stable Set]
+   A nonempty compact subset $A_0 \subset E$, ($E$ open and $E \subset
+   \mathbb{R}^d$) is {\bf asymptotically stable} if it is
+   {\em stable}, and in addition, if there exists a $\delta>0$, so that for
+   each $\epsilon > 0$, there is a $T=T(\epsilon)>0$ such that for every $x_0
+   \in \mathcal{N}_{\delta}(A_0)$
+   \begin{equation}
+     \label{AASS}
+     H^{*} \left(S_t(x_0),A_0 \right) < \epsilon,
+                           \qquad \forall t \geq T(\epsilon).
+   \end{equation}
+\end{defn}
+
+If any $\epsilon$-neighbourhood of $A_0$ can be reached in finite time
+by every bounded subset of $\mathbb{R}^d$, then $A_0$ is said to be {\bf
+globally asymptotically stable}.
+
+A nonempty set $B$ is said to be {\bf positively invariant} if
+\[ S_t(B) \subseteq B, \qquad \forall t > 0. \]
+Note that stable and asymptotically stable sets are positively invariant (see
+\cite{St94}). Additionally, a non-empty set $B$ is said to be {\bf S-invariant}
+if
+\[ S_t(B) = B, \qquad \forall t > 0. \]
+
+\begin{figure}[htb]
+\begin{center}
+  \framebox[9.5cm][c]{ \leavevmode \hbox{ \epsfxsize=9.0cm
+  \epsffile{eps/stab.eps}  } } \protect\caption{Concepts of
+  Stability}
+      \protect\label{stabpic}
+\end{center}
+\end{figure}
+
+
+\subsection{Asymptotic Behaviour: Attractors}
+
+The asymptotic behaviour of a semi-group generating dynamical
+system is predominately determined by its limit sets and their
+attracting properties. Attractivity within the system is
+characterised by the approach of a point or set within a finite
+time to a neighbourhood of the attracting set. Formally, a set $A$
+is said to {\bf attract} another set $B$ if for every
+$\epsilon$-neighbourhood of $A$, there exists a $T(\epsilon,A,B$)
+such that $S_t(B) \subset \mathcal{N}_{\epsilon}(A)$ for all
+$t>T$. For example, an asymptotically stable set attracts an open
+neighbourhood of itself. As a result, it is often referred to as
+an {\em attracting set}. The definition of an attractor extends
+the idea of an asymptotically stable set by requiring it to be the
+minimal and invariant attracting set.
+
+\begin{defn}[Semi-Group Attractor]\label{att} \hfill \\
+   A nonempty compact and bounded subset $A_0 \subset E$, ($E$ open and $E
+   \subset \mathbb{R}^d$) is called an {\bf attractor} of a semi-group
+   $\{S_t; t \in \mathbb{R}^{+}\}$ on $E$ if 
+  \begin{align}
+   \label{AI}
+     & S_t \left( A_0 \right)  =  A_0, \qquad \text{for each} \quad t \in
+                   \mathbb{R}^{+}, & &
+                   \text{(Invariance Property)} \\
+\intertext{and if there exists a $\delta>0$ such that}
+   \label{AA}
+     & \lim_{t \to \infty} H^{*} \left(S_t(\mathcal{N}_{\delta}(A_0)),A_0
+                   \right) = 0. & & \text{(Attraction Property)}
+   \end{align}
+\end{defn}
+
+If the attractor attracts every bounded set of $\mathbb{R}^d$ as well as
+a neighbourhood of itself, it is said to be a {\bf global attractor}.
+
+\begin{therm}\label{attassthm}
+A semi-group attractor is asymptotically stable.
+\end{therm}
+\begin{prf}
+By definition, it is automatic that an attractor attracts a
+neighbourhood of itself. Therefore it is only required
+to show stability. \cite{St94} provides a complete proof.
+\end{prf}
+
+On the other hand, an asymptotically stable set need not necessarily be an
+attractor. This is illustrated with the simple example given
+below.
+
+\begin{eg}
+\label{egexp}
+  Consider again the dynamical system arising from the differential equation
+  \[ \dot{x}=-x, \]
+  Solutions are given by
+  \[ S_t(x) = x_0 e^{-t}. \]
+  Clearly the origin is an attractor, and also an
+  asymptotically stable set as it attracts every open neighbourhood of
+  itself. Now, consider the set $B=[-b,b]$ for some bounded $b>0$. It is
+  nonempty, compact, and attracts an open neighbourhood of itself, and
+  so is asymptotically stable. However $S_t(B) = [-b
+  e^{-t},b e^{-t}]$ is a strict subset of $B$, and thus fails to comply with
+  the property of invariance.
+\end{eg}
+
+The property of invariance ensures that attractors are
+approached asymptotically, whereas asymptotically stable sets may
+be penetrated in finite time. The relationship between an
+asymptotically stable set and an attractor can be formally
+connected using the concept of limit sets.
+
+\begin{defn}[$\omega$-limit Sets]
+   Given a dynamical system on the state space $E$, $E \subset \mathbb{R}^d$,
+   with semi-group representation $\{S_t; t \in \mathbb{R}^{+}\}$, the {\bf
+   $\omega$-limit set} of a set $B \subset E$ is defined as
+   \begin{equation}
+    \omega(B) = \{ x \in E \, ; \, \exists (t_{i}, x_{i}) \in \mathbb{R}^+ \times B, 
+        t_{i} \rightarrow \infty, S_{t_{i}}(x_{i}) \to x \hspace{2mm} as \hspace {2mm} 
+        i \to \infty \}
+   \end{equation}
+\end{defn}
+It is worth noting that in general
+\[ \omega(B) = \bigcup_{b \in B} \omega(b), \]
+does not always hold, as can be seen in the following example.
+
+\begin{eg}
+  Consider the Bernoulli equation
+  \[ \dot{x} - x + x^{3} = 0. \]
+  Solutions using a semi-group representation are given by
+  \[ S_t(x) = \frac{x}{[ x^{2} + (1 - x^{2})\exp^{-2t}]^{\frac{1}{2}}}. \]
+  \begin{figure}[htb]
+  \begin{center}
+  \leavevmode
+  \hbox{
+  \epsfxsize=9.0cm
+  \epsffile{eps/wlimits.eps}  }
+  \protect\caption{$\omega$-Limit Sets}
+      \protect\label{wlimitpic}
+  \end{center}
+  \end{figure}
+  Refer to Figure (\ref{wlimitpic}).
+  To contrast the difference between limit points and limit sets,
+  consider any bounded interval $B=[-b,b]$, with $b>0$. We have $S_t(B) =
+  [-S_t(b),S_t(b)]$. Hence, $\omega(B) = [-1,1]$. In particular, note that the set 
+  $[-1,1]$ is invariant under the semi-group mapping (that is, $S_t([-1,1]) =
+  [-1,1]$ for any $t > 0$). 
+
+  In contrast however, if we consider the limit of any individual state 
+  $b \in B$, we find that it approaches one of three distinct limits - $\{-1\}, \{0\}$ 
+  or $\{1\}$. Thus if we consider as a limit for $B$ the set consisting of the union of
+  limit points generated by individual states within $B$, we find that it is the point 
+  set $\{-1,0,1\}$. 
+
+  Note that true to the definition of a limit set it is
+  always possible to find sequences $\{x_k;x_k\in [-1,1]\},
+  \{t_k;t_k\to\infty\}$ for any $x \in [-1,1]$ so that $S_{t_k}(x_k) \to
+  x$.
+\end{eg}
+
+\begin{therm}
+\label{uastoatt}
+  The omega (or positive limit set) set of an asymptotically
+  stable set is an attractor.
+\end{therm}
+\begin{prf}
+It can be easily shown that $\omega$-limit sets are $S$-invariant,
+that is, $S_t(\omega(B))= \omega(B)$ for all $t>0$. Refer to
+\cite{ArPl90}. So the proof for the above theorem involves showing
+that the $\omega$-limit set attracts a neighbourhood of itself.
+This follows upon consideration of the neighbourhood defined by
+the asymptotic property of the original set, and showing that it
+is attracted by the $\omega$-limit set. A detailed outline of the
+proof is given in Theorem 6.4 of \cite{St94}.
+\end{prf}
+
+Using $\omega$-limit sets, the attraction
+property of an attractor, (\ref{AA}) may be equivalently written
+\[ H^{*} \left(\omega(\mathcal{N}_{\delta}(A_0)),A_0 \right) = 0. \]
+
+The existence of an attractor however, is often difficult to determine from
+its neighbourhoods, but can be more easily found with the identification of
+{\em absorbing sets}.
+
+\begin{defn}[Absorbing Sets]
+\label{abs}
+  A nonempty compact and bounded subset $B \subset E$, is called an {\bf
+  absorbing set} for a semi-group $\{S_t,t \in \mathbb{R}^+ \}$ on $E$ if
+  there exists a $\delta >0$, and a $T=T(\delta) > 0$ such
+  that
+
+  \begin{equation}
+  S_t(\mathcal{N}_{\delta}(B)) \subseteq B, \qquad \forall t \geq
+                         T(\delta).
+  \end{equation}
+\end{defn}
+
+By definition, it is immediate that an absorbing set is
+asymptotically stable. Absorbing sets are also often referred to
+as {\em attracting sets}.  It is often simpler to find an
+absorbing set within a dynamical system, than to find the actual
+attractor. Once the absorbing set $B$ is found, Theorem \ref{uastoatt} can be utilised
+to construct the attractor $A_0$ as the $\omega$-limit set of the absorbing
+structure.
+\begin{equation}
+  A_0 = \omega(B).
+\end{equation}
+An alternative, yet equivalent construction for the attractor
+using absorbing sets is given by the well known result below.
+
+\begin{therm}
+  \label{attset}
+  \begin{equation}
+    A_0 = \bigcap_{\tau \geq 0} \overline{\bigcup_{t \geq \tau}S_{(t)}(B)}
+  \end{equation}
+\end{therm}
+
+\begin{prf}
+  \hspace{3mm} \\
+  \hspace*{3mm} i) {\em $\omega(B) \subseteq \bigcap_{\tau \geq 0}
+  \overline{\bigcup_{t \geq \tau} S_{(t)}(B)}$:} Let $y \in \omega(B)$ Then
+  there exists a sequence $\{x_n,t_n\}$ with $x_n \in B$ such that $S_{t_n}(x_n) \to
+  y$. Now for  every value of $\tau$, $\exists N = \min \{n \in \mathbb{Z}:t_n > \tau
+  \}$  so that $S_{t_n}(x_n) \in \overline{\bigcup_{t \geq \tau} S_{(t)}(B)}$
+  $\forall n > N$. As this set is closed and bounded, and thus compact, the
+  limit $y$   is also contained therein for every $\tau$. Hence $y \in
+  \bigcap_{\tau   \geq 0} \overline{\bigcup_{t \geq \tau} S_{(t)}(B)}$.
+
+  \vspace{2mm}
+
+  \hspace*{3mm} ii) {\em $\bigcap_{\tau \geq 0} \overline{\bigcup_{t \geq
+  \tau} S_{(t)}(B)} \subseteq \omega(B)$:} Consider $y \in \bigcap_{\tau
+  \geq 0} \overline{\bigcup_{t \geq \tau} S_{(t)}(B)}$. For all values
+  of $\tau$, we have $y \in \overline{\bigcup_{t \geq \tau} S_{(t)}(B)}$.
+  Now for any given $\epsilon > 0$ we can find a $z \in \bigcup_{t \geq
+  \tau} S_{(t)}(B)$, such that $\dist(z,y)<\epsilon$. Then there exists a
+  $x \in B$ and $t > \tau$ such that $S_t(x)=z$. Now consider the sequence
+  $\epsilon_n \to 0$ and set $\tau_n = \max(t_{n-1},n)$ so that $\tau_n \to
+  \infty$. Then for each $\epsilon_n$, there exists a $x_n \in B$ and $t_n
+  > \tau_n$ such that $S_{t_n}(x_n) \to y$, with $t_n \to \infty$. Hence $y
+  \in \omega(B)$.
+\end{prf}
+
+\subsection{Lyapunov Functions - Concepts and Terminology} \label{ALF1}
+
+Often it is not convenient or even possible to construct
+explicitly the stable and asymptotically stable sets that
+characterise the stability of a dynamical system. However, several
+methods are available for determining stability without requiring
+direct calculation of these sets. One such method is the
+calculation of limit sets. Further, the analysis of boundedness of
+solutions \cite{Yo66}, or their prolongations under certain
+circumstances, can also provide useful information regarding
+system stability.
+
+For dynamical systems generated by ordinary differential
+equations, auxiliary functions such as those of Lyapunov type can
+also provide a convenient way to characterise the stability of an
+arbitrarily shaped set $A_0$ without requiring explicit knowledge
+of the solutions of the differential equation. Yoshizawa
+\cite{Yo66}, and Rouche/Habets/Laloy \cite{RoHaLa77} detail a
+fairly comprehensive summary of the various necessary and
+sufficient conditions involving Lyapunov functions for a compact
+set $A_0$ to possess some form of stability for both ADE and
+NDE's. For reference we will briefly list a few of the relevant
+definitions and stability theorems which involve the use of an
+auxiliary, Lyapunov type, function for ADE's that will be
+used in later chapters. The non-autonomous counterparts will be
+presented in a subsequent section. These definitions will be used 
+later in the thesis.
+
+The following theorems and definitions pertain to autonomous dynamical
+systems arising from ordinary differential equations of the form
+\begin{equation} \label{ADE} %ADE - autonomous differential equation
+  \dot{x} = f(x),
+\end{equation}
+where $f$ is required to be continuous and is assumed to be locally
+Lipschitz on the state space $E$, ($E$ open and $E
+\subset \mathbb{R}^d$).
+
+\begin{defn}[The Lyapunov Function]
+The simplest Lyapunov functions used are $C^1$ functions of the type
+\[ V(x): E \to \mathbb{R}, \qquad \text{$E \subset \mathbb{R}^d.$} \]
+\end{defn}
+A Lyapunov function will be assumed to be locally Lipschitz in $x$ on $E$,
+that is, there exists a neighbourhood of $x$, $\mathcal{N} \subset
+E$, and a constant $L > 0$ such that
+\[ |V(x) - V(x')| \leq L \|x-x'\|, \quad \forall x, x' \in \mathcal{N}. \]
+In many cases the function $V$ is differentiable
+in which case the Lipschitz condition is
+automatically satisfied and the rate of change of $V$ may be calculated through the
+usual rules of differentiation. If this is not the situation, then the upper right hand Dini 
+Derivative form can be employed to characterise the function's rate of change with respect to time. 
+
+\begin{defn}[Upper Right Hand Dini Derivitive]\label{DDdef}
+The Upper Dini Right Hand Derivative of $V$ with respect to time is defined by
+\begin{align}
+  \overline{D}^+_t V[x(t)] &= \overline{\lim_{h\to 0+}} \left[
+    \frac{V (x(t+h)) - V (x(t))}{h} \right], \nonumber \\
+    &= \overline{D}^+ V(x) f(x), \\ \nonumber
+\end{align}
+where $x(t)$ is the solution to the differential equation (\ref{ADE}). 
+\end{defn}
+When $V$ is differentiable, then the Dini derivative is equivalent to the usual time derivative. 
+
+A simplified and equivalent representation for the Dini Derivative is used throughout 
+the work by Yoshizawa \cite{Yo66} (where equivalence is also shown) and Kloeden  \cite{Kl98,PkSt97}  to analyse rates of change for Lyapunov functions in autonomous systems. We shall use this representation to investigate Lyapunov stability of perturbed autonomous systems in Chapter
+\ref{pertautchapter}. We define this function by
+\begin{equation}
+  \label{Dini} 
+  {D}^+_{(\ref{ADE})} V(x) = \overline{\lim_{h\to 0+}} \left[
+    \frac{V(x+hf(x)) - V (x)}{h} \right]. \\
+\end{equation}
+The subscript (\ref{ADE}) refers to the dynamical system from which the trajectories $x(t)$ are calculated.
+
+It is important to note that since both ${D}^+_{(\ref{ADE})} V(x)$ and the Dini Derivative are equivalent, they may always be exchanged where convenient. We will typically use the notation 
+${D}^+_{(\ref{ADE})} V(x)$ when considering the decrescence of $V$ as it quickly and accurately displays the system (\ref{ADE}) for which solutions $x(t)$ belong. This avoids confusion when considering a perturbative analysis. It is also the same notation as that adopted by Yoshizawa and Kloeden. 
+
+Finally, we define a class of monotonically increasing functions $\mathcal{K}$.
+
+\begin{defn}[Class $\mathcal{K}$]
+We define a function $a$ to be of class $\mathcal{K}$, that is $a \in
+\mathcal{K}$, if $a: \mathbb{R}^+ \to \mathbb{R}^+$ is a continuous,
+monotonically increasing function with $a(0)=0$.
+\end{defn}
+
+Note that these functions are defined such that they are not necessarily 
+strictly monotone.
+
+\subsection{Lyapunov Functions - Stability Theorems} \label{ALF2}
+
+The following theorems apply to dynamical systems generated by (\ref{ADE}),
+and are extensions of those referenced in \cite{RoHaLa77}, and \cite{Yo66}.
+
+\begin{therm}[Lyapunov Stability]
+  \label{LADES} \hfill \\
+  A nonempty compact subset $A_0$ of $E$ is {\em locally stable}
+  if and only if there exists a Lyapunov function $V:\mathcal{N}_R(A_0),
+  \mapsto \mathbb{R}^+$, for some $R>0$ that satisfies the following
+  properties for every $x \in \mathcal{N}_R(A_0)$:
+ \begin{enumerate}
+  \item $V(x) = \begin{cases}
+                      0 & \text{if $x \in A_0$}  \\
+                      >0 & \text{if $x \notin A_0$}
+                 \end{cases}$,
+  \item $V(x)$ is locally Lipschitz in $x$,
+  \item ${D}^+_{(\ref{ADE})} V(x) \leq 0$,  
+               \qquad \text{$\forall x \in \mathcal{N}_R(A_0)$.}
+\end{enumerate}
+\end{therm}
+
+The conditions for asymptotic stability are similar, except that
+the Dini Derivative must be restricted further so that it only
+ever vanishes when the state is within $A_0$ itself.
+
+\begin{therm}[Lyapunov Asymptotic Stability] \label{LADEAS} \hfill \\
+  A nonempty compact subset $A_0$ of $E$ is {\em locally asymptotically
+  stable} if and only if there exists a Lyapunov function
+  $V:\mathcal{N}_R(A_0), \mapsto \mathbb{R}^+$, for some $R>0$ that
+  satisfies the following properties for some $c \in \mathcal{K}$ and
+  every $x \in \mathcal{N}_R(A_0)$:
+  \begin{enumerate}
+  \item $V(x) = \begin{cases}
+                      0 & \text{if $x \in A_0$}  \\
+                      >0 & \text{if $x \notin A_0$}
+                 \end{cases}$,
+  \item $V(x)$ is locally Lipschitz in $x$,
+  \item ${D}^+_{(\ref{ADE})} V(x)
+                    \leq - c({\rm dist}(x,A_0))$.
+  \end{enumerate}
+\end{therm}
+
+If the first condition in both theorems is replaced by an extra
+radial unboundedness condition, i.e.
+\[ V(x) \geq a({\rm dist}(x,A_0)), \]
+for some $a \in \mathcal{K}$, with $a(r) \to \infty$ as $r \to \infty$, and
+the neighbourhood $\mathcal{N}_R(A_0)$ increased to include the entire
+state space $E$, then the stability in both cases is {\em global}.
+
+The motivation for the radial unboundedness condition is to ensure that the
+contour curves (or surfaces) $V(x) = V_{\alpha}$ correspond to closed
+curves. If the curves are not closed, it is possible for the state
+trajectories to drift away from the equilibrium point, even though the
+state keeps passing through contour curves corresponding to smaller and
+smaller $V_{\alpha}$'s.
+
+\begin{eg}
+Suppose we wish to analyse stability at the origin (i.e. $A_0 = \{
+0 \}$, $A_0 \subset \mathbb{R}^2$) of a dynamical system with a
+Lyapunov function of the form
+\[ V = [ x^2/(1+x^2)] + y^2. \]
+The curves $V(x) = V_{\alpha}$ for $V_{\alpha}>1$ are open. Refer
+to Figure \ref{radunbpic}. Note that although it may satisfy the
+conditions for local stability with a neighbourhood being the
+entire state space $E$, it can be seen that divergence of the state can
+occur whilst moving through lower and lower $V_{\alpha}$ curves.
+Hence using this Lyapunov function, global stability cannot be
+assured.
+\end{eg}
+
+  \begin{figure}[htb]
+  \begin{center}
+  \leavevmode \framebox[8.5cm][c] {
+  \hbox{
+  \epsfxsize=8.0cm
+  \epsffile{eps/radunb.eps}  } }
+  \protect\caption{Radial Unboundedness Condition}
+      \protect\label{radunbpic}
+  \end{center}
+  \end{figure}
+
+\endinput
